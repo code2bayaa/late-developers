@@ -48,6 +48,9 @@ export default function Home() {
             Read our docs
           </a>
         </div>
+        <div>
+          <p className="w-[50%]">WELCOME</p>
+        </div>
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         <a
