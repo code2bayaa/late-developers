@@ -83,7 +83,7 @@ export default function Home() {
 
   return (
     <>
-    <div className="component">
+    {/* <div className="component"> */}
         <div className = "relative w-[100%] h-[100%]">
           <div style={{height:"800px",background:"linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.95),rgba(0,0,0,0.65))"}} className="flex gap-[2%] text-white w-[100%] h-[100%] z-[1] bg-shade absolute">
             {/* <Image src = {logo1} alt="late-developers" style={{height:"50%"}} className="w-[20%] p-0 m-[-1%] z-[2] object-contain"/> */}
@@ -135,7 +135,7 @@ export default function Home() {
           </div>
           <h1>STILL IN CONSTRUCTION</h1>
         </div>
-      </div>
+      {/* </div> */}
     </>
 
     // <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">

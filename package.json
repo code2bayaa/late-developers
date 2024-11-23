@@ -13,6 +13,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@googlemaps/js-api-loader": "^1.16.8",
+    "@next/bundle-analyzer": "^15.0.3",
     "gsap": "^3.12.5",
     "jquery": "^3.7.1",
     "next": "15.0.3",
