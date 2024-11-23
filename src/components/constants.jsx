@@ -1,4 +1,4 @@
-import {client1, client2, client10, client3, client4, client5, client6, client7, client8, client9} from "./../assets/index.jsx"
+import {client1, client5, client6, client7, client8} from "./../assets/index.jsx"
 
 
 

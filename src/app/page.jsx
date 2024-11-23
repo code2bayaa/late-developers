@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Plyr from "plyr-react"
 import "plyr-react/plyr.css"
-import { logo1 } from "../assets"
+// import { logo1 } from "../assets"
 import Slider from "react-slick";
 import {clients} from "./../components/constants"
 
@@ -87,7 +87,7 @@ export default function Home() {
                   (
                       <div className="w-[23%] m-[1%]" key={index}>
                           <a href={link}>
-                              <img src={image.src} alt="late developers" style={{height:"150px"}} className="w-[40%] object-contain"/>
+                              <Image src={image} alt="late developers" style={{height:"150px"}} className="w-[40%] object-contain"/>
 
                           </a>
                           <h3>{name}</h3>

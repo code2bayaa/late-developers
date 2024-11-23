@@ -18,7 +18,7 @@ const NavBar = () => {
         "school" : false
     })
 
-    const navBar = useRef(null)
+    // const navBar = useRef(null)
     const introductionsHeader = useRef(null)
     const servicesHeader = useRef(null)
     const projectsHeader = useRef(null)
