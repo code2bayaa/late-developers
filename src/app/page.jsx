@@ -1,12 +1,47 @@
 "use client"
 import Image from "next/image";
-import Plyr from "plyr-react"
+// import Plyr from "plyr-react"
+import dynamic from "next/dynamic";
+
+const Plyr = dynamic(() => import("plyr-react"), { ssr: false });
 import "plyr-react/plyr.css"
 // import { logo1 } from "../assets"
 import Slider from "react-slick";
 import {clients} from "./../components/constants"
+import {useLayoutEffect, useEffect, useState} from "react"
 
 export default function Home() {
+
+  const [plyrMode, setPlyrMode] = useState(null)
+
+  // useLayoutEffect(() => {
+
+  //   const implementPlyr = async() => {
+  //     const myModule = await import("plyr-react");
+  //     const Plyr = myModule.default
+
+  //     // console.log(Plyr)
+  //     setPlyrMode(<Plyr 
+  //       source={{
+  //         type:"video",
+  //         sources: [
+  //         {
+  //             src: "i929cusfg60", // YouTube video ID
+  //             provider: "youtube",
+  //         },
+  //         ],
+
+  //       }}
+  //       options= {{
+  //         autoplay: true,
+  //         muted: true,
+  //         controls: ["play"],
+  //       }}
+  //     />)
+  //   }
+
+  //   implementPlyr()
+  // },[])
 
   const settings = {
     dots: true,
@@ -59,6 +94,7 @@ export default function Home() {
               <h3 style={{fontSize:"200%"}}>late again</h3>
             </div>
           </div>
+          {/* {plyrMode} */}
           <Plyr
               source={{
                   type:"video",

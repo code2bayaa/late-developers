@@ -61,7 +61,7 @@ const NavBar = () => {
 
     return (
         // <nav>
-            <div className="w-[100%] flex bg-rose-800 text-white">
+            <div className="w-[100%] min-h-[30%] flex bg-rose-800 text-white">
                 <div className="w-[30%] bg-white">
                     <Image src = {logo2} alt="late-developers" className="w-[20%] p-0 m-[-1%] z-[2] absolute object-contain"/>
 

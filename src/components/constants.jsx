@@ -1,3 +1,4 @@
+"use clients"
 import {client1, client5, client6, client7, client8} from "./../assets/index.jsx"
 
 
@@ -31,6 +32,6 @@ const clients = [
     },
 ]
 
-console.log(clients)
+// console.log(clients)
 
 export { clients }
