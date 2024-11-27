@@ -2,13 +2,15 @@
 import Image from "next/image";
 // import Plyr from "plyr-react"
 import dynamic from "next/dynamic";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Plyr = dynamic(() => import("plyr-react"), { ssr: false });
 import "plyr-react/plyr.css"
 // import { logo1 } from "../assets"
 import Slider from "react-slick";
-import {clients} from "./../components/constants"
+import {clients, accreditors} from "./../components/constants"
 import {useLayoutEffect, useEffect, useState} from "react"
+import { avatar, solutions1, solutions2, solutions3, solutions4 } from "@/assets";
+import { faHandFist, faHeart } from "@fortawesome/free-solid-svg-icons";
 
 export default function Home() {
 
@@ -84,14 +86,15 @@ export default function Home() {
   return (
     <>
     {/* <div className="component"> */}
-        <div className = "relative w-[100%] h-[100%]">
-          <div style={{height:"800px",background:"linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.95),rgba(0,0,0,0.65))"}} className="flex gap-[2%] text-white w-[100%] h-[100%] z-[1] bg-shade absolute">
+        <div className = {window.screen.width > 800 ? "relative w-[100%] h-[100%]" : "relative w-[100%] h-[100%]" }>
+          <div style={{height:window.screen.width > 800 ? "75%" : "100%",background:"linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.95),rgba(0,0,0,0.65))"}} className="flex gap-[2%] grid justify-items-center text-white w-[100%] h-[100%] z-[1] bg-shade absolute">
             {/* <Image src = {logo1} alt="late-developers" style={{height:"50%"}} className="w-[20%] p-0 m-[-1%] z-[2] object-contain"/> */}
-            <div className="w-[100%] my-[20%]">
-              <h1 style={{fontSize:"300%"}}>LATE DEVELOPERS</h1>
+            <div className={window.screen.width > 800 ? "w-[100%] my-[20%] relative left-[30%]":"w-[100%] relative my-[20%]"}>
+              <h1>STILL UNDER CONSTRUCTION</h1>
+              <h1 style={{fontSize:window.screen.width > 800 ? "300%" : "180%"}}><i>Late Developers</i></h1>
               
-              <h2 style={{fontSize:"300%"}}>ICT SOLUTIONS & SERVICES</h2>
-              <h3 style={{fontSize:"200%"}}>late again</h3>
+              <h2 style={{fontSize:window.screen.width > 800 ? "300%" : "180%"}}>ICT SOLUTIONS & SERVICES</h2>
+              <h3 style={{fontSize:window.screen.width > 800 ? "200%" : "150%"}}>late again</h3>
             </div>
           </div>
           {/* {plyrMode} */}
@@ -114,7 +117,21 @@ export default function Home() {
             }
           />
         </div>
-        <div className = "relative w-[100%] h-[40%]">
+        <div className = {window.screen.width > 800 ? "relative w-[100%] h-[60%]" : "relative w-[100%] h-auto" }>
+          <div className={window.screen.width > 800 ? "w-[80%] h-[100%] relative left-[10%] bg-[#E1F977] text-[#411342] flex flex-row":"w-[100%] h-[100%] relative bg-[#E1F977] text-[#411342] flex flex-col"}>
+            <article className={window.screen.width > 800 ? "w-[48%] m-[1%] text-center ":"w-[98%] m-[1%] text-center "}>
+              <FontAwesomeIcon style={{fontSize:"400%",color:"#411342",textAlign:"center"}} icon={faHeart}/>
+              <h1 style={{fontSize:"250%",textAlign:"center"}}>MISSION</h1>
+              To empower communities by embracing digital skills, through creativity and innovation contribute and develop to both the industry and the economy
+            </article>
+            <article className={window.screen.width > 800 ? "w-[48%] m-[1%] text-center ":"w-[98%] m-[1%] text-center "}>
+              <FontAwesomeIcon style={{fontSize:"400%",color:"#411342",textAlign:"center"}} icon={faHandFist}/>
+              <h1 style={{fontSize:"250%",textAlign:"center"}}>VISION</h1>
+              To be a leading hub for innovation and digital transformation globally, empowering individuals and businesses with world-class technological skills and solutions to drive sustainable development and economic growth.
+            </article>
+          </div>
+        </div>
+        <div className = {window.screen.width > 800 ? "relative w-[100%] h-[50%]" : "relative w-[100%] h-auto" }>
           <h1 style={{textAlign:"center",fontSize:"300%"}}>OUR CLIENTS</h1>
           <div className="w-[100%]">
             <Slider {...settings}>
@@ -123,7 +140,7 @@ export default function Home() {
                   (
                       <div className="w-[23%] m-[1%]" key={index}>
                           <a href={link}>
-                              <Image src={image} alt="late developers" style={{height:"150px"}} className="w-[40%] object-contain"/>
+                              <Image src={image} alt="<i>Late Developers</i>" style={{height:"150px"}} className="w-[40%] object-contain"/>
 
                           </a>
                           <h3>{name}</h3>
@@ -133,8 +150,96 @@ export default function Home() {
               }
             </Slider>
           </div>
-          <h1>STILL IN CONSTRUCTION</h1>
+          
         </div>
+        <div className = {window.screen.width > 800 ? "relative w-[100%] h-[60%] bg-[#411342]" : "relative w-[100%] h-auto bg-[#411342]" }>
+          <Image src = {avatar} alt="late-developers" style={{height:window.screen.width ? "100%" : "50%"}} className={window.screen.width > 800 ? "float-left w-[20%] p-0 m-[-1%] z-[2] object-contain" : "w-[100%] object-contain"}/>
+          <div className="w-[98%] m-[1%] text-center">
+              <h1 className="text-rose-800" style={{fontSize:"180%"}}>Quality Means No Compromise</h1>
+              <article className="p-[2px]  text-white">
+                At <i>Late Developers</i>, we recognize that technology is more than just a tool; it is an enabler. By equipping young people with programming and digital skills, we empower them to innovate, create, and thrive in a competitive global marketplace. Our programming school curriculum is designed not just to teach coding but to inspire problem-solving, critical thinking, and creativity—skills that are indispensable in the 21st century.
+                Catalyzing Economic Growth
+                The economic impact of digital literacy cannot be overstated. As Kenya seeks to solidify its position as a technological hub in Africa, a skilled workforce is essential. <i>Late Developers</i> is committed to producing tech talent that will contribute to key industries such as finance, healthcare, education, and agriculture.
+
+                By fostering innovation, we are not only enhancing individual livelihoods but also driving national economic growth. A tech-literate population will attract investment, boost productivity, and position Kenya as a leader in the global digital economy.
+
+                A Call to Action
+                As the founder of <i>Late Developers</i>, I believe in the power of collaboration. Together, we can build a Kenya where no one is left behind in the digital age. We invite individuals, organizations, and policymakers to join us in this mission to innovate development, eradicate digital illiteracy, and create a future where technology works for everyone.
+
+                At <i>Late Developers</i>, we are not just teaching programming; we are cultivating a movement—one that will define the next chapter of Kenya’s growth story. Let us work together to empower our community, transform our youth, and energize our economy.
+
+                Together, we code the future.
+              </article>
+          </div>
+        </div>
+        <div className = {window.screen.width > 800 ? "relative w-[100%] h-[90%]" : "relative w-[100%] h-auto" }>
+          <h1 className="text-rose-800 text-center" style={{fontSize:"250%"}}>Best Solutions</h1>
+          <div className="flex flex-row flex-wrap w-[100%]">
+            <div className={window.screen.width > 800 ? "w-[23%] m-[1%] shadow-md grid items-center" : "w-[98%] m-[1%] shadow-md grid items-center"}>
+              <Image src = {solutions1} alt="late-developers" style={{height:"200px"}} className="w-[100%]"/>
+            
+              <article className="w-[80%] text-center relative left-[10%]">
+                <h2><b>Software Development Training</b></h2>
+                Late Developers will offer comprehensive training in programming languages, software development frameworks, and tools to equip individuals with the skills needed for careers in tech. This includes courses in front-end and back-end development, mobile app development, and software engineering.
+              </article>
+
+            </div>
+            <div className={window.screen.width > 800 ? "w-[23%] m-[1%] shadow-md grid items-center" : "w-[98%] m-[1%] shadow-md grid items-center"}>
+              <Image src = {solutions3} alt="late-developers" style={{height:"200px"}} className="w-[100%]"/>
+
+              <article className="w-[80%] text-center relative left-[10%]">
+              <h2><b>Custom Software Solutions for Businesses</b></h2>
+
+                We will develop tailor-made software applications to help Kenyan businesses streamline operations, improve productivity, and enhance customer experiences. These solutions include enterprise resource planning (ERP) systems, point-of-sale (POS) applications, and customer relationship management (CRM) platforms.
+              </article>
+
+            </div>
+            <div className={window.screen.width > 800 ? "w-[23%] m-[1%] shadow-md grid items-center" : "w-[98%] m-[1%] shadow-md grid items-center"}>
+              <Image src = {solutions2} alt="late-developers" style={{height:"200px"}} className="w-[100%]"/>
+
+              <article className="w-[80%] text-center relative left-[10%]">
+              <h2><b>Digital Literacy and E-Learning Platforms</b></h2>
+
+              To bridge the digital divide, Late Developers will design and implement e-learning platforms and digital literacy programs, making education accessible to underserved communities
+              </article>
+
+            </div>
+            <div className={window.screen.width > 800 ? "w-[23%] m-[1%] shadow-md grid items-center" : "w-[98%] m-[1%] shadow-md grid items-center"}>
+              <Image src = {solutions4} alt="late-developers" style={{height:"200px"}} className="w-[100%]"/>
+
+              <article className="w-[80%] text-center relative left-[10%]">
+              <h2><b>Innovative Tech for Social Good</b></h2>
+
+              Addressing societal challenges is at the heart of our mission. We aim to create solutions for areas like healthcare (e.g., telemedicine platforms), education (e.g., virtual classrooms), and agriculture (e.g., smart farming apps) to drive social and economic development.
+              </article>
+
+            </div>
+          </div>
+        </div>
+        <div className = {window.screen.width > 800 ? "relative w-[100%] h-[90%]" : "relative w-[100%] h-auto" }>
+          <h1 className="text-rose-800 text-center" style={{fontSize:"250%"}}>Accreditions</h1>
+          <article className="w-[80%] text-justify relative left-[10%]">
+            Accreditation is a cornerstone for building trust, credibility, and legitimacy in any educational or service-oriented institution. For Late Developers, incorporating accreditation into our website is not just a formality—it’s a vital component that underscores our commitment to excellence, quality, and accountability.
+          </article>
+          <div className="w-[100%]">
+            <Slider {...settings}>
+              {
+                  accreditors.map(({image,name,link},index) => 
+                  (
+                      <div className="w-[23%] m-[1%]" key={index}>
+                          <a href={link}>
+                              <Image src={image} alt="<i>Late Developers</i>" style={{height:"150px"}} className="w-[40%] object-contain"/>
+
+                          </a>
+                          {/* <h3>{name}</h3> */}
+                      </div>
+                  )
+                  )
+              }
+            </Slider>
+          </div>
+        </div>
+        
       {/* </div> */}
     </>
 
