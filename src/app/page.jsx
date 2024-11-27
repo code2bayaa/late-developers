@@ -16,34 +16,16 @@ export default function Home() {
 
   const [plyrMode, setPlyrMode] = useState(null)
 
-  // useLayoutEffect(() => {
+  const [windowWidth, setWindowWidth] = useState(0);
 
-  //   const implementPlyr = async() => {
-  //     const myModule = await import("plyr-react");
-  //     const Plyr = myModule.default
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(windowWidth);
 
-  //     // console.log(Plyr)
-  //     setPlyrMode(<Plyr 
-  //       source={{
-  //         type:"video",
-  //         sources: [
-  //         {
-  //             src: "i929cusfg60", // YouTube video ID
-  //             provider: "youtube",
-  //         },
-  //         ],
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Initialize width
 
-  //       }}
-  //       options= {{
-  //         autoplay: true,
-  //         muted: true,
-  //         controls: ["play"],
-  //       }}
-  //     />)
-  //   }
-
-  //   implementPlyr()
-  // },[])
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const settings = {
     dots: true,
@@ -86,15 +68,15 @@ export default function Home() {
   return (
     <>
     {/* <div className="component"> */}
-        <div className = {window.screen.width > 800 ? "relative w-[100%] h-[100%]" : "relative w-[100%] h-[100%]" }>
-          <div style={{height:window.screen.width > 800 ? "75%" : "100%",background:"linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.95),rgba(0,0,0,0.65))"}} className="flex gap-[2%] grid justify-items-center text-white w-[100%] h-[100%] z-[1] bg-shade absolute">
+        <div className = {windowWidth > 800 ? "relative w-[100%] h-[100%]" : "relative w-[100%] h-[100%]" }>
+          <div style={{height:windowWidth > 800 ? "75%" : "100%",background:"linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.95),rgba(0,0,0,0.65))"}} className="flex gap-[2%] grid justify-items-center text-white w-[100%] h-[100%] z-[1] bg-shade absolute">
             {/* <Image src = {logo1} alt="late-developers" style={{height:"50%"}} className="w-[20%] p-0 m-[-1%] z-[2] object-contain"/> */}
-            <div className={window.screen.width > 800 ? "w-[100%] my-[20%] relative left-[30%]":"w-[100%] relative my-[20%]"}>
+            <div className={windowWidth > 800 ? "w-[100%] my-[20%] relative left-[30%]":"w-[100%] relative my-[20%]"}>
               <h1>STILL UNDER CONSTRUCTION</h1>
-              <h1 style={{fontSize:window.screen.width > 800 ? "300%" : "180%"}}><i>Late Developers</i></h1>
+              <h1 style={{fontSize:windowWidth > 800 ? "300%" : "180%"}}><i>Late Developers</i></h1>
               
-              <h2 style={{fontSize:window.screen.width > 800 ? "300%" : "180%"}}>ICT SOLUTIONS & SERVICES</h2>
-              <h3 style={{fontSize:window.screen.width > 800 ? "200%" : "150%"}}>late again</h3>
+              <h2 style={{fontSize:windowWidth > 800 ? "300%" : "180%"}}>ICT SOLUTIONS & SERVICES</h2>
+              <h3 style={{fontSize:windowWidth > 800 ? "200%" : "150%"}}>late again</h3>
             </div>
           </div>
           {/* {plyrMode} */}
@@ -117,21 +99,21 @@ export default function Home() {
             }
           />
         </div>
-        <div className = {window.screen.width > 800 ? "relative w-[100%] h-[60%]" : "relative w-[100%] h-auto" }>
-          <div className={window.screen.width > 800 ? "w-[80%] h-[100%] relative left-[10%] bg-[#E1F977] text-[#411342] flex flex-row":"w-[100%] h-[100%] relative bg-[#E1F977] text-[#411342] flex flex-col"}>
-            <article className={window.screen.width > 800 ? "w-[48%] m-[1%] text-center ":"w-[98%] m-[1%] text-center "}>
+        <div className = {windowWidth > 800 ? "relative w-[100%] h-[60%]" : "relative w-[100%] h-auto" }>
+          <div className={windowWidth > 800 ? "w-[80%] h-[100%] relative left-[10%] bg-[#E1F977] text-[#411342] flex flex-row":"w-[100%] h-[100%] relative bg-[#E1F977] text-[#411342] flex flex-col"}>
+            <article className={windowWidth > 800 ? "w-[48%] m-[1%] text-center ":"w-[98%] m-[1%] text-center "}>
               <FontAwesomeIcon style={{fontSize:"400%",color:"#411342",textAlign:"center"}} icon={faHeart}/>
               <h1 style={{fontSize:"250%",textAlign:"center"}}>MISSION</h1>
               To empower communities by embracing digital skills, through creativity and innovation contribute and develop to both the industry and the economy
             </article>
-            <article className={window.screen.width > 800 ? "w-[48%] m-[1%] text-center ":"w-[98%] m-[1%] text-center "}>
+            <article className={windowWidth > 800 ? "w-[48%] m-[1%] text-center ":"w-[98%] m-[1%] text-center "}>
               <FontAwesomeIcon style={{fontSize:"400%",color:"#411342",textAlign:"center"}} icon={faHandFist}/>
               <h1 style={{fontSize:"250%",textAlign:"center"}}>VISION</h1>
               To be a leading hub for innovation and digital transformation globally, empowering individuals and businesses with world-class technological skills and solutions to drive sustainable development and economic growth.
             </article>
           </div>
         </div>
-        <div className = {window.screen.width > 800 ? "relative w-[100%] h-[50%]" : "relative w-[100%] h-auto" }>
+        <div className = {windowWidth > 800 ? "relative w-[100%] h-[50%]" : "relative w-[100%] h-auto" }>
           <h1 style={{textAlign:"center",fontSize:"300%"}}>OUR CLIENTS</h1>
           <div className="w-[100%]">
             <Slider {...settings}>
@@ -152,8 +134,8 @@ export default function Home() {
           </div>
           
         </div>
-        <div className = {window.screen.width > 800 ? "relative w-[100%] h-[60%] bg-[#411342]" : "relative w-[100%] h-auto bg-[#411342]" }>
-          <Image src = {avatar} alt="late-developers" style={{height:window.screen.width ? "100%" : "50%"}} className={window.screen.width > 800 ? "float-left w-[20%] p-0 m-[-1%] z-[2] object-contain" : "w-[100%] object-contain"}/>
+        <div className = {windowWidth > 800 ? "relative w-[100%] h-[60%] bg-[#411342]" : "relative w-[100%] h-auto bg-[#411342]" }>
+          <Image src = {avatar} alt="late-developers" style={{height:windowWidth ? "100%" : "50%"}} className={windowWidth > 800 ? "float-left w-[20%] p-0 m-[-1%] z-[2] object-contain" : "w-[100%] object-contain"}/>
           <div className="w-[98%] m-[1%] text-center">
               <h1 className="text-rose-800" style={{fontSize:"180%"}}>Quality Means No Compromise</h1>
               <article className="p-[2px]  text-white">
@@ -172,10 +154,10 @@ export default function Home() {
               </article>
           </div>
         </div>
-        <div className = {window.screen.width > 800 ? "relative w-[100%] h-[90%]" : "relative w-[100%] h-auto" }>
+        <div className = {windowWidth > 800 ? "relative w-[100%] h-[90%]" : "relative w-[100%] h-auto" }>
           <h1 className="text-rose-800 text-center" style={{fontSize:"250%"}}>Best Solutions</h1>
           <div className="flex flex-row flex-wrap w-[100%]">
-            <div className={window.screen.width > 800 ? "w-[23%] m-[1%] shadow-md grid items-center" : "w-[98%] m-[1%] shadow-md grid items-center"}>
+            <div className={windowWidth > 800 ? "w-[23%] m-[1%] shadow-md grid items-center" : "w-[98%] m-[1%] shadow-md grid items-center"}>
               <Image src = {solutions1} alt="late-developers" style={{height:"200px"}} className="w-[100%]"/>
             
               <article className="w-[80%] text-center relative left-[10%]">
@@ -184,7 +166,7 @@ export default function Home() {
               </article>
 
             </div>
-            <div className={window.screen.width > 800 ? "w-[23%] m-[1%] shadow-md grid items-center" : "w-[98%] m-[1%] shadow-md grid items-center"}>
+            <div className={windowWidth > 800 ? "w-[23%] m-[1%] shadow-md grid items-center" : "w-[98%] m-[1%] shadow-md grid items-center"}>
               <Image src = {solutions3} alt="late-developers" style={{height:"200px"}} className="w-[100%]"/>
 
               <article className="w-[80%] text-center relative left-[10%]">
@@ -194,7 +176,7 @@ export default function Home() {
               </article>
 
             </div>
-            <div className={window.screen.width > 800 ? "w-[23%] m-[1%] shadow-md grid items-center" : "w-[98%] m-[1%] shadow-md grid items-center"}>
+            <div className={windowWidth > 800 ? "w-[23%] m-[1%] shadow-md grid items-center" : "w-[98%] m-[1%] shadow-md grid items-center"}>
               <Image src = {solutions2} alt="late-developers" style={{height:"200px"}} className="w-[100%]"/>
 
               <article className="w-[80%] text-center relative left-[10%]">
@@ -204,7 +186,7 @@ export default function Home() {
               </article>
 
             </div>
-            <div className={window.screen.width > 800 ? "w-[23%] m-[1%] shadow-md grid items-center" : "w-[98%] m-[1%] shadow-md grid items-center"}>
+            <div className={windowWidth > 800 ? "w-[23%] m-[1%] shadow-md grid items-center" : "w-[98%] m-[1%] shadow-md grid items-center"}>
               <Image src = {solutions4} alt="late-developers" style={{height:"200px"}} className="w-[100%]"/>
 
               <article className="w-[80%] text-center relative left-[10%]">
@@ -216,7 +198,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className = {window.screen.width > 800 ? "relative w-[100%] h-[90%]" : "relative w-[100%] h-auto" }>
+        <div className = {windowWidth > 800 ? "relative w-[100%] h-[90%]" : "relative w-[100%] h-auto" }>
           <h1 className="text-rose-800 text-center" style={{fontSize:"250%"}}>Accreditions</h1>
           <article className="w-[80%] text-justify relative left-[10%]">
             Accreditation is a cornerstone for building trust, credibility, and legitimacy in any educational or service-oriented institution. For Late Developers, incorporating accreditation into our website is not just a formality—it’s a vital component that underscores our commitment to excellence, quality, and accountability.

@@ -4,12 +4,22 @@ import { logo2 } from "../assets"
 import Link from "next/link"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faHome, faChevronUp, faBars, faBarsStaggered } from "@fortawesome/free-solid-svg-icons"
-import { useState,useRef } from "react"
+import { useState,useRef, useEffect } from "react"
 import $ from "jquery"
 import gsap from "gsap";
 
 const NavBar = () => {
 
+    const [windowWidth, setWindowWidth] = useState(0);
+
+    useEffect(() => {
+      const handleResize = () => setWindowWidth(windowWidth);
+  
+      window.addEventListener("resize", handleResize);
+      handleResize(); // Initialize width
+  
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     const [btnChange, setBtnChange] = useState({
         "introductions" : false,
@@ -91,7 +101,7 @@ const NavBar = () => {
     return (
         <>
         {
-            (window.screen.width > 800 )
+            (windowWidth > 800 )
             ?
             ""
             :
@@ -107,23 +117,23 @@ const NavBar = () => {
                 </button>
             </div>
         }
-            <div ref={navBar} id="NavBar" className={window.screen.width > 800 ? "w-[100%] min-h-[20%] flex bg-rose-800 text-white" : "w-[100%] min-h-[100%] flex flex-col fixed bg-rose-800 text-white z-[10] top-[-1%] hidden"}>
-                <div className={window.screen.width > 800 ? "w-[30%] bg-white" :"w-[100%] bg-white"}>
+            <div ref={navBar} id="NavBar" className={windowWidth > 800 ? "w-[100%] min-h-[20%] flex bg-rose-800 text-white" : "w-[100%] min-h-[100%] flex flex-col fixed bg-rose-800 text-white z-[10] top-[-1%] hidden"}>
+                <div className={windowWidth > 800 ? "w-[30%] bg-white" :"w-[100%] bg-white"}>
                     <Image src = {logo2} alt="late-developers" className="w-[100%] p-0 m-[-1%] z-[2] object-contain"/>
 
                 </div>
-                <div className={window.screen.width > 800 ? "w-[70%] flex" : "w-[100%] flex flex-col"}>
-                    <div className={window.screen.width > 800 ? "flex flex-col w-[18%] m-[1%]" : "w-[100%]"}>
+                <div className={windowWidth > 800 ? "w-[70%] flex" : "w-[100%] flex flex-col"}>
+                    <div className={windowWidth > 800 ? "flex flex-col w-[18%] m-[1%]" : "w-[100%]"}>
                         <div className="w-[100%]">
                             <Link href="/">
                                 <FontAwesomeIcon icon={faHome}/> <label>Home</label>
                             </Link>
                         </div>
                     </div>
-                    <div className={window.screen.width > 800 ? "flex flex-col w-[18%] m-[1%]" : "flex flex-col w-[100%]"}>
-                        <div className={window.screen.width > 800 ? "h-[25%]" : "h-[40px]"}> 
+                    <div className={windowWidth > 800 ? "flex flex-col w-[18%] m-[1%]" : "flex flex-col w-[100%]"}>
+                        <div className={windowWidth > 800 ? "h-[25%]" : "h-[40px]"}> 
                              
-                            <button className = {window.screen.width > 800 ? "w-[100%]" : "flex flex-row-reverse h-[100%]"} ref={introductionsHeader} onClick={() => openHeader(1)} btn = "introductions" clicked = "1" page="#introductions-header">
+                            <button className = {windowWidth > 800 ? "w-[100%]" : "flex flex-row-reverse h-[100%]"} ref={introductionsHeader} onClick={() => openHeader(1)} btn = "introductions" clicked = "1" page="#introductions-header">
                                 <span>Solutions</span> {
                                     btnChange.introductions ? 
                                         <FontAwesomeIcon icon={faChevronUp} />
@@ -143,10 +153,10 @@ const NavBar = () => {
                             
                         </div>
                     </div>
-                    <div className={window.screen.width > 800 ? "flex flex-col w-[18%] m-[1%]" : "flex flex-col w-[100%]"}>
-                        <div className={window.screen.width > 800 ? "h-[25%]" : "h-[40px]"}> 
+                    <div className={windowWidth > 800 ? "flex flex-col w-[18%] m-[1%]" : "flex flex-col w-[100%]"}>
+                        <div className={windowWidth > 800 ? "h-[25%]" : "h-[40px]"}> 
                              
-                            <button className = {window.screen.width > 800 ? "w-[100%]" : "flex flex-row-reverse h-[100%]"} ref={servicesHeader} onClick={() => openHeader(2)} btn = "services" clicked = "1" page="#services-header">
+                            <button className = {windowWidth > 800 ? "w-[100%]" : "flex flex-row-reverse h-[100%]"} ref={servicesHeader} onClick={() => openHeader(2)} btn = "services" clicked = "1" page="#services-header">
                                 <span>Services</span> {
                                     btnChange.services ? 
                                         <FontAwesomeIcon icon={faChevronUp} />
@@ -162,10 +172,10 @@ const NavBar = () => {
                             <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]"><Link href="/cloud">cloud consultation</Link></p>
                         </div>
                     </div>
-                    <div className={window.screen.width > 800 ? "flex flex-col w-[18%] m-[1%]" : "flex flex-col w-[100%]"}>
-                        <div className={window.screen.width > 800 ? "h-[25%]" : "h-[40px]"}>
+                    <div className={windowWidth > 800 ? "flex flex-col w-[18%] m-[1%]" : "flex flex-col w-[100%]"}>
+                        <div className={windowWidth > 800 ? "h-[25%]" : "h-[40px]"}>
                             
-                            <button className = {window.screen.width > 800 ? "w-[100%]" : "flex flex-row-reverse h-[100%]"} ref={projectsHeader} onClick={() => openHeader(3)} btn = "projects" clicked = "1" page="#projects-header">
+                            <button className = {windowWidth > 800 ? "w-[100%]" : "flex flex-row-reverse h-[100%]"} ref={projectsHeader} onClick={() => openHeader(3)} btn = "projects" clicked = "1" page="#projects-header">
                                 <span>Projects</span> {
                                     btnChange.projects ? 
                                         <FontAwesomeIcon icon={faChevronUp} />
@@ -181,10 +191,10 @@ const NavBar = () => {
                             <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]"><Link href="/doors">Thinking Doors</Link></p>  
                         </div>
                     </div>
-                    <div className={window.screen.width > 800 ? "flex flex-col w-[18%] m-[1%]" : "flex flex-col w-[100%]"}>
-                        <div className={window.screen.width > 800 ? "h-[25%]" : "h-[40px]"}>
+                    <div className={windowWidth > 800 ? "flex flex-col w-[18%] m-[1%]" : "flex flex-col w-[100%]"}>
+                        <div className={windowWidth > 800 ? "h-[25%]" : "h-[40px]"}>
                             
-                            <button className = {window.screen.width > 800 ? "w-[100%]" : "flex flex-row-reverse h-[100%]"} ref={shopHeader} onClick={() => openHeader(4)} btn = "shop" clicked = "1" page="#shop-header">
+                            <button className = {windowWidth > 800 ? "w-[100%]" : "flex flex-row-reverse h-[100%]"} ref={shopHeader} onClick={() => openHeader(4)} btn = "shop" clicked = "1" page="#shop-header">
                                 <span>Shop</span> {
                                     btnChange.shop ? 
                                         <FontAwesomeIcon icon={faChevronUp} />
@@ -199,10 +209,10 @@ const NavBar = () => {
                             <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]"><Link href="/signin">LogIn</Link></p>  
                         </div>
                     </div>
-                    <div className={window.screen.width > 800 ? "flex flex-col w-[18%] m-[1%]" : "flex flex-col w-[100%]"}>
-                        <div className={window.screen.width > 800 ? "h-[25%]" : "h-[40px]"}>
+                    <div className={windowWidth > 800 ? "flex flex-col w-[18%] m-[1%]" : "flex flex-col w-[100%]"}>
+                        <div className={windowWidth > 800 ? "h-[25%]" : "h-[40px]"}>
                             
-                            <button className = {window.screen.width > 800 ? "w-[100%]" : "flex flex-row-reverse h-[100%]"} ref={activitiesHeader} onClick={() => openHeader(5)} btn = "activities" clicked = "1" page="#activities-header">
+                            <button className = {windowWidth > 800 ? "w-[100%]" : "flex flex-row-reverse h-[100%]"} ref={activitiesHeader} onClick={() => openHeader(5)} btn = "activities" clicked = "1" page="#activities-header">
                                 <span>Activities</span> {
                                     btnChange.activities ? 
                                         <FontAwesomeIcon icon={faChevronUp} />
@@ -220,10 +230,10 @@ const NavBar = () => {
                             <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]"><Link href="/social">Social Media</Link></p>
                         </div>
                     </div>
-                    <div className={window.screen.width > 800 ? "flex flex-col w-[18%] m-[1%]" : "flex flex-col w-[100%]"}>
-                        <div className={window.screen.width > 800 ? "h-[25%]" : "h-[40px]"}>
+                    <div className={windowWidth > 800 ? "flex flex-col w-[18%] m-[1%]" : "flex flex-col w-[100%]"}>
+                        <div className={windowWidth > 800 ? "h-[25%]" : "h-[40px]"}>
                             
-                            <button className = {window.screen.width > 800 ? "w-[100%]" : "flex flex-row-reverse h-[100%]"} ref={schoolHeader} onClick={() => openHeader(6)} btn = "school" clicked = "1" page="#school-header">
+                            <button className = {windowWidth > 800 ? "w-[100%]" : "flex flex-row-reverse h-[100%]"} ref={schoolHeader} onClick={() => openHeader(6)} btn = "school" clicked = "1" page="#school-header">
                                 <span>School</span> {
                                     btnChange.school ? 
                                         <FontAwesomeIcon icon={faChevronUp} />

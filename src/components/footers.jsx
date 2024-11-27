@@ -5,25 +5,38 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter, faFacebook, faInstagram, faYoutube, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons'
 import Image from "next/image";
+import { useEffect, useState } from "react"
 
 import Link from "next/link"
 const FOOTER = () => {
+
+    const [windowWidth, setWindowWidth] = useState(0);
+
+    useEffect(() => {
+      const handleResize = () => setWindowWidth(window.screen.width);
+  
+      window.addEventListener("resize", handleResize);
+      handleResize(); // Initialize width
+  
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     return (
         <div className="w-[100%] text-[#747474] bg-black">
             <section className="w-[100%] flex flex-row flex-wrap">
-                <div className = {window.screen.width > 800 ? "w-[23%] m-[1%]" : "w-[48%] m-[1%]"}>
+                <div className = {windowWidth > 800 ? "w-[23%] m-[1%]" : "w-[48%] m-[1%]"}>
                     <h2>Address</h2>
                     <p>P.O. BOX 908452 - 80100, Mombasa</p>
                     <p>Shell building Tom Mboya Rd</p>
                     
                 </div>
-                <div className={window.screen.width > 800 ? "w-[23%] m-[1%]" : "w-[48%] m-[1%]"}>
+                <div className={windowWidth > 800 ? "w-[23%] m-[1%]" : "w-[48%] m-[1%]"}>
                     <h2>Contacts</h2>
                     <p>+254717323852</p>
                     <p>info@late-developers.com</p>
 
                 </div>
-                <div className={window.screen.width > 800 ? "w-[23%] m-[1%]" : "w-[48%] m-[1%]"}>
+                <div className={windowWidth > 800 ? "w-[23%] m-[1%]" : "w-[48%] m-[1%]"}>
                     <h2>Quick Links</h2>
                         <div className='w-[100%] flex flex-col'>
                             <Link
@@ -67,7 +80,7 @@ const FOOTER = () => {
                         </a>
                     </div>
                 </div>
-                <div className={window.screen.width > 800 ? "w-[23%] m-[1%]" : "w-[48%] m-[1%]"} style={{background:"#fff"}}>
+                <div className={windowWidth > 800 ? "w-[23%] m-[1%]" : "w-[48%] m-[1%]"} style={{background:"#fff"}}>
                     <div style={{background:"#fff",width:"98%",height:"65%",margin:"1%"}}> 
                         <Link
                             href="/home"
@@ -80,7 +93,7 @@ const FOOTER = () => {
                     </div> 
                 </div>
             </section>
-            <div style={(window.screen.width > 800) ? {textAlign:"right"}:{}} className="w-[100%]">
+            <div style={(windowWidth > 800) ? {textAlign:"right"}:{}} className="w-[100%]">
                 <article className="w-50%]">
                     © 2024 late developers Kenya. All Rights Reserved.
                 </article>
