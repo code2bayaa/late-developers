@@ -21,8 +21,24 @@ import accredition2 from "./accredition2.jpg"
 import accredition3 from "./accredition3.jpg"
 import accredition4 from "./accredition4.jpg"
 import accredition5 from "./accredition5.jpg"
+import erp1 from "./erp.png"
+import erp2 from "./erp1.png"
+import crm1 from "./crm1.jpeg"
+import crm2 from "./crm2.webp"
+import hr1 from "./hr1.webp"
+import hr2 from "./hr2.webp"
+import email1 from "./email1.jpg"
+import email2 from "./email2.jpg"
+import edrms1 from "./edrms1.png"
+import edrms2 from "./edrms2.jpg"
+import custom1 from "./custom1.webp"
+import custom2 from "./custom2.png"
 
 export {
+    custom1,
+    custom2,
+    edrms1,
+    edrms2,
     logo1,
     logo2,
     logo3,
@@ -45,5 +61,13 @@ export {
     accredition2,
     accredition3,
     accredition4,
-    accredition5
+    accredition5,
+    erp1,
+    erp2,
+    crm1,
+    crm2,
+    hr1,
+    hr2,
+    email1,
+    email2
 }

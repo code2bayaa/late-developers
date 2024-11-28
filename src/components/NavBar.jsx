@@ -13,7 +13,7 @@ const NavBar = () => {
     const [windowWidth, setWindowWidth] = useState(0);
 
     useEffect(() => {
-      const handleResize = () => setWindowWidth(windowWidth);
+      const handleResize = () => setWindowWidth(window.screen.width);
   
       window.addEventListener("resize", handleResize);
       handleResize(); // Initialize width
@@ -37,6 +37,17 @@ const NavBar = () => {
     const activitiesHeader = useRef(null)
     const schoolHeader = useRef(null)
     const mobileHeader = useRef(null)
+
+    const removeNavBar = () => {
+        setBtnChange({ ...btnChange, mobile : false })
+        mobileHeader.current.attributes["clicked"].value = 1 
+        document.querySelector("#NavBar").style.display = "none"
+        gsap.to("#NavBar",{
+            opacity:0,
+            duration:1,
+            x:"-10%"
+        })
+    }
 
     const mobile = () => {
 
@@ -118,14 +129,14 @@ const NavBar = () => {
             </div>
         }
             <div ref={navBar} id="NavBar" className={windowWidth > 800 ? "w-[100%] min-h-[20%] flex bg-rose-800 text-white" : "w-[100%] min-h-[100%] flex flex-col fixed bg-rose-800 text-white z-[10] top-[-1%] hidden"}>
-                <div className={windowWidth > 800 ? "w-[30%] bg-white" :"w-[100%] bg-white"}>
+                <div id = "logo" className={windowWidth > 800 ? "w-[30%] bg-white" :"w-[100%] bg-white"}>
                     <Image src = {logo2} alt="late-developers" className="w-[100%] p-0 m-[-1%] z-[2] object-contain"/>
 
                 </div>
                 <div className={windowWidth > 800 ? "w-[70%] flex" : "w-[100%] flex flex-col"}>
                     <div className={windowWidth > 800 ? "flex flex-col w-[18%] m-[1%]" : "w-[100%]"}>
                         <div className="w-[100%]">
-                            <Link href="/">
+                            <Link href="/"  onClick={removeNavBar}>
                                 <FontAwesomeIcon icon={faHome}/> <label>Home</label>
                             </Link>
                         </div>
@@ -144,12 +155,12 @@ const NavBar = () => {
                             </button>
                         </div>
                         <div id = "introductions-header" className="w-[100%] hidden" style={{fontSize:"90%"}}>
-                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]"><Link href="/erp">erp</Link></p>
-                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]"><Link href="/crm">crm</Link></p>
-                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]"><Link href="/hr">hr & payroll</Link></p>
-                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]"><Link href="/email">email archiving</Link></p>
-                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]"><Link href="/edrms">electronic document and records management system</Link></p>
-                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]"><Link href="/custom">custom solutions</Link></p>
+                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/erp">erp</Link></p>
+                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/crm">crm</Link></p>
+                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/hr">hr & payroll</Link></p>
+                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/email">email archiving</Link></p>
+                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/edrms">electronic document and records management system</Link></p>
+                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/customs">custom solutions</Link></p>
                             
                         </div>
                     </div>
@@ -167,9 +178,9 @@ const NavBar = () => {
                             </button>
                         </div>
                         <div id = "services-header" className="w-[100%] hidden">
-                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]"><Link href="/website">website development</Link></p>
-                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]"><Link href="/mobile">mobile application development</Link></p>
-                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]"><Link href="/cloud">cloud consultation</Link></p>
+                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/website">website development</Link></p>
+                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/mobile">mobile application development</Link></p>
+                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/cloud">cloud consultation</Link></p>
                         </div>
                     </div>
                     <div className={windowWidth > 800 ? "flex flex-col w-[18%] m-[1%]" : "flex flex-col w-[100%]"}>
@@ -186,9 +197,9 @@ const NavBar = () => {
                             </button>
                         </div>
                         <div id="projects-header" className="w-[100%] hidden">
-                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]"><Link href="/uko">UKO</Link></p>
-                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]"><Link href="/drones">Drone Delivery</Link></p>
-                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]"><Link href="/doors">Thinking Doors</Link></p>  
+                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/uko">UKO</Link></p>
+                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/drones">Drone Delivery</Link></p>
+                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/doors">Thinking Doors</Link></p>  
                         </div>
                     </div>
                     <div className={windowWidth > 800 ? "flex flex-col w-[18%] m-[1%]" : "flex flex-col w-[100%]"}>
@@ -205,8 +216,8 @@ const NavBar = () => {
                             </button>
                         </div>
                         <div id = "shop-header" className="w-[100%] hidden">
-                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]"><Link href="/store">Store</Link></p>
-                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]"><Link href="/signin">LogIn</Link></p>  
+                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/store">Store</Link></p>
+                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/signin">LogIn</Link></p>  
                         </div>
                     </div>
                     <div className={windowWidth > 800 ? "flex flex-col w-[18%] m-[1%]" : "flex flex-col w-[100%]"}>
@@ -223,11 +234,11 @@ const NavBar = () => {
                             </button>
                         </div>
                         <div id = "activities-header" className="w-[100%] hidden">
-                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]"><Link href="/feedback">Feedback</Link></p>
-                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]"><Link href="/contact">Contact Us</Link></p> 
-                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]"><Link href="/newsletter">Newsletter</Link></p>
-                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]"><Link href="/blogs">Blogs</Link></p> 
-                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]"><Link href="/social">Social Media</Link></p>
+                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/feedback">Feedback</Link></p>
+                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/contact">Contact Us</Link></p> 
+                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/newsletter">Newsletter</Link></p>
+                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/blogs">Blogs</Link></p> 
+                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/social">Social Media</Link></p>
                         </div>
                     </div>
                     <div className={windowWidth > 800 ? "flex flex-col w-[18%] m-[1%]" : "flex flex-col w-[100%]"}>
@@ -244,9 +255,9 @@ const NavBar = () => {
                             </button>
                         </div>
                         <div id = "school-header" className="w-[100%] hidden">
-                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]"><Link href="/certifications">Certifications</Link></p>
-                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]"><Link href="/courses">Courses</Link></p> 
-                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]"><Link href="/enrollment">Enrollment</Link></p>
+                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/certifications">Certifications</Link></p>
+                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/courses">Courses</Link></p> 
+                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/enrollment">Enrollment</Link></p>
                         </div>
                     </div>
                 </div>

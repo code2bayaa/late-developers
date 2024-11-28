@@ -11,7 +11,7 @@ import {clients, accreditors} from "./../components/constants"
 import {useLayoutEffect, useEffect, useState} from "react"
 import { avatar, solutions1, solutions2, solutions3, solutions4 } from "@/assets";
 import { faHandFist, faHeart } from "@fortawesome/free-solid-svg-icons";
-
+import gsap from "gsap"
 export default function Home() {
 
   const [plyrMode, setPlyrMode] = useState(null)
@@ -19,10 +19,21 @@ export default function Home() {
   const [windowWidth, setWindowWidth] = useState(0);
 
   useEffect(() => {
-    const handleResize = () => setWindowWidth(windowWidth);
+    const handleResize = () => setWindowWidth(window.screen.width);
 
     window.addEventListener("resize", handleResize);
     handleResize(); // Initialize width
+    gsap.to("#NavBar",{
+      backgroundColor:"rgb(159 18 57)",
+      color:"#fff",
+      duration:3
+  })
+
+  gsap.to("#logo",{
+      backgroundColor:"#fff",
+      duration:3,
+      delay:1
+  })
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -69,13 +80,13 @@ export default function Home() {
     <>
     {/* <div className="component"> */}
         <div className = {windowWidth > 800 ? "relative w-[100%] h-[100%]" : "relative w-[100%] h-[100%]" }>
-          <div style={{height:windowWidth > 800 ? "75%" : "100%",background:"linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.95),rgba(0,0,0,0.65))"}} className="flex gap-[2%] grid justify-items-center text-white w-[100%] h-[100%] z-[1] bg-shade absolute">
+          <div style={{height:windowWidth > 800 ? "75%" : "100%",background:"linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.75),rgba(0,0,0,0.45))"}} className="flex gap-[2%] grid justify-items-center text-white w-[100%] h-[100%] z-[1] bg-shade absolute">
             {/* <Image src = {logo1} alt="late-developers" style={{height:"50%"}} className="w-[20%] p-0 m-[-1%] z-[2] object-contain"/> */}
             <div className={windowWidth > 800 ? "w-[100%] my-[20%] relative left-[30%]":"w-[100%] relative my-[20%]"}>
               <h1>STILL UNDER CONSTRUCTION</h1>
-              <h1 style={{fontSize:windowWidth > 800 ? "300%" : "180%"}}><i>Late Developers</i></h1>
+              <h1 style={{fontSize:windowWidth > 800 ? "300%" : "180%"}}><i><b>Late Developers</b></i></h1>
               
-              <h2 style={{fontSize:windowWidth > 800 ? "300%" : "180%"}}>ICT SOLUTIONS & SERVICES</h2>
+              <h2 style={{fontSize:windowWidth > 800 ? "300%" : "180%"}} className="text-rose-900"><b>ICT SOLUTIONS & SERVICES</b></h2>
               <h3 style={{fontSize:windowWidth > 800 ? "200%" : "150%"}}>late again</h3>
             </div>
           </div>

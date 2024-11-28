@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter, faFacebook, faInstagram, faYoutube, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons'
 import Image from "next/image";
-import { useEffect, useState } from "react"
+import { useEffect, useState  } from "react"
 
 import Link from "next/link"
 const FOOTER = () => {
@@ -24,19 +24,19 @@ const FOOTER = () => {
     return (
         <div className="w-[100%] text-[#747474] bg-black">
             <section className="w-[100%] flex flex-row flex-wrap">
-                <div className = {windowWidth > 800 ? "w-[23%] m-[1%]" : "w-[48%] m-[1%]"}>
+                <div style={{borderLeft:"1px solid #fff"}} className = {windowWidth > 800 ? "w-[23%] m-[1%]" : "w-[48%] m-[1%]"}>
                     <h2>Address</h2>
                     <p>P.O. BOX 908452 - 80100, Mombasa</p>
                     <p>Shell building Tom Mboya Rd</p>
                     
                 </div>
-                <div className={windowWidth > 800 ? "w-[23%] m-[1%]" : "w-[48%] m-[1%]"}>
+                <div style={{borderLeft:"1px solid #fff"}} className={windowWidth > 800 ? "w-[23%] m-[1%]" : "w-[48%] m-[1%]"}>
                     <h2>Contacts</h2>
                     <p>+254717323852</p>
                     <p>info@late-developers.com</p>
 
                 </div>
-                <div className={windowWidth > 800 ? "w-[23%] m-[1%]" : "w-[48%] m-[1%]"}>
+                <div style={{borderLeft:"1px solid #fff"}} className={windowWidth > 800 ? "w-[23%] m-[1%]" : "w-[48%] m-[1%]"}>
                     <h2>Quick Links</h2>
                         <div className='w-[100%] flex flex-col'>
                             <Link
