@@ -56,6 +56,10 @@ html, body{
   overflow: hidden;
 }
 
+.swiper{
+  height:500px;
+  width:100%;
+}
 @media(max-width:800px){
   .plyr{
     /* width : 100%; */

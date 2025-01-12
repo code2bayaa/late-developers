@@ -1,6 +1,8 @@
 "use clients"
 import {client1, client5, client6, client7, client8,
-    accredition1, accredition2, accredition3, accredition4, accredition5
+    accredition1, accredition2, accredition3, accredition4, accredition5,
+    website1,website2,website3,website4,website5, mobile1, mobile2, mobile3, mobile4, mobile5
+    
 } from "./../assets/index.jsx"
 
 
@@ -63,5 +65,80 @@ const accreditors = [
 ]
 
 // console.log(clients)
+const websites = [
+    {
+        image:website1,
+        article:<div className="relative w-[80%] left-[10%] top-[30%]">
+            <h3><span style={{fontSize:"250%"}}>S</span>EO-Optimized for Visibility</h3>
+            <span>We build websites with search engine optimization (SEO) in mind, helping your business rank higher in search results.With optimized structure, keywords, and fast loading speeds, your website will attract more traffic and conversions.</span>
+        </div>
+    },
+    {
+        image:website2,
+        article:<div className="relative w-[80%] left-[10%] top-[30%]">
+            <h3><span style={{fontSize:"250%"}}>D</span>ynamic and Interactive Content</h3>
+            <span><i>late developers</i> specializes in creating websites with engaging, dynamic content to keep your audience captivated.From animations to real-time data integrations, our websites are designed to enhance user experience and foster visitor retention.</span>
+        </div>
+    },
+    {
+        image:website3,
+        article:<div className="relative w-[80%] left-[10%] top-[30%]">
+            <h3><span style={{fontSize:"250%"}}>R</span>esponsive Design Across All Devices</h3>
+            <span>Our websites are fully responsive, ensuring they look and function perfectly on desktops, tablets, and smartphones.This seamless adaptability improves user satisfaction and ensures your business reaches a broader audience.</span>
+        </div>
+    },
+    {
+        image:website4,
+        article:<div className="relative w-[80%] left-[10%] top-[30%]">
+            <h3><span style={{fontSize:"250%"}}>C</span>ontinuous Updates and Support</h3>
+            <span>We provide ongoing updates and technical support to ensure your website remains secure, up-to-date, and optimized for performance.Regular maintenance includes bug fixes, feature enhancements, and compatibility adjustments to align with evolving technologies.</span>
+        </div>
+    },
+    {
+        image:website5,
+        article:<div className="relative w-[80%] left-[10%] top-[30%]">
+            <h3><span style={{fontSize:"250%"}}>D</span>eployed on Robust and Secure Servers</h3>
+            <span>Your website will be hosted on reliable and scalable servers, ensuring fast load times, high uptime, and data security.Our hosting solutions include backups, SSL encryption, and robust defenses against cyber threats, giving you peace of mind.</span>
+        </div>
+    }
+]
 
-export { clients, accreditors }
+const mobiles = [
+    {
+        image:mobile1,
+        article:<div className="relative w-[80%] left-[10%] top-[30%]">
+            <h3><span style={{fontSize:"250%"}}>U</span>nmatched Expertise </h3>
+            <span>With years of experience in creating cutting-edge apps and games, we blend creativity and functionality to deliver top-notch solutions for Android and iOS.</span>
+        </div>
+    },
+    {
+        image:mobile2,
+        article:<div className="relative w-[80%] left-[10%] top-[30%]">
+            <h3><span style={{fontSize:"250%"}}>C</span>ustom Solutions</h3>
+            <span>We tailor every app and game to meet your unique needs, ensuring they resonate with your audience and stand out in the market.</span>
+        </div>
+    },
+    {
+        image:mobile3,
+        article:<div className="relative w-[80%] left-[10%] top-[30%]">
+            <h3><span style={{fontSize:"250%"}}>U</span>ser-Centric Design</h3>
+            <span>Our designs focus on intuitive user experiences, making every tap, swipe, and interaction enjoyable and seamless.</span>
+        </div>
+    },
+    {
+        image:mobile4,
+        article:<div className="relative w-[80%] left-[10%] top-[30%]">
+            <h3><span style={{fontSize:"250%"}}>S</span>tate-of-the-Art Technology</h3>
+            <span>We leverage the latest tools and technologies to create apps and games that are fast, secure, and future-proof.</span>
+        </div>
+    },
+    {
+        image:mobile5,
+        article:<div className="relative w-[80%] left-[10%] top-[30%]">
+            <h3><span style={{fontSize:"250%"}}>A</span>ffordable Pricing</h3>
+            <span>Quality doesn’t have to break the bank. We provide premium services at competitive rates. Our hosting solutions include backups, SSL encryption, and robust defenses against cyber threats, giving you peace of mind.</span>
+        </div>
+    }
+]
+
+export { clients, accreditors, websites, mobiles }

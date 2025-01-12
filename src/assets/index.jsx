@@ -33,8 +33,36 @@ import edrms1 from "./edrms1.png"
 import edrms2 from "./edrms2.jpg"
 import custom1 from "./custom1.webp"
 import custom2 from "./custom2.png"
+import website1 from "./website1.webp"
+import website2 from "./website2.jpeg"
+import website3 from "./website3.jpg"
+import website4 from "./website4.webp"
+import website5 from "./website5.jpg"
+import website6 from "./website6.webp"
+import website7 from "./website7.png"
+import mobile1 from "./mobile1.webp"
+import mobile2 from "./mobile2.webp"
+import mobile3 from "./mobile3.webp"
+import mobile4 from "./mobile4.webp"
+import mobile5 from "./mobile5.webp"
+import mobile6 from "./mobile6.jpg"
+import background1 from "./grey.jpg"
 
 export {
+    background1,
+    mobile1,
+    mobile2,
+    mobile3,
+    mobile4,
+    mobile5,
+    mobile6,
+    website1,
+    website2,
+    website3,
+    website4,
+    website5,
+    website6,
+    website7,
     custom1,
     custom2,
     edrms1,
