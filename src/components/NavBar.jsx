@@ -141,7 +141,7 @@ const NavBar = () => {
                 <div className={windowWidth > 800 ? "w-[70%] flex" : "w-[100%] flex flex-col"}>
                     <div className={windowWidth > 800 ? "flex flex-col w-[18%] m-[1%]" : "w-[100%]"}>
                         <div className="w-[100%]">
-                            <Link href="/"  onClick={removeNavBar}>
+                            <Link href="/" className="w-[100%]"  onClick={removeNavBar}>
                                 <FontAwesomeIcon icon={faHome}/> <label>Home</label>
                             </Link>
                         </div>

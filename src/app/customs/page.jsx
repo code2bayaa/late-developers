@@ -44,34 +44,34 @@ const CUSTOM = () => {
             <div className={ windowWidth > 800 ? "relative h-[100%] w-[100%] bg-slate-50" : "relative h-auto w-[100%] bg-slate-50"}>
                 {/* <h1 style={{textAlign:"center",fontSize:"200%"}}>Enterprise Resource Planning </h1> */}
                 <div className={ windowWidth > 800 ? "flex relative left-[10%] w-[80%]" : "flex flex-col w-[100%]"}>
-                    <Image src = {custom1} alt="late-developers" style={{height:windowWidth ? "100%" : "50%"}} className={windowWidth > 800 ? "w-[50%] p-0 m-[-1%] z-[2] h-[250px] object-contain" : "w-[100%] object-contain"}/>
+                    <Image src = {custom1} alt="late-developers" style={{height:windowWidth ? "100%" : "50%"}} className={windowWidth > 800 ? "w-[50%] p-0 m-[1%] z-[2] h-[250px] object-contain" : "w-[100%] object-contain"}/>
 
                     <article className={ windowWidth > 800 ? "text-justify m-[1%] w-[50%]" : "text-justify m-[1%] p-[1%] w-[98%]"}>
                     Custom solutions are tailor-made software or systems designed to address the specific requirements of a business or organization. Unlike off-the-shelf products, custom solutions are built from the ground up to integrate seamlessly with existing processes and deliver exceptional performance.
                     <ol style={{ listStyleType: 'decimal', paddingLeft: '20px' }}>
                         <li>
                             <b>Tailored to Your Needs</b>
-                            Our team takes the time to understand your business processes and requirements, delivering solutions that are uniquely suited to your operations.
+                            <p>Our team takes the time to understand your business processes and requirements, delivering solutions that are uniquely suited to your operations.</p>
 
                         </li>
                         <li>
                             <b>Scalable and Flexible Systems</b>
-                            We build solutions that grow with your business, adapting to changing demands and technological advancements.
+                            <p>We build solutions that grow with your business, adapting to changing demands and technological advancements.</p>
 
                         </li>
                         <li>
                             <b>Enhanced Security</b>
-                            Data security is at the core of our custom solutions. We implement robust security measures to safeguard your business information.
+                            <p>Data security is at the core of our custom solutions. We implement robust security measures to safeguard your business information.</p>
 
                         </li>
                         <li>
                             <b>User-Centric Design</b>
-                            We prioritize intuitive, user-friendly designs to ensure seamless adoption by your team and customers.
+                            <p>We prioritize intuitive, user-friendly designs to ensure seamless adoption by your team and customers.</p>
 
                         </li>
                         <li>
                             <b>Local Expertise, Global Standards</b>
-                            As a Kenyan-based company, we understand the local business environment while adhering to global best practices in software development.
+                            <p>As a Kenyan-based company, we understand the local business environment while adhering to global best practices in software development.</p>
 
                         </li>
                         
@@ -80,8 +80,8 @@ const CUSTOM = () => {
                     </article>
                 </div>
             </div>
-            <div className={ windowWidth > 800 ? "relative flex h-[30%] w-[100%] bg-[#E1F977]" : "relative flex flex-col h-auto w-[100%] bg-[#E1F977]"}>
-                <Image src = {custom2} alt="late-developers" style={{height:windowWidth ? "100%" : "50%"}} className={windowWidth > 800 ? "w-[50%] p-0 m-[-1%] z-[2] h-[250px] object-contain" : "w-[100%] object-contain"}/>
+            <div className={ windowWidth > 800 ? "relative flex h-[auto] w-[100%] bg-[#E1F977]" : "relative flex flex-col h-auto w-[100%] bg-[#E1F977]"}>
+                <Image src = {custom2} alt="late-developers" className={windowWidth > 800 ? "w-[50%] p-0 m-[1%] z-[2] h-[150px] object-contain" : "w-[100%] object-contain"}/>
                 <article className={ windowWidth > 800 ? "w-[50%] text-justify" : "w-[98%] m-[1%] p-[1%] text-justify"}>
                     <p>At Late Developers, we believe in the power of technology to drive growth and innovation. Our custom solutions are designed to empower businesses, helping them overcome challenges, improve efficiency, and achieve their goals.</p>
 

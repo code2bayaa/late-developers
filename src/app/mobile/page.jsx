@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link"
 import SWIPER from "../../components/swiper";
 import {mobiles} from "@/components/constants.jsx"
+import swal from 'sweetalert';
 
 const WEBSITE = () => {
 
@@ -37,11 +38,11 @@ const WEBSITE = () => {
     }, []);
 
     const newBody = mobiles.map(({image,article}) => (
-        <div className="w-[100%] h-[100%] flex flex-row">
-            <div className="w-[50%] h-[100%]">
-                <Image src = {image} alt="late-developers" style={{height:windowWidth > 800 ? "100%" : "50%"}} className={windowWidth > 800 ? "w-[50%] p-0 m-[-1%] z-[2] h-[100%] object-contain" : "w-[100%] object-cover"}/>
+        <div className={ windowWidth > 800 ? "w-[100%] h-[100%] flex flex-row" : "w-[100%] h-auto bg-[#000] flex flex-col" }>
+            <div className={ windowWidth > 800 ? "w-[50%] h-[100%]" : "w-[100%] min-h-[100%]" }>
+                <Image src = {image} alt="late-developers" className={windowWidth > 800 ? "w-[100%] p-0 m-[-1%] z-[2] h-[100%] object-contain" : "w-[100%] h-[300px] object-contain"}/>
             </div>
-            <div className="w-[50%] h-[100%] text-white bg-black grid item-center">
+            <div className={ windowWidth > 800 ? "w-[50%] h-[100%] text-white bg-black grid item-center" : "w-[100%] text-white min-h-[100%]" }>
                 {article}
             </div>
         </div>
@@ -85,18 +86,18 @@ const WEBSITE = () => {
         <>
             <div className={ windowWidth > 800 ? "relative h-[20%] w-[100%] bg-black" : "relative h-auto w-[100%] bg-black"}>
                 <article className="w-[100%] grid justify-items-center">
-                    <h1 style={{fontSize:"350%",color:"#fff"}}><b>MOBILE DESIGN & DEVELOPMENT</b></h1>
+                    <h1 style={{fontSize:windowWidth > 800 ? "350%" : "250%",color:"#fff"}}><b>MOBILE DESIGN & DEVELOPMENT</b></h1>
                 </article>
             </div>
-            <div className={ windowWidth > 800 ? "relative h-[70%] w-[100%] bg-black" : "relative h-auto w-[100%] bg-black"}>
-                <div className={ windowWidth > 800 ? "flex absolute left-[10%] w-[80%] top-[-10%]" : "flex absolute flex-col w-[100%]"}>
+            <div className={ windowWidth > 800 ? "relative h-[70%] w-[100%] bg-black" : "relative h-[auto] w-[100%] bg-black"}>
+                <div className={ windowWidth > 800 ? "flex absolute left-[10%] w-[80%] top-[-10%]" : "flex absolute h-[auto] flex-col w-[100%]"}>
                     {SWIPER({bodyPage:newBody,setting:{
                         default:true
                     }})}
                 </div>
             </div>
             <div style={{backgroundAttachment:"url(" + background1 + ")"}} className={ windowWidth > 800 ? "bg-fixed relative flex h-[100%] w-[100%]" : "relative flex flex-col bg-fixed h-auto w-[100%]"}>
-                <Image src = {mobile6} alt="late-developers" className={windowWidth > 800 ? "w-[50%] m-[1%] h-[100%] object-contain border-b-indigo-500/50" : "w-[100%] object-contain"}/>
+                <Image src = {mobile6} alt="late-developers" className={windowWidth > 800 ? "w-[50%] m-[1%] h-[100%] object-contain border-b-indigo-500/50" : "w-[100%] h-[350px] object-contain"}/>
                 <article className={ windowWidth > 800 ? "w-[48%] grid justify-center justify-items-center h-[30%] my-[10%]" : "w-[98%] m-[1%] p-[1%] text-justify"}>
                     <h1 style={{fontSize:"250%",color:"#fff"}} className="w-[100%] bg-gradient-to-r from-purple-500 to-pink-500">RESPONSIVE APPLICATIONS</h1>
                     <h1 style={{fontSize:"250%",color:"#fff"}} className="w-[100%] bg-gradient-to-r from-purple-500 to-pink-500">USER-CENTRIC DESIGN</h1>

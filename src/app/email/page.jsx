@@ -42,42 +42,42 @@ const EMAIL = () => {
             <div className={ windowWidth > 800 ? "relative h-[100%] w-[100%] bg-slate-50" : "relative h-auto w-[100%] bg-slate-50"}>
                 <h1 style={{textAlign:"center",fontSize:"200%"}}>Email Archiving</h1>
                 <div className={ windowWidth > 800 ? "flex relative left-[10%] w-[80%]" : "flex flex-col w-[100%]"}>
-                    <Image src = {email1} alt="late-developers" style={{height:windowWidth ? "100%" : "50%"}} className={windowWidth > 800 ? "w-[50%] p-0 m-[-1%] z-[2] h-[250px] object-contain" : "w-[100%] object-contain"}/>
+                    <Image src = {email1} alt="late-developers" style={{height:windowWidth ? "100%" : "50%"}} className={windowWidth > 800 ? "w-[50%] p-0 m-[1%] z-[2] h-[250px] object-contain" : "w-[100%] object-contain"}/>
 
                     <article className={ windowWidth > 800 ? "text-justify m-[1%] w-[50%]" : "text-justify m-[1%] p-[1%] w-[98%]"}>
                         At <i>Late Developers</i>, we offer state-of-the-art email archiving solutions tailored to the needs of Kenyan businesses. Our solutions include:
                         <ol style={{ listStyleType: 'decimal', paddingLeft: '20px' }}>
                             <li>
                                 <b>Cloud-Based Archiving</b>
-                                Store your emails securely in the cloud for easy access and scalability.
-                                Benefit from automatic backups and disaster recovery.
+                                <p>Store your emails securely in the cloud for easy access and scalability.
+                                Benefit from automatic backups and disaster recovery.</p>
                             </li>
                             <li>
                                 <b>On-Premises Archiving</b>
-                                Retain full control over your email data with on-site archiving solutions.
-                                Ideal for businesses with strict data sovereignty requirements.
+                                <p>Retain full control over your email data with on-site archiving solutions.
+                                Ideal for businesses with strict data sovereignty requirements.</p>
                             </li>
                             <li>
                                 <b>Hybrid Archiving</b>
-                                Combine the flexibility of cloud storage with the security of on-premises solutions.
-                                Perfect for businesses transitioning to cloud systems.
+                                <p>Combine the flexibility of cloud storage with the security of on-premises solutions.
+                                Perfect for businesses transitioning to cloud systems.</p>
                             </li>
                             <li>
                                 <b>Advanced Search Capabilities</b>
-                                Powerful search tools to quickly locate emails based on keywords, dates, or specific users.
+                                <p>Powerful search tools to quickly locate emails based on keywords, dates, or specific users.</p>
 
                             </li>
                             <li>
                                 <b>Compliance and Reporting Tools</b>
-                                Generate reports to demonstrate compliance with legal and industry regulations.
+                                <p>Generate reports to demonstrate compliance with legal and industry regulations.</p>
 
                             </li>
                         </ol>
                     </article>
                 </div>
             </div>
-            <div className={ windowWidth > 800 ? "relative flex h-[30%] w-[100%] bg-[#E1F977]" : "relative flex flex-col h-auto w-[100%] bg-[#E1F977]"}>
-                <Image src = {email2} alt="late-developers" style={{height:windowWidth ? "100%" : "50%"}} className={windowWidth > 800 ? "w-[50%] p-0 m-[-1%] z-[2] h-[250px] object-contain" : "w-[100%] object-contain"}/>
+            <div className={ windowWidth > 800 ? "relative flex h-[auto] w-[100%] bg-[#E1F977]" : "relative flex flex-col h-auto w-[100%] bg-[#E1F977]"}>
+                <Image src = {email2} alt="late-developers" style={{height:windowWidth ? "100%" : "50%"}} className={windowWidth > 800 ? "w-[50%] p-0 m-[1%] z-[2] h-[100px] object-contain" : "w-[100%] object-contain"}/>
                 <article className={ windowWidth > 800 ? "w-[50%] text-justify" : "w-[98%] m-[1%] p-[1%] text-justify"}>
                     <p><b>Get Started with Late Developers</b></p>
 

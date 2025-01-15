@@ -17,7 +17,7 @@ const clients = [
     {
         image:client1,
         link:"https://weforshe.netlify.app/",
-        name:"AFRICA YOUTH TRUST"
+        name:"WE FOR SHE"
     },
     {
         image:client8,

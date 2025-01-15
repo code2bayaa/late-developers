@@ -43,7 +43,7 @@ const ERP = () => {
             <div className={ windowWidth > 800 ? "relative h-[100%] w-[100%] bg-slate-50" : "relative h-auto w-[100%] bg-slate-50"}>
                 <h1 style={{textAlign:"center",fontSize:"200%"}}>Enterprise Resource Planning </h1>
                 <div className={ windowWidth > 800 ? "flex relative left-[10%] w-[80%]" : "flex flex-col w-[100%]"}>
-                    <Image src = {erp1} alt="late-developers" style={{height:windowWidth ? "100%" : "50%"}} className={windowWidth > 800 ? "w-[50%] p-0 m-[-1%] z-[2] h-[250px] object-contain" : "w-[100%] object-contain"}/>
+                    <Image src = {erp1} alt="late-developers" style={{height:windowWidth ? "100%" : "50%"}} className={windowWidth > 800 ? "w-[50%] p-0 m-[1%] z-[2] h-[250px] object-contain" : "w-[100%] object-contain"}/>
 
                     <article className={ windowWidth > 800 ? "text-justify m-[1%] w-[50%]" : "text-justify m-[1%] p-[1%] w-[98%]"}>
                         ERP is a software category that assists organizations in managing and automating core business processes for optimum performance. By coordinating the data flow between a company's business processes, ERP software streamlines operations throughout the organization and creates a single source of truth. The functions of the financials, supply chain, operations, business, reporting, manufacturing, and human resources can all be integrated into one platform.
@@ -60,8 +60,8 @@ const ERP = () => {
                     </article>
                 </div>
             </div>
-            <div className={ windowWidth > 800 ? "relative flex h-[30%] w-[100%] bg-[#E1F977]" : "relative flex flex-col h-auto w-[100%] bg-[#E1F977]"}>
-                <Image src = {erp2} alt="late-developers" style={{height:windowWidth ? "100%" : "50%"}} className={windowWidth > 800 ? "w-[50%] p-0 m-[-1%] z-[2] h-[250px] object-contain" : "w-[100%] object-contain"}/>
+            <div className={ windowWidth > 800 ? "relative flex h-[auto] w-[100%] bg-[#E1F977]" : "relative flex flex-col h-auto w-[100%] bg-[#E1F977]"}>
+                <Image src = {erp2} alt="late-developers" style={{height:windowWidth ? "100%" : "50%"}} className={windowWidth > 800 ? "w-[50%] p-0 m-[1%] z-[2] h-[100px] object-contain" : "w-[100%] object-contain"}/>
                 <article className={ windowWidth > 800 ? "w-[50%] text-justify" : "w-[98%] m-[1%] p-[1%] text-justify"}>
                     <p>An ERP system helps unify people, core business processes, and technology across an organization.</p>
 
