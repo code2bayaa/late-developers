@@ -9,7 +9,8 @@ import "plyr-react/plyr.css"
 import Slider from "react-slick";
 import {clients, accreditors} from "./../components/constants"
 import {useLayoutEffect, useEffect, useState} from "react"
-import { avatar, solutions1, solutions2, solutions3, solutions4 } from "@/assets";
+import { avatar, solutions1, solutions2, solutions3, solutions4, wave1, wave3 } from "@/assets";
+// import waveImage from '@/assets/wave.gif';
 import { faHandFist, faHeart } from "@fortawesome/free-solid-svg-icons";
 import gsap from "gsap"
 export default function Home() {
@@ -24,7 +25,7 @@ export default function Home() {
     window.addEventListener("resize", handleResize);
     handleResize(); // Initialize width
     gsap.to("#NavBar",{
-      backgroundColor:"rgb(159 18 57)",
+      backgroundImage: "linear-gradient( #900C3F , #900c85bd, #900c85bd)",
       color:"#fff",
       duration:3
   })
@@ -79,15 +80,15 @@ export default function Home() {
   return (
     <>
     {/* <div className="component"> */}
-        <div className = {windowWidth > 800 ? "relative w-[100%] h-[100%]" : "relative w-[100%] h-[100%]" }>
-          <div style={{height:windowWidth > 800 ? "75%" : "100%",background:"linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.75),rgba(0,0,0,0.45))"}} className="flex gap-[2%] grid justify-items-center text-white w-[100%] h-[100%] z-[1] bg-shade absolute">
-            {/* <Image src = {logo1} alt="late-developers" style={{height:"50%"}} className="w-[20%] p-0 m-[-1%] z-[2] object-contain"/> */}
-            <div className={windowWidth > 800 ? "w-[100%] my-[20%] relative left-[30%]":"w-[100%] relative my-[20%]"}>
-              <h1>STILL UNDER CONSTRUCTION</h1>
-              <h1 style={{fontSize:windowWidth > 800 ? "300%" : "180%"}}><i><b>Late Developers</b></i></h1>
+        <div className = {windowWidth > 800 ? "relative w-[100%] h-[100%] flex flex-row wave  bg-[url('/image/wave6.gif')]" : "relative w-[100%] h-[100%]" }>
+          <div style={{width:windowWidth > 800 ? "40%" : "100%", height:windowWidth > 800 ? "70%" : "100%", position:windowWidth > 800 ? "relative" : "absolute", }} className="flex gap-[2%] grid justify-items-center text-white z-[1] bg-shade">
+            {/* <Image src = {wave1} alt="late-developers" style={{height:"50%"}} className="w-[20%] p-0 m-[-1%] z-[2] object-contain"/> */}
+            <div className={windowWidth > 800 ? "w-[100%] my-[20%] relative":"w-[100%] relative my-[20%]"}>
+              <h1 style={{color:"#000"}}>STILL UNDER CONSTRUCTION</h1>
+              <h1 style={{fontSize:windowWidth > 800 ? "300%" : "180%",color:"#000"}}><i><b>Late Developers</b></i></h1>
               
               <h2 style={{fontSize:windowWidth > 800 ? "300%" : "180%"}} className="text-rose-900"><b>ICT SOLUTIONS & SERVICES</b></h2>
-              <h3 style={{fontSize:windowWidth > 800 ? "200%" : "150%"}}>late again</h3>
+              <h3 style={{fontSize:windowWidth > 800 ? "200%" : "150%",color:"#000"}}>late again</h3>
             </div>
           </div>
           {/* {plyrMode} */}

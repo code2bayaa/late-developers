@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true, // Disables ESLint during production builds
   },
   reactStrictMode: true,
+  images: {
+    domains: ['cdn.shopify.com'], // Add Shopify's CDN domain
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.(glb|gltf)$/,

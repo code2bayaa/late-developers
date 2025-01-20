@@ -47,8 +47,18 @@ import mobile4 from "./mobile4.webp"
 import mobile5 from "./mobile5.webp"
 import mobile6 from "./mobile6.jpg"
 import background1 from "./grey.jpg"
+import wave1 from "./wave.gif"
+import wave2 from "./wave2.gif"
+import wave3 from "./wave3.webp"
+import wave4 from "./wave5.gif"
+import wave5 from "./wave6.gif"
 
 export {
+    wave1,
+    wave2,
+    wave3,
+    wave4,
+    wave5,
     background1,
     mobile1,
     mobile2,
