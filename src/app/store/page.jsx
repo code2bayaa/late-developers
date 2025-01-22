@@ -1,13 +1,19 @@
 "use client"
-import Image from "next/image"
 import { useState, useEffect } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from "@fortawesome/free-solid-svg-icons"
-
+import PRODUCTS from "../../components/products"
+import swal from 'sweetalert';
+// import dynamic from "next/dynamic";
+// const useRouter = dynamic(() => import("next/router"), { ssr: false });
+import {useRouter} from "next/navigation"
 const STORE = () => {
 
+    
+    const router = useRouter();
     const [form, setForm] = useState({input:""})
     const [products, setProducts] = useState([])
+    
 
     useEffect(() => {
         try {
@@ -26,23 +32,24 @@ const STORE = () => {
           }
     },[])
 
-    const searchBar = () => {}
-
-    const toMoney = (num) => {
-        return new Intl.NumberFormat('en-US', {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-          }).format(num);
-
+    const searchBar = async(e) => {
+        e.preventDefault()
+        if(!form.input){
+            swal("Oops!", "input search data", "error");
+            return 
+        }
         
+        router.push(`/store/search?query=${form.input}`);
+        // window.location.assign(`${process.env.NEXT_PUBLIC_API_URL}/store/search?id=${form.input}`)
     }
+
 
     return (
         <>
-            <div className="w-[100%] h-[40%] flex flex-row">
+            <div className="w-[100%] h-[10%]">
                 <div className="w-[60%]">
                     <form 
-                     className="w-[100%] h-[40px]"
+                     className="w-[100%] h-[40px] flex flex-row"
                      onSubmit={searchBar}
                      >
                         <input
@@ -61,24 +68,7 @@ const STORE = () => {
                      </form>
                 </div>
             </div>
-            <div className="w-[100%] h-auto flex flex-row flex-wrap">
-            { console.log(products)}
-                {
-                    products.map(({body_html, status, image, title, variants, id},index) => 
-                    (
-                        
-                        <div className="w-[18%] m-[1%] cursor-pointer" key={index} id={id}>
-                            <Image src = {image.src} alt="late-developers" style={{height:"50%"}} width={image.width} height={image.height} className="w-[100%] object-cover"/>
-                           
-                            <p>{ title.length > 40 ? `${title.substr(40)}...` : title}</p>
-                            <p style={{height:"40px",background:status === "active" ? "#83D475" : "#ba3030",color:"#fff",textAlign:"center"}}>{status === "active" ? "in store" : "sold out"}</p>
-                            {/* {console.log(variants.map(({compare_at_price}) => parseFloat(compare_at_price)))} */}
-                            <p><b>KSH {variants.length > 1 ? toMoney(Math.max(...variants.map(({compare_at_price}) => parseFloat(compare_at_price)))) : toMoney(variants.map(({compare_at_price}) => parseFloat(compare_at_price))[0])} - KSH {variants.length > 1 ? toMoney(Math.min(...variants.map(({compare_at_price}) => parseFloat(compare_at_price)))) : toMoney(variants.map(({compare_at_price}) => parseFloat(compare_at_price))[0])}</b></p>
-                        </div>
-                    )
-                    )
-                }
-            </div>
+            <PRODUCTS products={products}/>
         </>
     )
 }

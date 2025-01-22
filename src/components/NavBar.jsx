@@ -133,7 +133,7 @@ const NavBar = () => {
                 </button>
             </div>
         }
-            <div ref={navBar} id="NavBar" className={windowWidth > 800 ? "w-[100%] min-h-[20%] flex bg-rose-800 text-white" : "w-[100%] min-h-[100%] flex flex-col fixed bg-rose-800 text-white z-[10] top-[-1%] hidden"}>
+            <div ref={navBar} id="NavBar" style={{backgroundImage:"linear-gradient( #900C3F , #900c85bd, #900c85bd)"}} className={windowWidth > 800 ? "w-[100%] min-h-[20%] flex text-white" : "w-[100%] min-h-[100%] flex flex-col fixed text-white z-[10] top-[-1%] hidden"}>
                 <div id = "logo" className={windowWidth > 800 ? "w-[30%] bg-white" :"w-[100%] bg-white"}>
                     <Image src = {logo2} alt="late-developers" className="w-[100%] p-0 m-[-1%] z-[2] object-contain"/>
 
