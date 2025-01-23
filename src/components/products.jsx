@@ -1,11 +1,19 @@
 import Image from "next/image"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from "@fortawesome/free-solid-svg-icons"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const PRODUCTS = ({products, setProducts}) => {
     
     const [form, setForm] = useState({input:""})
+    const [windowWidth, setWindowWidth] = useState(0);
+
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.screen.width);
+  
+        window.addEventListener("resize", handleResize);
+        handleResize(); // Initialize width
+    },[])
     const toMoney = (num) => {
         return new Intl.NumberFormat('en-US', {
             minimumFractionDigits: 2,
@@ -90,7 +98,7 @@ const PRODUCTS = ({products, setProducts}) => {
                     products.products.map(({node},index) => 
                     (
                         
-                        <div className="w-[18%] m-[1%] cursor-pointer" key={index} id={node.id}>
+                        <div className={windowWidth > 800 ? "w-[18%] m-[1%] cursor-pointer" : "w-[48%] m-[1%] cursor-pointer"} key={index} id={node.id}>
                             <Image src = {node.images.edges[0].node.src} alt={node.title} style={{height:"50%"}} width={node.images.edges[0].node.width} height={node.images.edges[0].node.height} className="w-[100%] object-cover"/>
                         
                             <p>{ node.title.length > 40 ? `${node.title.substr(40)}...` : node.title}</p>
