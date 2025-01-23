@@ -11,19 +11,28 @@ export async function GET(request){
 
     try{
 
-        // return NextResponse.json({products : await shopify}, { status: 200 });
+        return NextResponse.json({
+            "Hey" : "You"
+        })
+        // const body = await request.json();
+        // const { limit, offset } = body
+        // // return NextResponse.json({products : await shopify}, { status: 200 });
 
-        // const session = await shopify.auth.getSession("https://e61uw0-pp.myshopify.com");
+        // // const session = await shopify.auth.getSession("https://e61uw0-pp.myshopify.com");
 
-        //WORKS --- MAUTAMU
-        // // Make the API request to Shopify's Products API
-        const response = await axios.get(`https://${process.env.SHOPIFY_API_KEY}:${process.env.SHOPIFY_API_SECRET}@${process.env.SHOPIFY_URL}/admin/api/2023-01/products.json`, {
-          headers: {
-            'X-Shopify-Access-Token': process.env.SHOPIFY_ADMIN_TOKEN, // Using the session access token
-          },
-        });
+        // //WORKS --- MAUTAMU
+        // // // Make the API request to Shopify's Products API
+        // const response = await axios.get(`https://${process.env.SHOPIFY_API_KEY}:${process.env.SHOPIFY_API_SECRET}@${process.env.SHOPIFY_URL}/admin/api/2023-01/products.json`, {
+        //   headers: {
+        //     'X-Shopify-Access-Token': process.env.SHOPIFY_ADMIN_TOKEN, // Using the session access token
+        //   },
+        //   params:{
+        //     limit,
+        //     page_info:offset
+        //   }
+        // });
     
-        return NextResponse.json({ products: response.data.products }, { status: 200 });
+        // return NextResponse.json({ products: response.data.products }, { status: 200 });
 
         // return NextResponse.json({
         //     data : Object.keys(ShopifyApi)
@@ -78,8 +87,87 @@ export async function GET(request){
     
 }
 
-export async function POST(req){
-    return NextResponse.json({
-        "Hey" : "You"
-    })
+export async function POST(request){
+    try{
+        const body = await request.json();
+        const { limit, offset } = body
+        // return NextResponse.json({products : await shopify}, { status: 200 });
+    
+        // const session = await shopify.auth.getSession("https://e61uw0-pp.myshopify.com");
+    
+        //WORKS --- MAUTAMU
+        // // Make the API request to Shopify's Products API
+        // const response = await axios.get(`https://${process.env.SHOPIFY_API_KEY}:${process.env.SHOPIFY_API_SECRET}@${process.env.SHOPIFY_URL}/admin/api/2023-01/products.json`, {
+        //   headers: {
+        //     'X-Shopify-Access-Token': process.env.SHOPIFY_ADMIN_TOKEN, // Using the session access token
+        //   },
+        //   params:{
+        //     limit,
+        //     page_info:offset
+        //   }
+        // });
+            const graphqlQuery = `
+                query ($first: Int!, $after: String) {
+                products(first: $first, after: $after) {
+                    edges {
+                    cursor
+                    node {
+                        id
+                        title
+                        status
+                        descriptionHtml
+                        variants(first: 250) {
+                        edges {
+                            node {
+                            id
+                            title
+                            price
+                            compareAtPrice
+                            }
+                        }
+                        }
+                        images(first: 1) {
+                        edges {
+                            node {
+                            src
+                            altText
+                            width
+                            height
+                            
+                            }
+                        }
+                        }
+                    }
+                    }
+                    pageInfo {
+                    hasNextPage
+                    endCursor
+                    }
+                }
+                }
+            `;
+
+        const variables = {
+            first: limit,
+            after: offset,
+        };
+
+  
+        const response = await axios.post(
+        `https://${process.env.SHOPIFY_URL}/admin/api/2023-01/graphql.json`,
+        { query: graphqlQuery, variables },
+        {
+            headers: {
+            'X-Shopify-Access-Token': process.env.SHOPIFY_ADMIN_TOKEN,
+            'Content-Type': 'application/json',
+            },
+        }
+        );
+    
+        return NextResponse.json({ products: response.data.data.products }, { status: 200 });
+    }catch(error){
+        console.log(error)
+        return NextResponse.json({ error : error.message}, { status: 500 }) 
+    }
+
 }

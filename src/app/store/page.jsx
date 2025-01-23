@@ -1,7 +1,5 @@
 "use client"
-import { useState, useEffect } from "react"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from "@fortawesome/free-solid-svg-icons"
+import { useState, useEffect, useLayoutEffect } from "react"
 import PRODUCTS from "../../components/products"
 import swal from 'sweetalert';
 // import dynamic from "next/dynamic";
@@ -12,63 +10,49 @@ const STORE = () => {
     
     const router = useRouter();
     const [form, setForm] = useState({input:""})
-    const [products, setProducts] = useState([])
-    
+    const [products, setProducts] = useState({products : [], offset:null, next:true, loading : false})
+    // const [offset, setOffset] = useState(null)
+    // const [hasNextPage, setHasNextPage] = useState(true);
+    // const [loading, setLoading] = useState(false)
 
-    useEffect(() => {
+
+    useLayoutEffect(() => {
         try {
+
+            setProducts({...products, loading : true})
+
             async function runProducts(){
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Products/`);
-
-                // console.log(await res.json())
-                const { products } = await res.json()
-                setProducts(products)
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Products/`,{
+                    "method" : "POST",
+                    "body" : JSON.stringify({
+                        limit : 10,
+                        offset : products.offset
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json', // Indicates the body is JSON
+                      },
+                    
+                });
+        
+                const data = await res.json()
+                // console.log(data.products)
+                setProducts(() => ({...products, products:[...data.products.edges], loading : false}))
+                // setOffset(data.products.pageInfo.endCursor); // Update the cursor for the next fetch
+                // setHasNextPage(data.products.pageInfo.hasNextPage); // Update the hasNextPage flag
+                // setLoading(false)
             } 
-
             runProducts()
+            
 
           } catch (error) {
             console.log(error);
           }
     },[])
 
-    const searchBar = async(e) => {
-        e.preventDefault()
-        if(!form.input){
-            swal("Oops!", "input search data", "error");
-            return 
-        }
-        
-        router.push(`/store/search?query=${form.input}`);
-        // window.location.assign(`${process.env.NEXT_PUBLIC_API_URL}/store/search?id=${form.input}`)
-    }
-
 
     return (
         <>
-            <div className="w-[100%] h-[10%]">
-                <div className="w-[60%]">
-                    <form 
-                     className="w-[100%] h-[40px] flex flex-row"
-                     onSubmit={searchBar}
-                     >
-                        <input
-                         className="w-[80%]"
-                         name="input"
-                         required
-                         placeholder="SEARCH HERE..."
-                         onChange={ e => setForm({...form, [e.target.name] : e.target.value})}
-                         />
-                         <button
-                          type="submit"
-                          className="w-[40%]"
-                          >
-                            <FontAwesomeIcon icon={faSearch}/>
-                          </button>
-                     </form>
-                </div>
-            </div>
-            <PRODUCTS products={products}/>
+            <PRODUCTS products={products} setProducts={setProducts}/>
         </>
     )
 }
