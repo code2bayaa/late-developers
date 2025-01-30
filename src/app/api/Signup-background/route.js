@@ -1,5 +1,5 @@
 import { hash } from "bcrypt";
-import db from "./../Signin/lib/database";
+import db from "@/api/Signin/lib/database";
 import {NextResponse} from "next/server"
 
 export async function POST(req, res) {
@@ -30,9 +30,11 @@ export async function POST(req, res) {
       [name, email, hashedPassword, telephone, 0, JSON.stringify({verify:randomCode})]
     );
 
-    return NextResponse.json({ message: "User created successfully", status:true, randomCode },{status:200});
+    // return NextResponse.json({ message: "User created successfully", status:true, randomCode },{status:200});
+    return new Response(JSON.stringify({ message: "User created successfully", status:true, randomCode },{status:200}));
   } catch (error) {
     console.error(error);
-    return NextResponse.json({ message: "Internal server error" + error.message, status:false },{status:500});
+    // return NextResponse.json({ message: "Internal server error" + error.message, status:false },{status:500});
+    return new Response(JSON.stringify({ message: "Internal server error" + error.message, status:false },{status:500}))
   }
 }
