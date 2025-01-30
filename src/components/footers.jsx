@@ -95,7 +95,7 @@ const FOOTER = () => {
             </section>
             <div style={(windowWidth > 800) ? {textAlign:"right"}:{}} className="w-[100%]">
                 <article className="w-50%]">
-                    © 2024 late developers Kenya. All Rights Reserved.
+                    © 2025 late developers Kenya. All Rights Reserved.
                 </article>
                 <div className="w-[40%]">
                     <Link

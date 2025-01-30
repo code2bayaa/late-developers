@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import NavBar from "../components/NavBar.jsx"
-import FOOTER from "../components/footers.jsx"
+import MAIN from "@/components/layout"
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -23,23 +23,12 @@ export const metadata = {
 export default function RootLayout({
   metadata,
   children,
+  // pageProps: { session, ...pageProps }
 }) {
+
+
+
   return (
-    <html lang="en">
-      <head>
-        <link rel="canonical" href="https://late-developers.com/shop/" />
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-          <div id="main-body" className="component">
-          <NavBar/>
-          
-          
-          {children}
-          <FOOTER/>
-        </div>
-      </body>
-    </html>
+    <MAIN geistSans={geistSans} geistMono={geistMono} children={children}/>  
   );
 }

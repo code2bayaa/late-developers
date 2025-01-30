@@ -2,11 +2,14 @@ import Image from "next/image"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from "@fortawesome/free-solid-svg-icons"
 import { useEffect, useState } from "react"
+import {useRouter} from "next/navigation"
+import {shopping, shopping1, shopping2} from "@/assets/index.jsx"
 
 const PRODUCTS = ({products, setProducts}) => {
     
     const [form, setForm] = useState({input:""})
     const [windowWidth, setWindowWidth] = useState(0);
+    const router = useRouter();
 
     useEffect(() => {
         const handleResize = () => setWindowWidth(window.screen.width);
@@ -68,37 +71,44 @@ const PRODUCTS = ({products, setProducts}) => {
         }
     }
     
+    const getItem = (id) => {
+
+        router.push(`/store/id?query=${id}`);
+    }
 
     return (
-        <>
-            <div className="w-[100%] h-[10%]">
-                <div className="w-[60%] bg-[#000] h-[90%] my-[1%]">
-                    <form 
-                     className="w-[100%] h-[100%] flex flex-row"
-                     onSubmit={searchBar}
-                     >
-                        <input
-                         className="w-[80%] bg-[#000] text-white"
-                         name="input"
-                         required
-                         placeholder="SEARCH HERE..."
-                         onChange={ e => setForm({...form, [e.target.name] : e.target.value})}
-                         />
-                         <button
-                          type="submit"
-                          className="w-[20%] text-white"
-                          >
-                            <FontAwesomeIcon icon={faSearch}/>
-                          </button>
-                     </form>
-                </div>
+        <div className="w-[80%] mx-[10%]">
+            <div className="w-[100%] bg-[linear-gradient(#7B0D1E,#DB7F8E)] h-[20%]">
+                <Image src = {shopping2} alt="buy at late-developers" className="w-[30%] h-[250px] m-[2%] object-contain"/>
+
+            </div>
+            <div className="w-[100%] h-[70px] bg-[#000]">
+                <form 
+                    className="w-[100%] h-[100%] flex flex-row"
+                    onSubmit={searchBar}
+                    >
+                    <input
+                        className="w-[80%] h-[100%] bg-[#000] text-white"
+                        name="input"
+                        required
+                        placeholder="SEARCH HERE..."
+                        onChange={ e => setForm({...form, [e.target.name] : e.target.value})}
+                        />
+                        <button
+                        type="submit"
+                        className="w-[20%] h-[100%] text-white"
+                        >
+                        <FontAwesomeIcon icon={faSearch}/>
+                        </button>
+                    </form>
             </div>
             <div className="w-[100%] h-auto flex flex-row flex-wrap">
+                {/* {console.log(products.products)} */}
                 {
                     products.products.map(({node},index) => 
                     (
                         
-                        <div className={windowWidth > 800 ? "w-[18%] m-[1%] cursor-pointer" : "w-[48%] m-[1%] cursor-pointer"} key={index} id={node.id}>
+                        <div className={windowWidth > 800 ? "w-[18%] m-[1%] cursor-pointer" : "w-[48%] m-[1%] cursor-pointer"} key={index} onClick={() => getItem(node.id)}>
                             <Image src = {node.images.edges[0].node.src} alt={node.title} style={{height:"50%"}} width={node.images.edges[0].node.width} height={node.images.edges[0].node.height} className="w-[100%] object-cover"/>
                         
                             <p>{ node.title.length > 40 ? `${node.title.substr(40)}...` : node.title}</p>
@@ -106,8 +116,7 @@ const PRODUCTS = ({products, setProducts}) => {
                             {/* {console.log(node.variants.edges.map(({price}) => parseFloat(price)))} */}
                             <p><b>KSH {node.variants.edges.length > 1 ? toMoney(Math.max(...node.variants.edges.map(({node}) => parseFloat(node.price)))) : toMoney(node.variants.edges.map(({node}) => parseFloat(node.price))[0])} - KSH {node.variants.edges.length > 1 ? toMoney(Math.min(...node.variants.edges.map(({node}) => parseFloat(node.price)))) : toMoney(node.variants.edges.map(({node}) => parseFloat(node.price))[0])}</b></p>
                         </div>
-                    )
-                    )
+                    ))
                 }
             </div>
             <div className="w-[100%] grid items-center">
@@ -121,7 +130,7 @@ const PRODUCTS = ({products, setProducts}) => {
                     LOAD MORE ({products.products.length})
                 </button>
             </div>
-        </>
+        </div>
 
     )
 }

@@ -222,7 +222,7 @@ const NavBar = () => {
                         </div>
                         <div id = "shop-header" className="w-[100%] hidden">
                             <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/store" style={{width:"100%"}}>Store</Link></p>
-                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/signin" style={{width:"100%"}}>LogIn</Link></p>  
+                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/checkout" style={{width:"100%"}}>Checkout</Link></p> 
                         </div>
                     </div>
                     <div className={windowWidth > 800 ? "flex flex-col w-[18%] m-[1%]" : "flex flex-col w-[100%]"}>
@@ -250,7 +250,7 @@ const NavBar = () => {
                         <div className={windowWidth > 800 ? "h-[25%]" : "h-[40px]"}>
                             
                             <button className = {windowWidth > 800 ? "w-[100%]" : "flex flex-row-reverse h-[100%]"} ref={schoolHeader} onClick={() => openHeader(6)} btn = "school" clicked = "1" page="#school-header">
-                                <span>School</span> {
+                                <span>Account</span> {
                                     btnChange.school ? 
                                         <FontAwesomeIcon icon={faChevronUp} />
                                         :
@@ -260,9 +260,10 @@ const NavBar = () => {
                             </button>
                         </div>
                         <div id = "school-header" className="w-[100%] hidden">
-                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/certifications" style={{width:"100%"}}>Certifications</Link></p>
-                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/courses" style={{width:"100%"}}>Courses</Link></p> 
-                            <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/enrollment" style={{width:"100%"}}>Enrollment</Link></p>
+                        <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/users/signin" style={{width:"100%"}}>Sign In</Link></p> 
+                        <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/users/signup" style={{width:"100%"}}>Sign Up</Link></p> 
+                        <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/users/account" style={{width:"100%"}}>Account</Link></p>
+                        <p className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}><Link href="/users/forgot" style={{width:"100%"}}>Forgot Password</Link></p>  
                         </div>
                     </div>
                 </div>

@@ -1,10 +1,11 @@
 "use clients"
+import { faCartShopping, faLaptop, faMapPin, faMobileAndroid, faPenToSquare, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import {client1, client5, client6, client7, client8,
     accredition1, accredition2, accredition3, accredition4, accredition5,
     website1,website2,website3,website4,website5, mobile1, mobile2, mobile3, mobile4, mobile5
     
 } from "./../assets/index.jsx"
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 const clients = [
@@ -141,4 +142,37 @@ const mobiles = [
     }
 ]
 
-export { clients, accreditors, websites, mobiles }
+const marketing = [
+    {
+        title:<h1 style={{fontSize:"150%",fontStyle:"bold",color:"#411342"}}>Web Design & Development</h1>,
+        article:<article style={{textAlign:"justify"}}>Get a high-quality website design & development built by professionals that deliver measurable results.</article>,
+        icon:<FontAwesomeIcon style={{fontSize:"200%",color:"#000",textAlign:"center"}} icon={faLaptop}/>
+    },
+    {
+        title:<h1 style={{fontSize:"150%",fontStyle:"bold",color:"#411342"}}>Social Media Marketing</h1>,
+        article:<article>Get social media management and advertising with targeted campaigns to Facebook and Instagram customers.</article>,
+        icon:<FontAwesomeIcon style={{fontSize:"200%",color:"#000",textAlign:"center"}} icon={faThumbsUp}/>
+    },
+    {
+        title:<h1 style={{fontSize:"150%",fontStyle:"bold",color:"#411342"}}>Search Marketing</h1>,
+        article:<article>Get ranked #1 in your industry on different search engines like Google with multiple targeted key words.</article>,
+        icon:<FontAwesomeIcon style={{fontSize:"200%",color:"#000",textAlign:"center"}} icon={faMapPin}/>
+    },
+    {
+        title:<h1 style={{fontSize:"150%",fontStyle:"bold",color:"#411342"}}>E-COMMERCE DEVELOPMENT</h1>,
+        article:<article>Get complete point of sale integration and online store setup to accept payments into your bank account.</article>,
+        icon:<FontAwesomeIcon style={{fontSize:"200%",color:"#000",textAlign:"center"}} icon={faCartShopping}/>
+    },
+    {
+        title:<h1 style={{fontSize:"150%",fontStyle:"bold",color:"#411342"}}>MOBILE APP DEVELOPMENT</h1>,
+        article:<article>Get mobile app development that connects to your website for instant updates on IOS & Android Apps.</article>,
+        icon:<FontAwesomeIcon style={{fontSize:"200%",color:"#000",textAlign:"center"}} icon={faMobileAndroid}/>
+    },
+    {
+        title:<h1 style={{fontSize:"150%",fontStyle:"bold",color:"#411342"}}>Pro Graphic Design</h1>,
+        article:<article>Get professional graphic design from business cards, brochures, posters and much more. Including printing.</article>,
+        icon:<FontAwesomeIcon style={{fontSize:"200%",color:"#000",textAlign:"center"}} icon={faPenToSquare}/>
+    }
+]
+
+export { clients, accreditors, websites, mobiles, marketing }

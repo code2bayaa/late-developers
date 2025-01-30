@@ -7,7 +7,7 @@ const Plyr = dynamic(() => import("plyr-react"), { ssr: false });
 import "plyr-react/plyr.css"
 // import { logo1 } from "../assets"
 import Slider from "react-slick";
-import {clients, accreditors} from "./../components/constants"
+import {clients, accreditors, marketing} from "./../components/constants"
 import {useLayoutEffect, useEffect, useState} from "react"
 import { avatar, solutions1, solutions2, solutions3, solutions4, wave1, wave3 } from "@/assets";
 // import waveImage from '@/assets/wave.gif';
@@ -84,11 +84,11 @@ export default function Home() {
           <div style={{width:windowWidth > 800 ? "40%" : "100%", height:windowWidth > 800 ? "70%" : "100%", position:windowWidth > 800 ? "relative" : "absolute", }} className="flex gap-[2%] grid justify-items-center text-white z-[1] bg-shade">
             {/* <Image src = {wave1} alt="late-developers" style={{height:"50%"}} className="w-[20%] p-0 m-[-1%] z-[2] object-contain"/> */}
             <div className={windowWidth > 800 ? "w-[100%] my-[20%] relative":"w-[100%] relative my-[20%]"}>
-              <h1 style={{color:"#000"}}>STILL UNDER CONSTRUCTION</h1>
-              <h1 style={{fontSize:windowWidth > 800 ? "300%" : "180%",color:"#000"}}><i><b>Late Developers</b></i></h1>
+              <h1 style={{color:windowWidth > 800 ? "#000" : "#fff"}}>STILL UNDER CONSTRUCTION</h1>
+              <h1 style={{fontSize:windowWidth > 800 ? "300%" : "180%",color:windowWidth > 800 ? "#000" : "#fff"}}><i><b>Late Developers</b></i></h1>
               
               <h2 style={{fontSize:windowWidth > 800 ? "300%" : "180%"}} className="text-rose-900"><b>ICT SOLUTIONS & SERVICES</b></h2>
-              <h3 style={{fontSize:windowWidth > 800 ? "200%" : "150%",color:"#000"}}>late again</h3>
+              <h3 style={{fontSize:windowWidth > 800 ? "200%" : "150%",color:windowWidth > 800 ? "#000" : "#fff"}}>late again</h3>
             </div>
           </div>
           {/* {plyrMode} */}
@@ -125,6 +125,25 @@ export default function Home() {
             </article>
           </div>
         </div>
+        <div style={{clipPath:"polygon(0 20%, 100% 0, 100% 80%, 0 100%)"}} className = {windowWidth > 800 ? "relative w-[100%] h-[100%] bg-[url('/image/background1.jpg')]" : "relative w-[100%] h-auto bg-[url('/image/background1.jpg')] flex flex-row flex-wrap" }>
+            <div className="w-[100%] relative top-[25%] flex flex-row flex-wrap">
+              {
+                marketing.map(({title, article, icon}, index) => (
+                    <div key={index} className={windowWidth > 800 ? "w-[30%] h-[150px] m-[1%] flex bg-[#f2f2f2]":"w-48%] m-[1%] flex flex-column bg-[#f2f2f2]"}>
+                      <div className={windowWidth > 800 ? "w-[90%]":"w-[100%]"}>
+                        {title}
+                        {article}
+                      </div>
+                      <div className={windowWidth > 800 ? "w-[10%]":"w-[100%]"}>
+                        {icon}
+                      </div>
+                    </div>
+                  )
+                )
+              }
+            </div>
+
+        </div>
         <div className = {windowWidth > 800 ? "relative w-[100%] h-[50%]" : "relative w-[100%] h-auto" }>
           <h1 style={{textAlign:"center",fontSize:"300%"}}>OUR CLIENTS</h1>
           <div className="w-[100%]">
@@ -146,6 +165,7 @@ export default function Home() {
           </div>
           
         </div>
+
         <div className = {windowWidth > 800 ? "relative w-[100%] h-[60%] bg-[#411342]" : "relative w-[100%] h-auto bg-[#411342]" }>
           <Image src = {avatar} alt="late-developers" style={{height:windowWidth ? "100%" : "50%"}} className={windowWidth > 800 ? "float-left w-[20%] p-0 m-[-1%] z-[2] object-contain" : "w-[100%] object-contain"}/>
           <div className="w-[98%] m-[1%] text-center">

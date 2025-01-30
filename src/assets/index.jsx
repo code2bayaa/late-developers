@@ -52,8 +52,20 @@ import wave2 from "./wave2.gif"
 import wave3 from "./wave3.webp"
 import wave4 from "./wave5.gif"
 import wave5 from "./wave6.gif"
+import login from "./login.svg"
+import sign_up from "./sign_up.svg"
+import forgot_password from "./forgot_password.svg"
+import shopping from "./shopping.jpg"
+import shopping1 from "./shopping1.jpg"
+import shopping2 from "./shopping.svg"
 
 export {
+    shopping,
+    shopping1,
+    shopping2,
+    login,
+    sign_up,
+    forgot_password,
     wave1,
     wave2,
     wave3,

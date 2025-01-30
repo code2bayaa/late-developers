@@ -4,11 +4,10 @@ import PRODUCTS from "../../components/products"
 import swal from 'sweetalert';
 // import dynamic from "next/dynamic";
 // const useRouter = dynamic(() => import("next/router"), { ssr: false });
-import {useRouter} from "next/navigation"
 const STORE = () => {
 
     
-    const router = useRouter();
+    
     const [form, setForm] = useState({input:""})
     const [products, setProducts] = useState({products : [], offset:null, next:true, loading : false})
     // const [offset, setOffset] = useState(null)
@@ -51,9 +50,9 @@ const STORE = () => {
 
 
     return (
-        <>
+        <div className="w-[100%]  bg-[linear-gradient(#fdfcfb,#e2d1c3,#e2d1c3)]">
             <PRODUCTS products={products} setProducts={setProducts}/>
-        </>
+        </div>
     )
 }
 
