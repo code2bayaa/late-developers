@@ -1,7 +1,7 @@
 "use client"
 import { useState, useEffect } from "react"
 import { useSearchParams } from 'next/navigation';
-import PRODUCTS from "../../components/products"
+import PRODUCTS from "@/components/products"
 
 const SEARCH = () => {
 
