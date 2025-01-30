@@ -9,7 +9,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeLowVision, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 import { useSearchParams } from "next/navigation";
-export default function CHANGE() {
+import { Suspense } from "react";
+
+
+const CHANGE = () => {
   const [form, setForm] = useState({password:"",repeat_password:""});
   const [loading, setLoading] = useState(false)
     const [passwordType, setPasswordType] = useState("password")
@@ -136,3 +139,11 @@ export default function CHANGE() {
     </div>
   );
 }
+
+export default function CHANGEPAGE() {
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <CHANGE />
+      </Suspense>
+    );
+  }

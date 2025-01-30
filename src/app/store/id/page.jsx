@@ -7,6 +7,7 @@ import swal from 'sweetalert';
 import {useRouter} from "next/navigation"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinusCircle, faPlus, faShoppingBasket } from "@fortawesome/free-solid-svg-icons";
+import { Suspense } from "react";
 
 const ITEM = () => {
 
@@ -197,4 +198,10 @@ const ITEM = () => {
     )
 }
 
-export default ITEM
+export default function ITEMPAGE() {
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <ITEM />
+      </Suspense>
+    );
+  }
