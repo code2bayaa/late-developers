@@ -80,7 +80,7 @@ const SIGNUP = () => {
     //     return null
     // }
 
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Signup`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Signup-background`, {
         method: "POST",
         body:JSON.stringify({...form, randomCode}),
         headers: {
