@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react"
 import { useSearchParams } from 'next/navigation';
 import PRODUCTS from "@/components/products"
+import { Suspense } from "react";
 
 const SEARCH = () => {
 
@@ -39,4 +40,10 @@ const SEARCH = () => {
     )
 }
 
-export default SEARCH
+export default function SEARCHPAGE() {
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <SEARCH />
+      </Suspense>
+    );
+  }
