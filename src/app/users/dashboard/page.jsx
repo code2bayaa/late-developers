@@ -2,7 +2,7 @@
 import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import swal from "sweetalert"
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useEffect } from "react";
 
 export default function Dashboard() {
   const { data:session, status } = useSession();
@@ -12,16 +12,16 @@ export default function Dashboard() {
     return <p>Loading...</p>;
   }
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if(!session){
       router.push("/users/signin")
     }
     // setWindowWidth(() => window.screen.width)
-  },[session])
+  },[])
 
   const customSignOut = async() => {
     try {
-      const response = await fetch("/api/Signin/SignOut", {
+      const response = await fetch("/api/SignOut", {
         method: "POST",
         body:JSON.stringify({
           id:session.user.id
@@ -39,6 +39,7 @@ export default function Dashboard() {
   
       // Call NextAuth's signOut function after updating the database
       await signOut();
+      router.push("/users/signin")
     } catch (error) {
       console.error("Error during sign-out:", error);
       swal("Oops!", error.message, "error");

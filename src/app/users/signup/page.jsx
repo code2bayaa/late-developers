@@ -55,30 +55,30 @@ const SIGNUP = () => {
 
     const randomCode = Math.floor(1000 + Math.random() * 9999);
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Email/`, {
-        cache: "no-store",
-        method: 'POST', // HTTP method
-        headers: {
-          'Content-Type': 'application/json', // Indicates the body is JSON
-        },
-        body: JSON.stringify({
-          RECEIVER: form.email,
-          SUBJECT: 'VERIFY YOUR EMAIL',
-          MSG:`
-            <div style='width:100%'>
-                <div style='width:80%;margin-left:10%;'>
-                    <h1>Welcome To Late Developers</h1>
-                    <p>Use the following code to verify ${randomCode}</p>
-                    <p>For more information contact info@late-developers.com © 2025</p>
-                </div>
-            </div>`
-        }), // Convert the data object to JSON
-      });
-    if (!res.ok) {
-        swal("Oops!", "Try again!", "error");
-        setLoading(false)
-        return null
-    }
+    // const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Email/`, {
+    //     cache: "no-store",
+    //     method: 'POST', // HTTP method
+    //     headers: {
+    //       'Content-Type': 'application/json', // Indicates the body is JSON
+    //     },
+    //     body: JSON.stringify({
+    //       RECEIVER: form.email,
+    //       SUBJECT: 'VERIFY YOUR EMAIL',
+    //       MSG:`
+    //         <div style='width:100%'>
+    //             <div style='width:80%;margin-left:10%;'>
+    //                 <h1>Welcome To Late Developers</h1>
+    //                 <p>Use the following code to verify ${randomCode}</p>
+    //                 <p>For more information contact info@late-developers.com © 2025</p>
+    //             </div>
+    //         </div>`
+    //     }), // Convert the data object to JSON
+    //   });
+    // if (!res.ok) {
+    //     swal("Oops!", "Try again!", "error");
+    //     setLoading(false)
+    //     return null
+    // }
 
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Signup`, {
         method: "POST",
@@ -88,6 +88,7 @@ const SIGNUP = () => {
         },
       });
 
+      console.log(response)
       const {status, message} = await response.json()
       console.log(status,"status")
       if(!status){
