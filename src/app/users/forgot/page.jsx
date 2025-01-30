@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {useRouter} from "next/navigation"
 import {login, sign_up, forgot_password} from "@/assets"
 import swal from "sweetalert"
