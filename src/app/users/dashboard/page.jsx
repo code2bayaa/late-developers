@@ -2,6 +2,7 @@
 import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import swal from "sweetalert"
+import { useLayoutEffect } from "react";
 
 export default function Dashboard() {
   const { data:session, status } = useSession();
@@ -11,12 +12,12 @@ export default function Dashboard() {
     return <p>Loading...</p>;
   }
 
-  if (!session) {
-    if (typeof window !== "undefined") {
-      router.push("/signin"); // Redirect if not logged in
+  useLayoutEffect(() => {
+    if(!session){
+      router.push("/users/signin")
     }
-    return null;
-  }
+    // setWindowWidth(() => window.screen.width)
+  },[session])
 
   const customSignOut = async() => {
     try {

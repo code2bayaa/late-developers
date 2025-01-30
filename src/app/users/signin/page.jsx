@@ -1,6 +1,6 @@
 "use client"
 import { useSession, signIn } from "next-auth/react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import {useRouter} from "next/navigation"
 import {login, sign_up, forgot_password} from "@/assets"
 import swal from "sweetalert"
@@ -14,13 +14,13 @@ export default function Signin() {
   const { data: session, status } = useSession()
   const [windowWidth, setWindowWidth] = useState(0)
 
-  useEffect(() => {
-    console.log(session)
-    if(session.hasOwnProperty("user")){
+
+  useLayoutEffect(() => {
+    if(session && session.hasOwnProperty("user")){
       router.push("/users/dashboard")
     }
     setWindowWidth(() => window.screen.width)
-  },[])
+  },[session])
 
   const handleSubmit = async (e) => {
     e.preventDefault();

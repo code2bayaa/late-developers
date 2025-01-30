@@ -3,7 +3,7 @@ import {login, sign_up, forgot_password} from "@/assets"
 import swal from "sweetalert"
 import Image from "next/image";
 import {useRouter} from "next/navigation"
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useLayoutEffect } from "react";
 import { useSession, signIn } from "next-auth/react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import gsap from "gsap"
@@ -27,13 +27,12 @@ const SIGNUP = () => {
   const { data: session, status } = useSession()
   const [windowWidth, setWindowWidth] = useState(0)
 
-    useEffect(() => {
-      console.log(session)
-      if(session.hasOwnProperty("user")){
-        router.push("/users/dashboard")
-      }
-      setWindowWidth(() => window.screen.width)
-    },[])
+  useLayoutEffect(() => {
+    if(session && session.hasOwnProperty("user")){
+      router.push("/users/dashboard")
+    }
+    setWindowWidth(() => window.screen.width)
+  },[session])
 
   const handleSubmit = async(e) => {
     e.preventDefault();
