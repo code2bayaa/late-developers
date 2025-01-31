@@ -1,5 +1,5 @@
 import { hash } from "bcrypt";
-import db from "@/api/Signin/lib/database";
+import db from "../Signin/lib/database";
 import {NextResponse} from "next/server"
 
 export async function POST(req, res) {
