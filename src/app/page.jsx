@@ -129,7 +129,7 @@ export default function Home() {
             <div className="w-[100%] relative top-[25%] flex flex-row flex-wrap">
               {
                 marketing.map(({title, article, icon}, index) => (
-                    <div key={index} className={windowWidth > 800 ? "w-[30%] h-[150px] m-[1%] flex bg-[#f2f2f2]":"w-[48%] m-[1%] flex flex-column bg-[#f2f2f2]"}>
+                    <div key={index} className={windowWidth > 800 ? "w-[30%] h-[150px] m-[1%] flex bg-[#f2f2f2]":"w-[48%] m-[1%] flex flex-col-reverse bg-[#f2f2f2]"}>
                       <div className={windowWidth > 800 ? "w-[90%]":"w-[100%]"}>
                         {title}
                         {article}

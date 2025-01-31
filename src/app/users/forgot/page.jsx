@@ -79,10 +79,10 @@ export default function FORGOT() {
   };
 
   return (
-    <div className="w-[100%] h-[100%] bg-[linear-gradient(#fdfcfb,#e2d1c3,#e2d1c3)]">
+    <div className="w-[100%] h-[auto] bg-[linear-gradient(#fdfcfb,#e2d1c3,#e2d1c3)]">
       <h1 style={{textAlign:"center",fontSize:"200%"}}>Forgot Password</h1>
       <div className={windowWidth > 800 ? "w-[100%] h-[60%] flex flex-row" : "w-[100%] h-[auto] flex flex-col-reverse" }>
-          <div className={windowWidth > 800 ? "w-[44%] mx-[5%] bg-[linear-gradient(#900C3F,#900c85bd,#900c85bd)]" : "w-[100%] mx-[5%] bg-[linear-gradient(#900C3F,#900c85bd,#900c85bd)]"}>
+          <div className={windowWidth > 800 ? "w-[44%] mx-[5%] bg-[linear-gradient(#900C3F,#900c85bd,#900c85bd)]" : "w-[100%] bg-[linear-gradient(#900C3F,#900c85bd,#900c85bd)]"}>
             <Image src = {forgot_password} alt="late-developers" className="w-[80%] p-0 m-[-1%] z-[2] object-contain"/>
           </div>
           <div className={windowWidth > 800 ? "w-[45%] grid items-center justify-items-center":"w-[100%] grid items-center justify-items-center"}>

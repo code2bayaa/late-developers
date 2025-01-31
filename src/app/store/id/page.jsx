@@ -111,17 +111,17 @@ const ITEM = () => {
     return (
         <>
         {/* {console.log(item.variants)} */}
-            <div className={windowWidth > 800 ? "w-[100%] h-auto flex flex-row" : "w-[100%] h-auto flex flex-column"}>
+            <div className={windowWidth > 800 ? "w-[100%] h-auto flex flex-row" : "w-[100%] h-auto flex flex-col flex-wrap"}>
                 <div className={windowWidth > 800 ? "w-[60%] h-auto" : "w-[100%] h-auto"}>
                     <div className="w-[100%]">
                         <h1 style={{textAlign:"center",color:"#000",fontSize:"200%"}}>{item.title}</h1>
                     </div>
-                    <div className="w-[100%] flex flex-row">
+                    <div className={windowWidth > 800 ? "w-[100%] flex flex-row" : "w-[100%] flex flex-col"}>
                         {
                             item.variants?.edges?.map(({node},index) => (
                                 <button
                                 onClick={() => buyItem(node.id, `KSH ${toMoney(node.price)}`)}
-                                className="w-[40%] min-h-[60px] m-[1%]"
+                                className={windowWidth > 800 ? "w-[40%] min-h-[60px] m-[1%]" : "w-[98%] min-h-[40px] m-[1%]"}
                                 style={{borderRadius:"2px",border:"2px solid #ccc"}}
                                 key={index}
                                 >
@@ -136,8 +136,8 @@ const ITEM = () => {
                         {
                             item?.images?.edges.map(({node},index,self) => 
                             (
-                                <div className="m-[1%] w-[30%]"  key={index}>
-                                    <Image src = {node.src} alt={node.altText} width={node.width} height={node.height} className="w-[100%] h-[250px] object-conatin"/>
+                                <div className={windowWidth > 800 ? "m-[1%] w-[30%]" : "m-[1%] w-[45%]"}  key={index}>
+                                    <Image src = {node.src} alt={node.altText} width={node.width} height={node.height} className="w-[100%] h-[250px] object-contain"/>
                                 </div>
 
                             )
@@ -146,10 +146,10 @@ const ITEM = () => {
                     </div>
                     <div className="w-[100%] items-center grid">
                         <h2 style={{textAlign:"center"}}>Quantity</h2>
-                        <div className="w-[80%] flex flex-wrap flex-row">
+                        <div className={windowWidth > 800 ? "w-[80%] flex flex-wrap flex-row" : "w-[100%] flex flex-wrap flex-row"}>
                             <button
                                 type="button"
-                                className="w-[30%] h-[40px] rounded-md bg-[#411342] m-[1%]"
+                                className={windowWidth > 800 ? "w-[30%] h-[40px] rounded-md bg-[#411342] m-[1%]" : "w-[38%] h-[40px] rounded-md bg-[#411342] m-[1%]"}
                                 onClick={() => toggleQuantity(1)}
                                 >
                                 <FontAwesomeIcon style={{fontSize:"150%",color:"#fff",textAlign:"center"}} icon={faMinusCircle}/>
@@ -162,7 +162,7 @@ const ITEM = () => {
                                 readOnly/>
                             <button
                                 type="button"
-                                className="w-[30%] h-[40px] rounded-md bg-[#411342] m-[1%]"
+                                className={windowWidth > 800 ? "w-[30%] h-[40px] rounded-md bg-[#411342] m-[1%]" : "w-[38%] h-[40px] rounded-md bg-[#411342] m-[1%]"}
                                 onClick={() => toggleQuantity(0)}
                                 >
                                 <FontAwesomeIcon style={{fontSize:"150%",color:"#fff",textAlign:"center"}} icon={faPlus}/>
@@ -172,7 +172,7 @@ const ITEM = () => {
                     <div className="w-[100%]">
                         <button
                             type="button"
-                            className="w-[80%] h-[60px] rounded-md  bg-[linear-gradient(#411342,rgba(0,0,0,0.76),rgba(0,0,0,0.65))] m-[1%] text-white"
+                            className={windowWidth > 800 ? "w-[80%] h-[60px] rounded-md  bg-[linear-gradient(#411342,rgba(0,0,0,0.76),rgba(0,0,0,0.65))] m-[1%] text-white" : "w-[98%] h-[60px] rounded-md  bg-[linear-gradient(#411342,rgba(0,0,0,0.76),rgba(0,0,0,0.65))] m-[1%] text-white"}
                             onClick={() => AddToCart()}
                             >
                             <strong>Add To Cart</strong><FontAwesomeIcon style={{fontSize:"200%",color:"#fff",textAlign:"center"}} icon={faShoppingBasket}/>

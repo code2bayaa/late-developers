@@ -108,7 +108,7 @@ const PRODUCTS = ({products, setProducts}) => {
                     products.products.map(({node},index) => 
                     (
                         
-                        <div className={windowWidth > 800 ? "w-[18%] m-[1%] cursor-pointer" : "w-[48%] m-[1%] h-[auto] min-height-[300px] cursor-pointer"} key={index} onClick={() => getItem(node.id)}>
+                        <div className={windowWidth > 800 ? "w-[18%] m-[1%] cursor-pointer" : "w-[48%] m-[1%] h-[500px] min-height-[300px] cursor-pointer"} key={index} onClick={() => getItem(node.id)}>
                             <Image src = {node.images.edges[0].node.src} alt={node.title} style={{height:"50%"}} width={node.images.edges[0].node.width} height={node.images.edges[0].node.height} className="w-[100%] object-cover"/>
                         
                             <p>{ node.title.length > 40 ? `${node.title.substr(40)}...` : node.title}</p>

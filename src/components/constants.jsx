@@ -145,7 +145,7 @@ const mobiles = [
 const marketing = [
     {
         title:<h1 style={{fontSize:"150%",fontStyle:"bold",color:"#411342"}}>Web Design & Development</h1>,
-        article:<article style={{textAlign:"justify"}}>Get a high-quality website design & development built by professionals that deliver measurable results.</article>,
+        article:<article>Get a high-quality website design & development built by professionals that deliver measurable results.</article>,
         icon:<FontAwesomeIcon style={{fontSize:"200%",color:"#000",textAlign:"center"}} icon={faLaptop}/>
     },
     {

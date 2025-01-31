@@ -122,12 +122,12 @@ const NavBar = () => {
             ""
             :
             <div className="fixed z-[20] " style={{width:"100%",backgroundColor:"linear-gradient(rgba(0,0,0,0.57),rgba(0,0,0,0.75),rgba(0,0,0,0.84)"}}>
-                <button className = "btn-mobile" ref={mobileHeader} onClick={mobile} clicked = "1">
+                <button className = "btn-mobile w-[20%] bg-[#000] text-white" ref={mobileHeader} onClick={mobile} clicked = "1">
                     {
                         btnChange.mobile ? 
-                            <FontAwesomeIcon style={{color:"#E1F977"}} icon={faBarsStaggered} />
+                            <FontAwesomeIcon icon={faBarsStaggered} />
                             :
-                                <FontAwesomeIcon style={{color:"#E1F977"}} icon={faBars} />
+                                <FontAwesomeIcon icon={faBars} />
                     }
                     
                 </button>
