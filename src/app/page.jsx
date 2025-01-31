@@ -125,11 +125,11 @@ export default function Home() {
             </article>
           </div>
         </div>
-        <div style={{clipPath:"polygon(0 20%, 100% 0, 100% 80%, 0 100%)"}} className = {windowWidth > 800 ? "relative w-[100%] h-[100%] bg-[url('/image/background1.jpg')]" : "relative w-[100%] h-auto bg-[url('/image/background1.jpg')] flex flex-row flex-wrap" }>
+        <div style={windowWidth > 800 ? {clipPath:"polygon(0 20%, 100% 0, 100% 80%, 0 100%)"} : {}} className = {windowWidth > 800 ? "relative w-[100%] h-[100%] bg-[url('/image/background1.jpg')]" : "relative w-[100%] h-auto bg-[url('/image/background1.jpg')] flex flex-row flex-wrap" }>
             <div className="w-[100%] relative top-[25%] flex flex-row flex-wrap">
               {
                 marketing.map(({title, article, icon}, index) => (
-                    <div key={index} className={windowWidth > 800 ? "w-[30%] h-[150px] m-[1%] flex bg-[#f2f2f2]":"w-48%] m-[1%] flex flex-column bg-[#f2f2f2]"}>
+                    <div key={index} className={windowWidth > 800 ? "w-[30%] h-[150px] m-[1%] flex bg-[#f2f2f2]":"w-[48%] m-[1%] flex flex-column bg-[#f2f2f2]"}>
                       <div className={windowWidth > 800 ? "w-[90%]":"w-[100%]"}>
                         {title}
                         {article}

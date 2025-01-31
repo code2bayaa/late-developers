@@ -112,7 +112,7 @@ const ITEM = () => {
         <>
         {/* {console.log(item.variants)} */}
             <div className={windowWidth > 800 ? "w-[100%] h-auto flex flex-row" : "w-[100%] h-auto flex flex-column"}>
-                <div className="w-[60%] h-auto">
+                <div className={windowWidth > 800 ? "w-[60%] h-auto" : "w-[100%] h-auto"}>
                     <div className="w-[100%]">
                         <h1 style={{textAlign:"center",color:"#000",fontSize:"200%"}}>{item.title}</h1>
                     </div>

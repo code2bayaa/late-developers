@@ -55,30 +55,30 @@ const SIGNUP = () => {
 
     const randomCode = Math.floor(1000 + Math.random() * 9999);
 
-    // const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Email/`, {
-    //     cache: "no-store",
-    //     method: 'POST', // HTTP method
-    //     headers: {
-    //       'Content-Type': 'application/json', // Indicates the body is JSON
-    //     },
-    //     body: JSON.stringify({
-    //       RECEIVER: form.email,
-    //       SUBJECT: 'VERIFY YOUR EMAIL',
-    //       MSG:`
-    //         <div style='width:100%'>
-    //             <div style='width:80%;margin-left:10%;'>
-    //                 <h1>Welcome To Late Developers</h1>
-    //                 <p>Use the following code to verify ${randomCode}</p>
-    //                 <p>For more information contact info@late-developers.com © 2025</p>
-    //             </div>
-    //         </div>`
-    //     }), // Convert the data object to JSON
-    //   });
-    // if (!res.ok) {
-    //     swal("Oops!", "Try again!", "error");
-    //     setLoading(false)
-    //     return null
-    // }
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Email/`, {
+        cache: "no-store",
+        method: 'POST', // HTTP method
+        headers: {
+          'Content-Type': 'application/json', // Indicates the body is JSON
+        },
+        body: JSON.stringify({
+          RECEIVER: form.email,
+          SUBJECT: 'VERIFY YOUR EMAIL',
+          MSG:`
+            <div style='width:100%'>
+                <div style='width:80%;margin-left:10%;'>
+                    <h1>Welcome To Late Developers</h1>
+                    <p>Use the following code to verify ${randomCode}</p>
+                    <p>For more information contact info@late-developers.com © 2025</p>
+                </div>
+            </div>`
+        }), // Convert the data object to JSON
+      });
+    if (!res.ok) {
+        swal("Oops!", "Try again!", "error");
+        setLoading(false)
+        return null
+    }
 
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Signup-background`, {
         method: "POST",
@@ -172,10 +172,10 @@ const SIGNUP = () => {
     <div className="w-[100%] h-[100%] bg-[linear-gradient(#fdfcfb,#e2d1c3,#e2d1c3)]">
       <h1 style={{textAlign:"center",fontSize:"200%"}}>Create an Account</h1>
       <div className={windowWidth > 800 ? "w-[100%] h-[60%] flex flex-row" : "w-[100%] h-[auto] flex flex-col-reverse" }>
-          <div className="w-[44%] mx-[5%] bg-[linear-gradient(#900C3F,#900c85bd,#900c85bd)]">
+          <div className={windowWidth > 800 ? "w-[44%] mx-[5%] bg-[linear-gradient(#900C3F,#900c85bd,#900c85bd)]":"w-[100%] mx-[5%] bg-[linear-gradient(#900C3F,#900c85bd,#900c85bd)]"}>
             <Image src = {sign_up} alt="late-developers" className="w-[80%] p-0 m-[-1%] z-[2] object-contain"/>
           </div>
-          <div ref={registerRef} className="w-[45%] grid items-center justify-items-center">
+          <div ref={registerRef} className={windowWidth > 800 ? "w-[45%] grid items-center justify-items-center" : "w-[100%] grid items-center justify-items-center"}>
             <form onSubmit={handleSubmit} className="w-[80%]">
                 <fieldset>
                     <legend>Name</legend>
