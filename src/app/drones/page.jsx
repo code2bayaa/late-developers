@@ -3,11 +3,13 @@ import gsap from "gsap";
 import swal from 'sweetalert';
 import { useState, useEffect, useRef } from "react";
 import dynamic from "next/dynamic"
+import { runThemes } from "@/components/themes";
 const ThreeDScroll = dynamic(() => import("../../models/scene"), { ssr: false });
 
 const DRONES = () => {
 
     const [windowWidth, setWindowWidth] = useState(0);
+    const [loading, setLoading] = useState(false)
     const [form,setForm] = useState({email:""})
     let triggerRef = useRef(null)
 
@@ -30,7 +32,7 @@ const DRONES = () => {
             duration:3,
             delay:1
         })
-  
+        runThemes()
 
       return () => window.removeEventListener("resize", handleResize);
     }, []);
@@ -38,9 +40,11 @@ const DRONES = () => {
     const investorsQuote = async() => {
         try {
             e.preventDefault()
+            setLoading(true)
 
             if(!form.email){
                 swal("Oops!", "input your email", "error");
+                setLoading(false)
                 return
             }
 
@@ -62,9 +66,11 @@ const DRONES = () => {
             }
         
             // return res.json();
+            setLoading(false)
             swal("success!");
         } catch (error) {
             swal("Oops!", error.message, "error");
+            setLoading(false)
             console.log(error);
         }
     }
@@ -186,11 +192,12 @@ Late Developers invites investors to be part of this groundbreaking initiative, 
                             onChange={ e => setForm({...form, [e.target.name]:e.target.value})}
                          />
                         <button
+                            disabled={loading}
                             type="submit"
                             className="w-[100%] h-[40px] bg-[#000]"
                             style={{color:"#fff",fontSize:"150%"}}
                         >
-                            INVESTOR QUOTE
+                            {loading ? "sending" : "INVESTOR QUOTE" }
                         </button>
                     </form>
                 </div>

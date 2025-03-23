@@ -4,6 +4,7 @@ import swal from 'sweetalert';
 import { useState, useEffect, useRef } from "react";
 import dynamic from "next/dynamic"
 const ThreeDScroll = dynamic(() => import("../../models/scene"), { ssr: false });
+import { runThemes } from "../../components/themes"
 
 const ARCADE = () => {
 
@@ -17,6 +18,7 @@ const ARCADE = () => {
   
       window.addEventListener("resize", handleResize);
       handleResize(); // Initialize width
+      runThemes()
       gsap.to("#NavBar",{
             backgroundColor:"#fff",
             color:"#000",

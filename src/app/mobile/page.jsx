@@ -7,12 +7,13 @@ import Link from "next/link"
 import SWIPER from "../../components/swiper";
 import {mobiles} from "@/components/constants.jsx"
 import swal from 'sweetalert';
-
+import { runThemes } from "@/components/themes";
 const WEBSITE = () => {
 
     const [windowWidth, setWindowWidth] = useState(0);
     const [bodyPage, setBodyPage] = useState(null)
     const [form,setForm] = useState({email:""})
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         document.title = `MOBILE DEVELOPMENT - late-developers`;
@@ -32,6 +33,7 @@ const WEBSITE = () => {
             duration:3,
             delay:1
         })
+        runThemes()
   
 
       return () => window.removeEventListener("resize", handleResize);
@@ -52,9 +54,11 @@ const WEBSITE = () => {
         
         try {
             e.preventDefault()
+            setLoading(true)
 
             if(!form.email){
                 swal("Oops!", "input your email", "error");
+                setLoading(false)
                 return
             }
 
@@ -77,8 +81,10 @@ const WEBSITE = () => {
         
             // return res.json();
             swal("success!");
+            setLoading(false)
           } catch (error) {
             swal("Oops!", error.message, "error");
+            setLoading(false)
             console.log(error);
           }
     }
@@ -115,11 +121,12 @@ const WEBSITE = () => {
                             onChange={ e => setForm({...form, [e.target.name]:e.target.value})}
                             />
                         <button
+                            disabled={loading}
                             type="submit"
                             className="w-[100%] h-[40px] bg-[#000]"
                             style={{color:"#fff",fontSize:"150%"}}
                         >
-                            GET QUOTE
+                            {loading ? "sending" : "GET QUOTE" }
                         </button>
                     </form>
 

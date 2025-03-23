@@ -4,6 +4,7 @@ import Image from "next/image";
 import {crm1, crm2} from "@/assets/"
 import { useState, useEffect } from "react";
 import Link from "next/link"
+import { runThemes } from "@/components/themes";
 
 const CRM = () => {
 
@@ -29,6 +30,7 @@ const CRM = () => {
             duration:3,
             delay:1
         })
+        runThemes()
   
       return () => window.removeEventListener("resize", handleResize);
     }, []);

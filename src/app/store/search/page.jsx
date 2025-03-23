@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import { useSearchParams } from 'next/navigation';
 import PRODUCTS from "@/components/products"
 import { Suspense } from "react";
+import { runThemes } from "@/components/themes";
 
 const SEARCH = () => {
 
@@ -15,6 +16,7 @@ const SEARCH = () => {
     useEffect(() => {
         try {
             setProducts({...products, loading : true})
+            runThemes()
             // console.log("query :", query)
             async function runProducts(){
                 const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Products/${query}`,{

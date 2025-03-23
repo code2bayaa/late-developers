@@ -4,6 +4,7 @@ import Image from "next/image";
 import {erp1, erp2} from "@/assets/"
 import { useState, useEffect } from "react";
 import Link from "next/link"
+import { runThemes } from "@/components/themes";
 
 const ERP = () => {
 
@@ -28,6 +29,7 @@ const ERP = () => {
             duration:3,
             delay:1
         })
+        runThemes()
   
       return () => window.removeEventListener("resize", handleResize);
     }, []);

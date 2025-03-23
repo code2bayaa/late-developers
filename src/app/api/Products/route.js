@@ -164,10 +164,10 @@ export async function POST(request){
         }
         );
     
-        return NextResponse.json({ products: response.data.data.products }, { status: 200 });
+        return NextResponse.json({ products: response.data.data.products, status:true }, { status: 200 });
     }catch(error){
         console.log(error)
-        return NextResponse.json({ error : error.message}, { status: 500 }) 
+        return NextResponse.json({ error : error.message, status:false }, { status: 500 }) 
     }
 
 }

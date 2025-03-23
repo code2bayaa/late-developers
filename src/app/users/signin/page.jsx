@@ -6,6 +6,7 @@ import {login, sign_up, forgot_password} from "@/assets"
 import swal from "sweetalert"
 import Image from "next/image";
 import Link from "next/link"
+import { runThemes } from "@/components/themes";
 
 export default function Signin() {
   const [form, setForm] = useState({email:"",password:""});
@@ -16,9 +17,10 @@ export default function Signin() {
 
 
   useLayoutEffect(() => {
-    if(session && session.hasOwnProperty("user")){
+    if(session && session.hasOwnProperty("user") && session.user.hasOwnProperty("id")){
       router.push("/users/dashboard")
     }
+    runThemes()
     setWindowWidth(() => window.screen.width)
   },[session])
 
@@ -70,7 +72,7 @@ export default function Signin() {
   };
 
   return (
-    <div className="w-[100%] h-[auto] bg-[linear-gradient(#fdfcfb,#e2d1c3,#e2d1c3)]">
+    <div className="w-[100%] h-[auto] min-h-[100%] bg-[linear-gradient(#fdfcfb,#e2d1c3,#e2d1c3)]">
       <h1 style={{textAlign:"center",fontSize:"200%"}}>User Login</h1>
       <div className={windowWidth > 800 ? "w-[100%] h-[60%] flex flex-row" : "w-[100%] h-[auto] flex flex-col-reverse" }>
           <div className={windowWidth > 800 ? "w-[44%] mx-[5%] bg-[linear-gradient(#900C3F,#900c85bd,#900c85bd)]" : "w-[100%] bg-[linear-gradient(#900C3F,#900c85bd,#900c85bd)]"}>
@@ -103,7 +105,9 @@ export default function Signin() {
                 type="submit"
                 disabled={loading}
                 className="w-[40%] h-[40px] text-white bg-[#000] mx-[30%]"
-                >Login</button>
+                >
+                  {loading ? "signing in...":"Login"}
+                </button>
               <fieldset>
                   <Link href="/users/signup" className="w-[48%] m-[1%] underline">Create an Account</Link>
                   <Link href="/users/forgot" className="w-[48%] m-[1%] underline">Forgot Password</Link>     

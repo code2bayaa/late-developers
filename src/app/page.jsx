@@ -8,33 +8,76 @@ import "plyr-react/plyr.css"
 // import { logo1 } from "../assets"
 import Slider from "react-slick";
 import {clients, accreditors, marketing} from "./../components/constants"
-import {useLayoutEffect, useEffect, useState} from "react"
+import {useLayoutEffect, useRef, useEffect, useState} from "react"
 import { avatar, solutions1, solutions2, solutions3, solutions4, wave1, wave3 } from "@/assets";
 // import waveImage from '@/assets/wave.gif';
 import { faHandFist, faHeart } from "@fortawesome/free-solid-svg-icons";
 import gsap from "gsap"
+import { ScrollTrigger } from "gsap/all";
+import { runThemes } from "@/components/themes";
+import Link from "next/link";
 export default function Home() {
 
   const [plyrMode, setPlyrMode] = useState(null)
+  const textRef = useRef(null)
+  const textAllRef = useRef(null)
 
   const [windowWidth, setWindowWidth] = useState(0);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.screen.width);
-
+    runThemes()
     window.addEventListener("resize", handleResize);
     handleResize(); // Initialize width
     gsap.to("#NavBar",{
       backgroundImage: "linear-gradient( #900C3F , #900c85bd, #900c85bd)",
       color:"#fff",
-      duration:3
-  })
+      duration:5
+    })
 
-  gsap.to("#logo",{
-      backgroundColor:"#fff",
-      duration:3,
-      delay:1
-  })
+    gsap.registerPlugin(ScrollTrigger);
+    
+    const textAll = document.querySelectorAll("#textAll");
+    // const lettersAll = textAll.innerText.split("");
+
+    // textAll.innerHTML = lettersAll.map(letter => `<span style="opacity:0;">${letter}</span>`).join("");
+
+    // gsap.utils.toArray("p").forEach(span =>
+    textAll.forEach( all => {
+      gsap.fromTo(
+        all.children,
+        { y: 50, opacity: 0 }, // Start position (bottom & invisible)
+        { y: 0, opacity: 1, duration: 2, ease: "power3.out",
+          scrollTrigger:{
+            trigger:all,
+            scroller:"#main-body",
+            start:"top 10%",
+            end:"bottom bottom",
+            // markers:true
+          }
+        }, // End position (visible)
+
+
+      )
+    })
+    // )
+
+    gsap.to("#logo",{
+        backgroundColor:"#fff",
+        duration:3,
+        delay:1
+    })
+    const text = textRef.current;
+    const letters = text.innerText.split("");
+
+    text.innerHTML = letters.map(letter => `<span style="opacity:0;">${letter}</span>`).join("");
+
+    gsap.to(text.children, {
+      opacity: 1,
+      stagger: 0.1, // Delay between each letter
+      duration: 0.5,
+      ease: "power1.out",
+    });
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -85,9 +128,9 @@ export default function Home() {
             {/* <Image src = {wave1} alt="late-developers" style={{height:"50%"}} className="w-[20%] p-0 m-[-1%] z-[2] object-contain"/> */}
             <div className={windowWidth > 800 ? "w-[100%] my-[20%] relative":"w-[100%] relative my-[20%]"}>
               <h1 style={{color:windowWidth > 800 ? "#000" : "#fff"}}>STILL UNDER CONSTRUCTION</h1>
-              <h1 style={{fontSize:windowWidth > 800 ? "300%" : "180%",color:windowWidth > 800 ? "#000" : "#fff"}}><i><b>Late Developers</b></i></h1>
+              <h1 style={{fontSize:windowWidth > 800 ? "300%" : "180%",color:windowWidth > 800 ? "#000" : "#fff"}}><b>Late Developers</b></h1>
               
-              <h2 style={{fontSize:windowWidth > 800 ? "300%" : "180%"}} className="text-rose-900"><b>ICT SOLUTIONS & SERVICES</b></h2>
+              <h2 ref={textRef} style={{fontSize:windowWidth > 800 ? "300%" : "180%"}} className="text-rose-900"><b>ICT SOLUTIONS & SERVICES</b></h2>
               <h3 style={{fontSize:windowWidth > 800 ? "200%" : "150%",color:windowWidth > 800 ? "#000" : "#fff"}}>late again</h3>
             </div>
           </div>
@@ -111,7 +154,7 @@ export default function Home() {
             }
           />
         </div>
-        <div className = {windowWidth > 800 ? "relative w-[100%] h-[60%]" : "relative w-[100%] h-auto" }>
+        <div ref={textAllRef} id="textAll" className = {windowWidth > 800 ? "relative w-[100%] h-[60%]" : "relative w-[100%] h-auto" }>
           <div className={windowWidth > 800 ? "w-[80%] h-[100%] relative left-[10%] bg-[#E1F977] text-[#411342] flex flex-row":"w-[100%] h-[100%] relative bg-[#E1F977] text-[#411342] flex flex-col"}>
             <article className={windowWidth > 800 ? "w-[48%] m-[1%] text-center ":"w-[98%] m-[1%] text-center "}>
               <FontAwesomeIcon style={{fontSize:"400%",color:"#411342",textAlign:"center"}} icon={faHeart}/>
@@ -125,7 +168,7 @@ export default function Home() {
             </article>
           </div>
         </div>
-        <div style={windowWidth > 800 ? {clipPath:"polygon(0 20%, 100% 0, 100% 80%, 0 100%)"} : {}} className = {windowWidth > 800 ? "relative w-[100%] h-[100%] bg-[url('/image/background1.jpg')]" : "relative w-[100%] h-auto bg-[url('/image/background1.jpg')] flex flex-row flex-wrap" }>
+        <div ref={textAllRef} id="textAll" style={windowWidth > 800 ? {clipPath:"polygon(0 20%, 100% 0, 100% 80%, 0 100%)"} : {}} className = {windowWidth > 800 ? "relative w-[100%] h-[100%] bg-[url('/image/background1.jpg')]" : "relative w-[100%] h-auto bg-[url('/image/background1.jpg')] flex flex-row flex-wrap" }>
             <div className="w-[100%] relative top-[25%] flex flex-row flex-wrap">
               {
                 marketing.map(({title, article, icon}, index) => (
@@ -166,11 +209,11 @@ export default function Home() {
           
         </div>
 
-        <div className = {windowWidth > 800 ? "relative w-[100%] h-[60%] bg-[#411342]" : "relative w-[100%] h-auto bg-[#411342]" }>
-          <Image src = {avatar} alt="late-developers" style={{height:windowWidth ? "100%" : "50%"}} className={windowWidth > 800 ? "float-left w-[20%] p-0 m-[-1%] z-[2] object-contain" : "w-[100%] object-contain"}/>
-          <div className="w-[98%] m-[1%] text-center">
+        <div ref={textAllRef} id="textAll" className = {windowWidth > 800 ? "relative w-[60%] mx-[20%] h-[100%] bg-[#411342] flex flex-row" : "relative w-[100%] h-auto bg-[#411342]" }>
+          <Image src = {avatar} alt="late-developers" style={{height:windowWidth ? "100%" : "50%"}} className={windowWidth > 800 ? "w-[40%] p-0 m-[1%] z-[2] object-contain" : "w-[100%] object-contain"}/>
+          <div className="w-[60%] m-[1%] text-center" style={{borderLeft:"1px solid #fff"}}>
               <h1 className="text-rose-800" style={{fontSize:"180%"}}>Quality Means No Compromise</h1>
-              <article className="p-[2px]  text-white">
+              <article className="text-white text-justify">
                 At <i>Late Developers</i>, we recognize that technology is more than just a tool; it is an enabler. By equipping young people with programming and digital skills, we empower them to innovate, create, and thrive in a competitive global marketplace. Our programming school curriculum is designed not just to teach coding but to inspire problem-solving, critical thinking, and creativity—skills that are indispensable in the 21st century.
                 Catalyzing Economic Growth
                 The economic impact of digital literacy cannot be overstated. As Kenya seeks to solidify its position as a technological hub in Africa, a skilled workforce is essential. <i>Late Developers</i> is committed to producing tech talent that will contribute to key industries such as finance, healthcare, education, and agriculture.
@@ -228,6 +271,13 @@ export default function Home() {
               </article>
 
             </div>
+          </div>
+        </div>
+        <div className="w-[100%] h-[30%] grid justify-items-center">
+          <div className="bg-[#1C2B33] w-[60%] h-[100%] text-center justify-text rounded text-white">
+              <h1>Subscribe To Our Newsletters</h1>
+              <p>Be in the know on cloud, AI as well as online market trends</p>
+              <Link href="/newsletter" className="underline">SIGN UP</Link>
           </div>
         </div>
         <div className = {windowWidth > 800 ? "relative w-[100%] h-[90%]" : "relative w-[100%] h-auto" }>

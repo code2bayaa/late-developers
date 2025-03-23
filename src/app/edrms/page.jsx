@@ -4,6 +4,7 @@ import Image from "next/image";
 import {edrms1, edrms2} from "@/assets/"
 import { useState, useEffect } from "react";
 import Link from "next/link"
+import { runThemes } from "@/components/themes";
 
 const EDRMS = () => {
 
@@ -29,6 +30,7 @@ const EDRMS = () => {
   
       window.addEventListener("resize", handleResize);
       handleResize(); // Initialize width
+      runThemes()
   
       return () => window.removeEventListener("resize", handleResize);
     }, []);

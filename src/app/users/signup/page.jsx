@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import gsap from "gsap"
 import { faEye, faEyeLowVision, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link"
+import { runThemes } from "@/components/themes";
 
 const SIGNUP = () => {
   const [form, setForm] = useState({name:"",email:"",password:"",repeat_password:"",telephone:""});
@@ -31,6 +32,7 @@ const SIGNUP = () => {
     if(session && session.hasOwnProperty("user")){
       router.push("/users/dashboard")
     }
+    runThemes()
     setWindowWidth(() => window.screen.width)
   },[session])
 
@@ -55,32 +57,32 @@ const SIGNUP = () => {
 
     const randomCode = Math.floor(1000 + Math.random() * 9999);
 
-    // const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Email/`, {
-    //     cache: "no-store",
-    //     method: 'POST', // HTTP method
-    //     headers: {
-    //       'Content-Type': 'application/json', // Indicates the body is JSON
-    //     },
-    //     body: JSON.stringify({
-    //       RECEIVER: form.email,
-    //       SUBJECT: 'VERIFY YOUR EMAIL',
-    //       MSG:`
-    //         <div style='width:100%'>
-    //             <div style='width:80%;margin-left:10%;'>
-    //                 <h1>Welcome To Late Developers</h1>
-    //                 <p>Use the following code to verify ${randomCode}</p>
-    //                 <p>For more information contact info@late-developers.com © 2025</p>
-    //             </div>
-    //         </div>`
-    //     }), // Convert the data object to JSON
-    //   });
-    // if (!res.ok) {
-    //     swal("Oops!", "Try again!", "error");
-    //     setLoading(false)
-    //     return null
-    // }
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Email/`, {
+        cache: "no-store",
+        method: 'POST', // HTTP method
+        headers: {
+          'Content-Type': 'application/json', // Indicates the body is JSON
+        },
+        body: JSON.stringify({
+          RECEIVER: form.email,
+          SUBJECT: 'VERIFY YOUR EMAIL',
+          MSG:`
+            <div style='width:100%'>
+                <div style='width:80%;margin-left:10%;'>
+                    <h1>Welcome To Late Developers</h1>
+                    <p>Use the following code to verify ${randomCode}</p>
+                    <p>For more information contact info@late-developers.com © 2025</p>
+                </div>
+            </div>`
+        }), // Convert the data object to JSON
+      });
+    if (!res.ok) {
+        swal("Oops!", "Try again!", "error");
+        setLoading(false)
+        return null
+    }
 
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Signup-background`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Signup`, {
         method: "POST",
         body:JSON.stringify({...form, randomCode}),
         headers: {
@@ -246,7 +248,9 @@ const SIGNUP = () => {
                 type="submit"
                 disabled={loading}
                 className="w-[40%] h-[40px] text-white bg-[#000] mx-[30%]"
-                >Register</button>
+                >
+                    {loading?"registering...":"Register"}
+                </button>
                 <fieldset>
                     <Link href="/users/signin" className="w-[48%] m-[1%] underline">Sign In</Link>
                     <Link href="/users/forgot" className="w-[48%] m-[1%] underline">Forgot Password</Link>     
@@ -267,7 +271,9 @@ const SIGNUP = () => {
                     type="submit"
                     disabled={verifyLoading}
                     className="w-[40%] h-[40px] text-white bg-[#000] mx-[30%]"
-                    >Verify</button>
+                    >
+                        {verifyLoading ? "verifying..." : "VERIFY"}
+                    </button>
                 </form>
             </div>
 

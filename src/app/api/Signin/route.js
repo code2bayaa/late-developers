@@ -1,36 +1,29 @@
-import db from "./lib/database";
+// import db from "./lib/database";
 // import { errorMonitor } from "events";
 import {NextResponse} from "next/server"
+import axios from "axios"
 // import NextAuth from "next-auth";
 // import CredentialsProvider from "next-auth/providers/credentials";
-import { hash } from "bcrypt";
+// import { hash } from "bcrypt";
 
 export async function POST(request){
     const body = await request.json();
     const { email, password } = body;
-
-    if (!email || !password) {
-      return NextResponse.json({ message: 'Email and password are required' }, {status:400});
-    }
   
     try {
 
-      const constantSalt = "$2b$10$ABCDEFGHIJKLMNOPQRSTUV";
-
-      const hashedPassword = await hash(password, constantSalt);
-
-      const [rows] = await db.query(
-        'SELECT * FROM users WHERE email = ? AND password = ?',
-        [email, hashedPassword] // Ideally, use hashed passwords for security.
-      );
+      const response = await axios.post(`${process.env.BACKEND_API}/netlify/signin`,
+        {email, password},
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+      });
   
-      if (rows.length > 0) {
-        // Update is_logged_in if required
-        await db.query('UPDATE users SET is_logged_in = 1 WHERE id = ?', [rows[0].id]);
-  
-        return NextResponse.json({ message: 'User is logged in', status:true, user: rows[0] },{status:200});
+      if (response.data.status) {  
+        return NextResponse.json({ message: 'User is logged in', status:true, user: response.data.user[0] },{status:200});
       } else {
-        return NextResponse.json({ message: 'Invalid credentials', hashedPassword },{status:401});
+        return NextResponse.json({ message: 'Invalid credentials', hashedPassword:response.data.hashedPassword },{status:401});
       }
     } catch (error) {
       console.error(error);

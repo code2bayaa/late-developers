@@ -6,8 +6,10 @@ import { useSession, signOut } from "next-auth/react";
 import swal from 'sweetalert';
 import {useRouter} from "next/navigation"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMinusCircle, faPlus, faShoppingBasket } from "@fortawesome/free-solid-svg-icons";
+import { faMinusCircle, faPlus, faShoppingBasket, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { Suspense } from "react";
+import RATECOMPONENT from "@/components/Rate"
+import { runThemes } from "@/components/themes";
 
 const ITEM = () => {
 
@@ -15,13 +17,21 @@ const ITEM = () => {
     const query = searchParams.get('query');
     const [item, setItem] = useState({})
     const [variant, setVariant] = useState(null)
-    let [quantity, setQuantity] = useState(1)
+    const [checkout, setCheckout] = useState(0)
+    // let [quantity, setQuantity] = useState(1)
     const [windowWidth, setWindowWidth] = useState(0);
+    const [feedbacks, setFeedbacks] = useState([])
     const { data:session, status } = useSession();
+    const [loading, setLoading] = useState(false)
+    const [buttonCart, setButtonCart] = useState("Add To Cart")
     const router = useRouter()
 
     useEffect(() => {
         try {
+            if(localStorage.getItem("checkout")){
+                setCheckout(JSON.parse(localStorage.getItem("checkout")).length)
+            }
+
             async function runItem(){
                 const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Products/Item`,{
                     // cache: "no-store",
@@ -37,11 +47,38 @@ const ITEM = () => {
                 const {products} = await res.json()
                 console.log(products)
                 setItem(() => ({...products}))
+                if(JSON.parse(localStorage.getItem("checkout")).find(id => products.variants.edges.map(({node}) => node.id).includes(id))){
+                    setButtonCart("Added")
+                    setLoading(true)
+                }
             } 
 
             runItem()
+            runThemes()
             const handleResize = () => setWindowWidth(window.screen.width);
             handleResize()
+
+
+            async function runFeedback(){
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Orders/Feedback`,{
+                    // cache: "no-store",
+                    method:"POST",
+                    body : JSON.stringify({
+                        item:item?.variants?.edges.map(({node}) => node.id),
+                        session:session?.user?.email
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json', // Indicates the body is JSON
+                    },
+                });
+
+                const {product_feedbacks} = await res.json()
+
+                setFeedbacks(() => [...product_feedbacks])
+            }
+
+            runFeedback()
+
 
         } catch (error) {
             console.log(error);
@@ -60,10 +97,10 @@ const ITEM = () => {
     const buyItem = async(id, price) => {
         console.log("session",session)
         setVariant(id)
-        swal("selected","price selected :" + price,"success")
+        swal("selected","price selected:" + price,"success")
     }
 
-    const AddToCart = async() => {
+    const AddToCart = async(e) => {
         try{
             if(!variant){
                 swal("oops!","choose a price tag from above","error")
@@ -82,31 +119,27 @@ const ITEM = () => {
                     router.push("/users/signin")
                   }
             }else{
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Checkout/`,{
-                    // cache: "no-store",
-                    method:"POST",
-                    body : JSON.stringify({
-                        id:variant,
-                        quantity
-                    }),
-                    headers: {
-                        'Content-Type': 'application/json', // Indicates the body is JSON
-                    },
-                });
+                const checkoutArray = localStorage.getItem("checkout") ?  JSON.parse(localStorage.getItem("checkout")) : []
+                checkoutArray.push(variant)
+                localStorage.setItem("checkout",JSON.stringify(checkoutArray))
+                setCheckout(JSON.parse(localStorage.getItem("checkout")).length)
+                setLoading(true)
+                swal("Item added")
+                setButtonCart("Added")
             }
         }catch(error){
 
         }
     }
 
-    const toggleQuantity = (direction) => {
-        if(direction && quantity > 1){
-            quantity--
-        }else{
-            quantity++
-        }
-        setQuantity(quantity)
-    }
+    // const toggleQuantity = (direction) => {
+    //     if(direction && quantity > 1){
+    //         quantity--
+    //     }else{
+    //         quantity++
+    //     }
+    //     setQuantity(quantity)
+    // }
 
     return (
         <>
@@ -115,6 +148,10 @@ const ITEM = () => {
                 <div className={windowWidth > 800 ? "w-[60%] h-auto" : "w-[100%] h-auto"}>
                     <div className="w-[100%]">
                         <h1 style={{textAlign:"center",color:"#000",fontSize:"200%"}}>{item.title}</h1>
+                    </div>
+                    <div className="w-[100%]">
+                        <p>{checkout ? checkout : ""}</p>
+                        <FontAwesomeIcon icon={faCartShopping}/>
                     </div>
                     <div className={windowWidth > 800 ? "w-[100%] flex flex-row" : "w-[100%] flex flex-col"}>
                         {
@@ -144,7 +181,7 @@ const ITEM = () => {
                             )
                         }
                     </div>
-                    <div className="w-[100%] items-center grid">
+                    {/* <div className="w-[100%] items-center grid">
                         <h2 style={{textAlign:"center"}}>Quantity</h2>
                         <div className={windowWidth > 800 ? "w-[80%] flex flex-wrap flex-row" : "w-[100%] flex flex-wrap flex-row"}>
                             <button
@@ -168,18 +205,34 @@ const ITEM = () => {
                                 <FontAwesomeIcon style={{fontSize:"150%",color:"#fff",textAlign:"center"}} icon={faPlus}/>
                             </button>
                         </div>
-                    </div>
+                    </div> */}
                     <div className="w-[100%]">
                         <button
+                            disabled={loading}
                             type="button"
-                            className={windowWidth > 800 ? "w-[80%] h-[60px] rounded-md  bg-[linear-gradient(#411342,rgba(0,0,0,0.76),rgba(0,0,0,0.65))] m-[1%] text-white" : "w-[98%] h-[60px] rounded-md  bg-[linear-gradient(#411342,rgba(0,0,0,0.76),rgba(0,0,0,0.65))] m-[1%] text-white"}
-                            onClick={() => AddToCart()}
+                            className={windowWidth > 800 ? "w-[80%] h-[60px] rounded-md  bg-[linear-gradient(#000,rgba(0,0,0,0.76),rgba(0,0,0,0.65))] m-[1%] text-white" : "w-[98%] h-[60px] rounded-md  bg-[linear-gradient(#411342,rgba(0,0,0,0.76),rgba(0,0,0,0.65))] m-[1%] text-white"}
+                            onClick={AddToCart}
                             >
-                            <strong>Add To Cart</strong><FontAwesomeIcon style={{fontSize:"200%",color:"#fff",textAlign:"center"}} icon={faShoppingBasket}/>
+                            <strong>{buttonCart}</strong><FontAwesomeIcon style={{fontSize:"200%",color:"#fff",textAlign:"center"}} icon={faShoppingBasket}/>
                         </button>  
                     </div>
+                    <div className="w-[100%]">
+                        <div className="w-[90%] mx-[5%] flex flex-col">
+                            {
+                                feedbacks.map(({feedback, rate}) => 
+                                    <div className="w-[100%]">
+                                        <RATECOMPONENT rate={rate} />
+                                        <div className="w-[100%] italic">
+                                            {feedback}
+                                        </div>
+                                    </div>
+                                    
+                                )
+                            }
+                        </div>
+                    </div>
                 </div>
-                <div className={windowWidth > 800 ? "w-[40%] bg-[linear-gradient(#000,rgba(0,0,0,0.56),rgba(0,0,0,0.45))] text-white" : "w-[100%] bg-[linear-gradient(#000,rgba(0,0,0,0.56),rgba(0,0,0,0.45))] text-white"}>
+                <div style={{borderLeft:"1px solid #ccc"}} className={windowWidth > 800 ? "w-[40%] bg-[#FAF9F6]" : "w-[100%] bg-[#FAF9F6]"}>
                     
                     <article>
                         <h1>Product Features</h1>

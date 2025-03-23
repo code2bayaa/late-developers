@@ -4,6 +4,7 @@ import Image from "next/image";
 import {email1, email2} from "@/assets/"
 import { useState, useEffect } from "react";
 import Link from "next/link"
+import { runThemes } from "@/components/themes";
 
 const EMAIL = () => {
 
@@ -27,6 +28,7 @@ const EMAIL = () => {
             duration:3,
             delay:1
         })
+        runThemes()
   
       return () => window.removeEventListener("resize", handleResize);
     }, []);

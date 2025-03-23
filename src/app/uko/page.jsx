@@ -3,12 +3,14 @@ import gsap from "gsap";
 import swal from 'sweetalert';
 import { useState, useEffect, useRef } from "react";
 import dynamic from "next/dynamic"
+import { runThemes } from "@/components/themes";
 const ThreeDScroll = dynamic(() => import("../../models/scene"), { ssr: false });
 
 const UKO = () => {
 
     const [windowWidth, setWindowWidth] = useState(0);
     const [form,setForm] = useState({email:""})
+    const [loading, setLoading] = useState(false)
     let triggerRef = useRef(null)
 
     useEffect(() => {
@@ -30,7 +32,7 @@ const UKO = () => {
             duration:3,
             delay:1
         })
-  
+        runThemes()
 
       return () => window.removeEventListener("resize", handleResize);
     }, []);
@@ -38,9 +40,10 @@ const UKO = () => {
     const investorsQuote = async() => {
         try {
             e.preventDefault()
-
+            setLoading(true)
             if(!form.email){
                 swal("Oops!", "input your email", "error");
+                setLoading(false)
                 return
             }
 
@@ -63,8 +66,10 @@ const UKO = () => {
         
             // return res.json();
             swal("success!");
+            setLoading(false)
         } catch (error) {
             swal("Oops!", error.message, "error");
+            setLoading(false)
             console.log(error);
         }
     }
@@ -178,11 +183,12 @@ const UKO = () => {
                             onChange={ e => setForm({...form, [e.target.name]:e.target.value})}
                          />
                         <button
+                            disabled={loading}
                             type="submit"
                             className="w-[100%] h-[40px] bg-[#000]"
                             style={{color:"#fff",fontSize:"150%"}}
                         >
-                            INVESTOR QUOTE
+                            {loading ? "sending..." : "INVESTOR QUOTE"}
                         </button>
                     </form>
                 </div>

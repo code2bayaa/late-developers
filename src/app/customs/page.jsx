@@ -4,6 +4,7 @@ import Image from "next/image";
 import {custom1, custom2} from "@/assets/"
 import { useState, useEffect } from "react";
 import Link from "next/link"
+import { runThemes } from "@/components/themes";
 
 const CUSTOM = () => {
 
@@ -29,6 +30,7 @@ const CUSTOM = () => {
             duration:3,
             delay:1
         })
+        runThemes()
   
       return () => window.removeEventListener("resize", handleResize);
     }, []);

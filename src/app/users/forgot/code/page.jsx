@@ -10,6 +10,7 @@ import { faEye, faEyeLowVision, faEyeSlash } from "@fortawesome/free-solid-svg-i
 
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
+import { runThemes } from "@/components/themes";
 
 
 const CHANGE = () => {
@@ -27,6 +28,7 @@ const CHANGE = () => {
   const [windowWidth, setWindowWidth] = useState(0)
 
   useEffect(() => {
+    runThemes()
     setWindowWidth(() => window.screen.width)
   },[])
   const repeatPassword = (e) => {
@@ -132,7 +134,9 @@ const CHANGE = () => {
                 type="submit"
                 disabled={loading}
                 className="w-[40%] h-[40px] text-white bg-[#000] mx-[30%]"
-                >Change Password</button>
+                >
+                  {loading ? "changing..." : "Change Password"}
+                </button>
             </form>
           </div>
       </div>

@@ -4,7 +4,7 @@ import Image from "next/image";
 import {hr1, hr2} from "@/assets/"
 import { useState, useEffect } from "react";
 import Link from "next/link"
-
+import { runThemes } from "@/components/themes";
 const HR = () => {
 
     const [windowWidth, setWindowWidth] = useState(0);
@@ -27,6 +27,7 @@ const HR = () => {
             duration:3,
             delay:1
         })
+        runThemes()
   
       return () => window.removeEventListener("resize", handleResize);
     }, []);

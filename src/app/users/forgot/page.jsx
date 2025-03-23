@@ -6,6 +6,7 @@ import swal from "sweetalert"
 import Image from "next/image";
 import Link from "next/link"
 import { useSession, signIn } from "next-auth/react";
+import { runThemes } from "@/components/themes";
 
 export default function FORGOT() {
   const [form, setForm] = useState({email:""});
@@ -19,6 +20,7 @@ export default function FORGOT() {
     if(session && session.hasOwnProperty("user")){
       router.push("/users/dashboard")
     }
+    runThemes()
     setWindowWidth(() => window.screen.width)
   },[session])
 
@@ -99,7 +101,9 @@ export default function FORGOT() {
                 type="submit"
                 disabled={loading}
                 className="w-[40%] h-[40px] text-white bg-[#000] mx-[30%]"
-                >Send Email</button>
+                >
+                  {loading ? "sending..." :"Send Email"}
+                </button>
               <fieldset>
                   <Link href="/users/signup" className="w-[48%] m-[1%] underline">Create an Account</Link>
                   <Link href="/users/signin" className="w-[48%] m-[1%] underline">Sign In</Link>     

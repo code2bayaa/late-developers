@@ -40,14 +40,21 @@ const FOOTER = () => {
                     <h2>Quick Links</h2>
                         <div className='w-[100%] flex flex-col'>
                             <Link
-                                href="/about"
+                                href="/store"
+                                className="theme-color-six links"
+
+                            >
+                                <FontAwesomeIcon icon={faArrowRightLong}/> SHOP
+                            </Link>
+                            <Link
+                                href="/erp"
                                 className="theme-color-six links"
 
                             >
                                 <FontAwesomeIcon icon={faArrowRightLong}/> SOLUTIONS
                             </Link>
                             <Link
-                                href="/projects"
+                                href="/uko"
                                 className="theme-color-six links"
 
                             >

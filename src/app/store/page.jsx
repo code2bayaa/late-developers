@@ -2,6 +2,8 @@
 import { useState, useEffect, useLayoutEffect } from "react"
 import PRODUCTS from "../../components/products"
 import swal from 'sweetalert';
+import { runThemes } from "@/components/themes";
+
 // import dynamic from "next/dynamic";
 // const useRouter = dynamic(() => import("next/router"), { ssr: false });
 const STORE = () => {
@@ -10,6 +12,7 @@ const STORE = () => {
     
     const [form, setForm] = useState({input:""})
     const [products, setProducts] = useState({products : [], offset:null, next:true, loading : false})
+    
     // const [offset, setOffset] = useState(null)
     // const [hasNextPage, setHasNextPage] = useState(true);
     // const [loading, setLoading] = useState(false)
@@ -19,6 +22,8 @@ const STORE = () => {
         try {
 
             setProducts({...products, loading : true})
+
+            runThemes()
 
             async function runProducts(){
                 const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Products/`,{
@@ -34,8 +39,11 @@ const STORE = () => {
                 });
         
                 const data = await res.json()
-                // console.log(data.products)
-                setProducts(() => ({...products, products:[...data.products.edges], loading : false}))
+                // console.log(data)
+                if(data.status)
+                    setProducts(() => ({ products:[...data?.products?.edges], loading : false}))
+                else
+                    setProducts(() => ({ ...products, loading : false}))
                 // setOffset(data.products.pageInfo.endCursor); // Update the cursor for the next fetch
                 // setHasNextPage(data.products.pageInfo.hasNextPage); // Update the hasNextPage flag
                 // setLoading(false)

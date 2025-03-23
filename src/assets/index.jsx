@@ -58,8 +58,21 @@ import forgot_password from "./forgot_password.svg"
 import shopping from "./shopping.jpg"
 import shopping1 from "./shopping1.jpg"
 import shopping2 from "./shopping.svg"
+import users from "./user.svg"
+import logistics from "./logistics.svg"
+import load from "./load.gif"
+import feedback from "./feedback.webp"
+import contact from "./contact.png"
+// import newsletter from "./news"
+import social from "./social.svg"
 
 export {
+    social,
+    contact,
+    feedback,
+    load,
+    logistics,
+    users,
     shopping,
     shopping1,
     shopping2,
