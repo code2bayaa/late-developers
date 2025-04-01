@@ -13,9 +13,9 @@ export async function GET(){
               'Content-Type': 'application/json',
             },
         });
-
+        console.log(response)
         if(response.data.status)
-          return NextResponse.json({body:response.body, status:true},{status:200})
+          return NextResponse.json({body:response.data.body, status:true},{status:200})
         else
           return NextResponse.json({status:false},{status:400})
       }catch(error){

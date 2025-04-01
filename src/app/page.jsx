@@ -16,6 +16,8 @@ import gsap from "gsap"
 import { ScrollTrigger } from "gsap/all";
 import { runThemes } from "@/components/themes";
 import Link from "next/link";
+import {COLLECT} from "@/components/reports.jsx"
+
 export default function Home() {
 
   const [plyrMode, setPlyrMode] = useState(null)
@@ -25,6 +27,7 @@ export default function Home() {
   const [windowWidth, setWindowWidth] = useState(0);
 
   useEffect(() => {
+    COLLECT()
     const handleResize = () => setWindowWidth(window.screen.width);
     runThemes()
     window.addEventListener("resize", handleResize);
@@ -140,7 +143,7 @@ export default function Home() {
                   type:"video",
                   sources: [
                   {
-                      src: "i929cusfg60", // YouTube video ID
+                      src: "v-ZhNWabqa8", // YouTube video ID
                       provider: "youtube",
                   },
                   ],

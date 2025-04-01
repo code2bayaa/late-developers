@@ -175,4 +175,107 @@ const marketing = [
     }
 ]
 
-export { clients, accreditors, websites, mobiles, marketing }
+const blogs = [
+    {
+        title:"PHISHING",
+        header:"PHISHING FOR LATE DEVELOPERS",
+        description:<>
+            <article style={{textAlign:"justify",width:"80%",marginLeft:"10%"}}>
+            <span class = "gradient-text">M</span>odern innovations like smartphones, cloud computing, 
+            and social media have given rise to a hyperconnected 
+            society and radically transformed the workplace. It has 
+            never been easier to keep in touch with your peers around the 
+            globe, expand your professional networks, or collaborate with 
+            your colleagues. The traditional office-based work model looks 
+            increasingly outdated today; with a plethora of digital communi
+            cation channels and online tools at their fingertips, today’s teams 
+            can work on complex projects without being in the same 
+            location.
+            However, there are downsides to this high level of digitization. 
+            One of the biggest is the fact that it has opened a host of new 
+            avenues for cybercriminals to carry out phishing attacks. These 
+            attacks can occur anytime and anywhere. Anyone who uses the 
+            Internet is vulnerable to them. This chapter introduces you to 
+            phishing and goes over some of the basics of phishing including 
+            the issues that lead to phishing attacks.
+        </article>
+        <article style={{textAlign:"justify",width:"80%",marginLeft:"10%"}}>
+            <em>Phishing</em> is a type of electronically delivered social engineering 
+            attack in which a perpetrator, often posing as a legitimate entity, 
+            attempts to obtain sensitive information from an unsuspecting 
+            individual or to infect their device with malware. The motivations 
+            for phishing attacks vary widely, but often attackers are after 
+            valuable user data, such as personally identifiable information 
+            or login credentials that can be used to commit fraud or access 
+            the victim’s finances. In some cases, they may be trying to steal 
+            research, financial data, or health records from an institution. 
+            Some attackers may use phishing for social or political gain, as 
+            part of a hacktivism campaign, or to cause disruption or spread 
+            disinformation.
+            Though the practice of phishing is almost as old as the Internet 
+            itself, attacks have grown more sophisticated in recent years. It’s 
+            not just about email anymore. Multistage, multivector attacks, 
+            bypassing traditionally secure multifactor authentication (MFA), 
+            have become the norm, and artificial intelligence (AI) chatbots are 
+            being used to craft increasingly error-free messages that are more 
+            effective in duping recipients into doing what the attacker wants.
+            Since the goal of these attacks is usually to trick Internet users 
+            into sharing credentials or following a malicious call-to-action 
+            (CTA), the consequences of falling prey to an attack can be dire. An 
+            IBM report released last year found that phishing was the second
+            most common cause of a data breach (accounting for 16 percent 
+            of breaches) as well as the costliest, leading to USD 4.91 million in 
+            average breach costs for organizations.
+            More than ever before, organizations need to be vigilant about the 
+            phishing threat and ensure that they have the right tools in place 
+            to defend against it. Thankfully, defenses have evolved to keep 
+            pace with increasingly sophisticated attacks.
+        </article>
+        <article style={{textAlign:"justify",width:"80%",marginLeft:"10%"}}>
+            <h2>Types of Phishing Attacks</h2>
+            <strong>Mass phishing:</strong>This targets a large group of people with a 
+            generic message. The attacker may send out thousands or 
+            even millions of emails that are identical or similar in content<br/>
+            <strong>Spear phishing:</strong>This is a targeted attack in which the 
+            attacker researches the victim and customizes the attack to 
+            make it appear more credible and convincing. The attacker 
+            may use information gathered from social media profiles, 
+            public records, or other sources to create a personalized 
+            message that appears to be from a trusted source, such as a 
+            colleague, boss, or friend, with the intent of tricking the victim 
+            into revealing sensitive information or performing a specific 
+            action, such as transferring funds or downloading malware.<br/>
+            Additionally, phishing attacks can come through a variety of 
+            channels, including compromised websites, social media, fake 
+            ads, and text messages. While email is the most common attack 
+            vector, others include QR codes, workspace collaboration tools, 
+            and photo or audio attachments that may lead to advanced steg
+            anography attacks (hiding something malicious in a file that looks 
+            innocuous).
+            A more specific type of attack is called typosquatting, also known 
+            as URL hijacking, wherein an attacker registers domain names 
+            that are similar to well-known and frequently visited websites 
+            with the hope that users will accidentally mistype the legitimate 
+            website’s address and land on their fake website instead. These 
+            fake websites might look almost identical to the real ones and can 
+            be used to phish for users’ login credentials, credit card informa
+            tion, or other personal data.
+            These materials are © 2023 John Wiley & Sons, Inc. Any dissemination, distribution, or unauthorized use is strictly prohibited.
+            Another example is an adversary-in-the-middle (AiTM) attack, 
+            also known as a man-in-the-middle (MiTM) attack, which 
+            involves the attacker intercepting communication between two 
+            parties to secretly eavesdrop, modify, or inject malicious code into 
+            the communication. For instance, the attacker 
+            may intercept communication between the victim and a trusted 
+            organization, such as a bank or an online retailer, and then uses 
+            this information to impersonate the organization and trick the 
+            victim into providing sensitive information such as login creden
+            tials or credit card numbers.<br/>
+            <a href="/pdf/blogs/phishing.pdf" target="__blank" style={{fontSize:"150%",textDecoration:"underline",color:"#3457D5"}}>Learn More</a><br/>
+            <p>Written by ~Brian Wekesa</p>
+            <p>Sources ~CISO</p>
+        </article>
+        </>
+    }
+]
+export { clients, accreditors, websites, mobiles, marketing, blogs }

@@ -56,7 +56,7 @@ const DRONES = () => {
               },
               body: JSON.stringify({
                 RECEIVER: "latedevelopers@hotmail.com",
-                SUBJECT: 'INVEST IN DRONES DELIVERY',
+                SUBJECT: 'INVEST IN RAID DELIVERY',
                 MSG:`<div style='width:100%'><div style='width:80%;margin-left:10%;'><h1>Interested in investing in DELIVERY DRONES</h1><p>Create an email to ${form.email}</p><p>Send share inquiry</p></div></div>`
               }), // Convert the data object to JSON
             });
@@ -102,7 +102,7 @@ const DRONES = () => {
                     </form>
                     </article>
                     <article>
-                        <span><span style={{fontSize:"300%"}}>Delivery Drones</span>: Transforming Logistics in Mombasa with Cutting-Edge Technology</span>
+                        <span><span style={{fontSize:"300%"}}>RAID Drones</span>: Transforming Logistics in Mombasa with Cutting-Edge Technology</span>
                     </article>
                     <article>
                         <p><span style={{fontSize:"300%"}}>H</span>ere are the core technologies driving DELIVERY DRONES:</p>
