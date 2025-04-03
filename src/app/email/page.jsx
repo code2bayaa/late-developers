@@ -18,13 +18,13 @@ const EMAIL = () => {
       handleResize(); // Initialize width
       gsap.to("#NavBar",{
             backgroundColor:"rgb(203 213 225)",
-            color:"#000",
+            color:"#fff",
             duration:3
         })
 
         gsap.to("#logo",{
             backgroundColor:"rgb(203 213 225)",
-            color:"#000",
+            color:"#fff",
             duration:3,
             delay:1
         })

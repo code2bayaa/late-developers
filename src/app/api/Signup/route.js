@@ -20,7 +20,7 @@ export async function POST(req, res) {
     if(response.data.status)
       return NextResponse.json({ message: "User created successfully", status:true, randomCode },{status:200});
     else
-      return NextResponse.json({ message: "Try again", status:false },{status:500});
+      return NextResponse.json({ message: response.data.message, status:false },{status:500});
 
   } catch (error) {
     console.error(error);

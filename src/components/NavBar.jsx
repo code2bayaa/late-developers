@@ -220,7 +220,7 @@ const NavBar = () => {
                         </div>
                         <div id="projects-header" className="w-[100%] hidden">
                             <Link href="/uko"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}>UKO</Link>
-                            <Link href="/drones"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}>Drone Delivery</Link>
+                            <Link href="/drones"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}>Raid Drones</Link>
                             <Link href="/doors"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}>Thinking Doors</Link>  
                             <Link href="/arcade"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}>Arcades</Link>  
                         </div>

@@ -273,7 +273,7 @@ const blogs = [
             tials or credit card numbers.<br/>
             <a href="/pdf/blogs/phishing.pdf" target="__blank" style={{fontSize:"150%",textDecoration:"underline",color:"#3457D5"}}>Learn More</a><br/>
             <p>Written by ~Brian Wekesa</p>
-            <p>Sources ~CISO</p>
+            <p>Sources ~CISCO</p>
         </article>
         </>
     }

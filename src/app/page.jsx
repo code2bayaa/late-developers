@@ -214,9 +214,9 @@ export default function Home() {
 
         <div ref={textAllRef} id="textAll" className = {windowWidth > 800 ? "relative w-[60%] mx-[20%] h-[100%] bg-[#411342] flex flex-row" : "relative w-[100%] h-auto bg-[#411342]" }>
           <Image src = {avatar} alt="late-developers" style={{height:windowWidth ? "100%" : "50%"}} className={windowWidth > 800 ? "w-[40%] p-0 m-[1%] z-[2] object-contain" : "w-[100%] object-contain"}/>
-          <div className="w-[60%] m-[1%] text-center" style={{borderLeft:"1px solid #fff"}}>
+          <div className={windowWidth > 800 ? "w-[60%] m-[1%] text-center":"w-[100%]"} style={{borderLeft:"1px solid #fff"}}>
               <h1 className="text-rose-800" style={{fontSize:"180%"}}>Quality Means No Compromise</h1>
-              <article className="text-white text-justify">
+              <article className="text-white text-left">
                 At <i>Late Developers</i>, we recognize that technology is more than just a tool; it is an enabler. By equipping young people with programming and digital skills, we empower them to innovate, create, and thrive in a competitive global marketplace. Our programming school curriculum is designed not just to teach coding but to inspire problem-solving, critical thinking, and creativity—skills that are indispensable in the 21st century.
                 Catalyzing Economic Growth
                 The economic impact of digital literacy cannot be overstated. As Kenya seeks to solidify its position as a technological hub in Africa, a skilled workforce is essential. <i>Late Developers</i> is committed to producing tech talent that will contribute to key industries such as finance, healthcare, education, and agriculture.
@@ -238,7 +238,7 @@ export default function Home() {
             <div className={windowWidth > 800 ? "w-[23%] m-[1%] shadow-md grid items-center" : "w-[98%] m-[1%] shadow-md grid items-center"}>
               <Image src = {solutions1} alt="late-developers" style={{height:"200px"}} className="w-[100%]"/>
             
-              <article className="w-[80%] text-center relative left-[10%]">
+              <article className="w-[80%] text-left relative left-[10%]">
                 <h2><b>Software Development Training</b></h2>
                 Late Developers will offer comprehensive training in programming languages, software development frameworks, and tools to equip individuals with the skills needed for careers in tech. This includes courses in front-end and back-end development, mobile app development, and software engineering.
               </article>
@@ -247,7 +247,7 @@ export default function Home() {
             <div className={windowWidth > 800 ? "w-[23%] m-[1%] shadow-md grid items-center" : "w-[98%] m-[1%] shadow-md grid items-center"}>
               <Image src = {solutions3} alt="late-developers" style={{height:"200px"}} className="w-[100%]"/>
 
-              <article className="w-[80%] text-center relative left-[10%]">
+              <article className="w-[80%] text-left relative left-[10%]">
               <h2><b>Custom Software Solutions for Businesses</b></h2>
 
                 We will develop tailor-made software applications to help Kenyan businesses streamline operations, improve productivity, and enhance customer experiences. These solutions include enterprise resource planning (ERP) systems, point-of-sale (POS) applications, and customer relationship management (CRM) platforms.
@@ -257,7 +257,7 @@ export default function Home() {
             <div className={windowWidth > 800 ? "w-[23%] m-[1%] shadow-md grid items-center" : "w-[98%] m-[1%] shadow-md grid items-center"}>
               <Image src = {solutions2} alt="late-developers" style={{height:"200px"}} className="w-[100%]"/>
 
-              <article className="w-[80%] text-center relative left-[10%]">
+              <article className="w-[80%] text-left relative left-[10%]">
               <h2><b>Digital Literacy and E-Learning Platforms</b></h2>
 
               To bridge the digital divide, Late Developers will design and implement e-learning platforms and digital literacy programs, making education accessible to underserved communities
@@ -267,7 +267,7 @@ export default function Home() {
             <div className={windowWidth > 800 ? "w-[23%] m-[1%] shadow-md grid items-center" : "w-[98%] m-[1%] shadow-md grid items-center"}>
               <Image src = {solutions4} alt="late-developers" style={{height:"200px"}} className="w-[100%]"/>
 
-              <article className="w-[80%] text-center relative left-[10%]">
+              <article className="w-[80%] text-left relative left-[10%]">
               <h2><b>Innovative Tech for Social Good</b></h2>
 
               Addressing societal challenges is at the heart of our mission. We aim to create solutions for areas like healthcare (e.g., telemedicine platforms), education (e.g., virtual classrooms), and agriculture (e.g., smart farming apps) to drive social and economic development.

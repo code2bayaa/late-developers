@@ -21,14 +21,14 @@ const UKO = () => {
       handleResize(); // Initialize width
       gsap.to("#NavBar",{
             backgroundColor:"#fff",
-            color:"#000",
+            color:"#fff",
             borderBottom:"1px solid #000",
             duration:3
         })
 
         gsap.to("#logo",{
             backgroundColor:"#fff",
-            color:"#000",
+            color:"#fff",
             duration:3,
             delay:1
         })

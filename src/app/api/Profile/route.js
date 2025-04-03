@@ -1,5 +1,6 @@
 import db from "./../Signin/lib/database";
 import {NextResponse} from "next/server"
+import axios from "axios"
 
 export async function POST(request){
     const body = await request.json();
@@ -16,7 +17,7 @@ export async function POST(request){
       });
   
       if (response.data.status) {
-        return NextResponse.json({ message: 'Fetched successfully', profile_array: response.data.profile_array[0] },{status:200});
+        return NextResponse.json({ message: 'Fetched successfully', profile_array: response.data.profile_array },{status:200});
       } else {
         return NextResponse.json({ message: 'Invalid credentials' },{status:401});
       }

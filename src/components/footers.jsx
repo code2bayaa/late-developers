@@ -61,11 +61,11 @@ const FOOTER = () => {
                                 <FontAwesomeIcon icon={faArrowRightLong}/> PROJECTS
                             </Link>
                             <Link
-                                href="/gallery"
+                                href="/homes"
                                 className="theme-color-six links"
 
                             >
-                                <FontAwesomeIcon icon={faArrowRightLong}/> SCHOOL
+                                <FontAwesomeIcon icon={faArrowRightLong}/> HOMES
                             </Link>
                         </div>
 

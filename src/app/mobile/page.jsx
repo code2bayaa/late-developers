@@ -89,7 +89,7 @@ const WEBSITE = () => {
           }
     }
     return (
-        <>
+        <div className="w-[100%] min-h-[100%]">
             <div className={ windowWidth > 800 ? "relative h-[20%] w-[100%] bg-black" : "relative h-auto w-[100%] bg-black"}>
                 <article className="w-[100%] grid justify-items-center">
                     <h1 style={{fontSize:windowWidth > 800 ? "350%" : "250%",color:"#fff"}}><b>MOBILE DESIGN & DEVELOPMENT</b></h1>
@@ -132,7 +132,7 @@ const WEBSITE = () => {
 
                 </article>
             </div>
-        </>
+        </div>
     )
 }
 

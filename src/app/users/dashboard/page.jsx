@@ -129,10 +129,12 @@ export default function Dashboard() {
 
   const customSignOut = async() => {
     try {
+      console.log(session)
+      console.log("id",session.user.id)
       const response = await fetch("/api/SignOut", {
         method: "POST",
         body:JSON.stringify({
-          id:session.user.id
+          id:session.user.email
         }),
         headers: {
           'Content-Type': 'application/json', // Indicates the body is JSON
