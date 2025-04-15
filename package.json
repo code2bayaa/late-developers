@@ -16,6 +16,10 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@googlemaps/js-api-loader": "^1.16.8",
+    "@mui/icons-material": "^7.0.1",
+    "@mui/lab": "^7.0.0-beta.10",
+    "@mui/material": "^7.0.1",
+    "@mui/x-charts": "^7.28.0",
     "@next/bundle-analyzer": "^15.0.3",
     "@paypal/paypal-server-sdk": "^0.6.0",
     "@paypal/react-paypal-js": "^8.8.2",
@@ -23,7 +27,7 @@
     "axios": "^1.7.9",
     "babylonjs": "^7.43.0",
     "bcrypt": "^5.1.1",
-    "ckeditor5":"^43.1.0",
+    "ckeditor5": "^43.1.0",
     "ckeditor5-premium-features": "^43.1.0",
     "crypto": "^1.0.1",
     "fs": "^0.0.1-security",
@@ -48,7 +52,8 @@
     "sweetalert": "^2.1.2",
     "swiper": "^11.1.15",
     "tailwindcss-gradients": "^3.0.0",
-    "three": "^0.153.0"
+    "three": "^0.153.0",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@types/node": "^20",

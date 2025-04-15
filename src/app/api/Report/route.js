@@ -4,12 +4,12 @@ import axios from "axios"
 
 export async function POST(request){
     const body = await request.json();
-    const { time, user, date } = body;
+    const { time, locations, date, browser, user } = body;
   
     try {
 
-      const response = await axios.post(`${process.env.BACKEND_API}/user/update`,
-        {time, user, date},
+      const response = await axios.post(`${process.env.BACKEND_API}/user/report`,
+        {time, locations, date, browser, user},
         {
           headers: {
             'Content-Type': 'application/json',
@@ -17,9 +17,9 @@ export async function POST(request){
       });
   
       if (response.data.status) {  
-        return NextResponse.json({ message: 'Report Updated', status:true },{status:200});
+        return NextResponse.json({ message: 'Report made', status:true },{status:200});
       } else {
-        return NextResponse.json({ message: 'Invalid credentials' },{status:401});
+        return NextResponse.json({ message: response.data.message },{status:200});
       }
     } catch (error) {
       console.error(error);
