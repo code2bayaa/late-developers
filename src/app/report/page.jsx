@@ -21,8 +21,9 @@ const REPORTS = () => {
     useEffect(() => {
 
         async function runReport(){
-            const res = await fetch(api_url + "/api/Report")
+            const res = await fetch(api_url + "/api/Report/Read")
             const {data, status, users, error} = await res.json()
+
             if(!status){
                 swal("oops",error,"error")
                 return
@@ -45,24 +46,29 @@ const REPORTS = () => {
                 JSON.parse(date).map((dateValue,index) => {
                     const aDate = new Date(dateValue)
                     const month = aDate.getMonth()
+                    // console.log(month,"month")
                     
                     temp_month[Number(month)].count = temp_month[Number(month)].count + 1
-                    setMonths(() => [...temp_month])
+                    console.log(temp_month,"temp_month")
+                    
                 })
             })
+            setMonths(() => [...temp_month])
+            // console.log(months)
             setUsers(() => [...users])
+            setShow(true)
         }
         runReport()
 
-        return () => setShow(true)
+        // return () => 
         
     },[])
     return (
         <div className="w-[100%]" style={{height:"100%",backgroundColor:"#FCFCFA"}}>
-            <h2>REPORT</h2>
-            <p>{howMany}</p>
+            <strong style={{textAlign:"center"}}>REPORT</strong>
+            {/* <p>{howMany}</p> */}
             <div style={{width:"90%",marginLeft:"5%"}}>
-                <h2 style={{textDecoration:"bold",color:""}}>MONTHS AGAINST VISITORS</h2>
+                <h2 style={{textDecoration:"bold",textAlign:"center"}}>MONTHS AGAINST VISITORS</h2>
                 {
                     show && <BarChart skipAnimation 
                         xAxis={[{ scaleType: 'band', data:  months.map(({name}) => name)}]}
@@ -77,23 +83,26 @@ const REPORTS = () => {
             </div>
             <div style={{width:"90%",marginLeft:"5%"}}>
                 <h2>LIVE USERS</h2>
-                <p>{liveUsers.length > 1 ? `${liveUsers.length} users` : "1 user"}</p>
-                <h2>locations</h2>
-                {liveUsers.map(({location},index) => 
-                    <div key={index} style={{background:index%2?"#fff":"#ccc"}}>
-                        <span style={{margin:"1%"}}>{index + 1}</span>
+                <p>{liveUsers.length > 1 ? `${liveUsers.length} users` : liveUsers.length == 0 ?  "no users" : "1 user"}</p>
+                {/* <h2>locations</h2> */}
+                {liveUsers.map(({location,device,time},index) => 
+                    <div key={index} style={{background:index%2?"#fff":"#ccc",textAlign:"center",height:"40px",width:"100%",display:"flex",flexDirection:"row",alignItems:"center"}}>
+                        <div style={{margin:"1%",textAlign:"center",height:"40px",width:"15%",border:"1px solid #000"}}>{index + 1}</div>
                         <FontAwesomeIcon icon={faUser}/>
-                        <span style={{margin:"1%"}}>{location?.calling_code}</span>
-                        <span style={{margin:"1%"}}>{location?.city}</span>
-                        <span style={{margin:"1%"}}>{location?.continent_name}</span>
-                        <span style={{margin:"1%"}}>{location?.country_code2}</span>
+                        <div style={{margin:"1%",textAlign:"center",height:"40px",width:"15%",border:"1px solid #000"}}>{location.find(({calling_code}) => calling_code)?.calling_code}</div>
+                        <div style={{margin:"1%",textAlign:"center",height:"40px",width:"15%",border:"1px solid #000"}}>{location.find(({city}) => city)?.city}</div>
+                        <div style={{margin:"1%",textAlign:"center",height:"40px",width:"15%",border:"1px solid #000"}}>{location.find(({continent_name}) => continent_name)?.continent_name}</div>
+                        <div style={{margin:"1%",textAlign:"center",height:"40px",width:"15%",border:"1px solid #000"}}>{location.find(({country_code2}) => country_code2)?.country_code2}</div>
                         {
-                            location.hasOwnProperty("country_flag")?
-                            <img src={location?.country_flag}/>
+                            location.find(({country_flag}) => country_flag)?
+                            <img src={location.find(({country_flag}) => country_flag)?.country_flag}/>
                             :
                             ""
                         }
-                        <span style={{margin:"1%"}}>{location?.country_name}</span>
+                        <div style={{margin:"1%",textAlign:"center",height:"40px",width:"15%",border:"1px solid #000"}}>{location.find(({country_name}) => country_name)?.country_name}</div>
+                        <div style={{margin:"1%",textAlign:"center",height:"40px",width:"15%",border:"1px solid #000"}}>{device["deviceType"]}</div>
+                        <div style={{margin:"1%",textAlign:"center",height:"40px",width:"15%",border:"1px solid #000"}}>{device["browser"]}</div>
+                        <div style={{margin:"1%",textAlign:"center",height:"40px",width:"15%",border:"1px solid #000"}}>{time}</div>
                     </div>
                 )}
             </div>

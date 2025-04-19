@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faHome, faChevronUp, faBars, faBarsStaggered } from "@fortawesome/free-solid-svg-icons"
 import { useState,useRef, useEffect } from "react"
 import $ from "jquery"
-import dynamic from "next/dynamic";
+
 // const GSAP = dynamic(() => import("gsap"), { ssr: false });
 import gsap from "gsap";
 const NavBar = () => {
@@ -17,15 +17,11 @@ const NavBar = () => {
     const logoWall = useRef(null)
     const navBar = useRef(null)
     useEffect(() => {
+        
       const handleResize = () => setWindowWidth(window.screen.width);
   
       window.addEventListener("resize", handleResize);
       handleResize(); // Initialize width
-      function runTheme(){
-
-      }
-
-      runTheme()
 
   
       return () => window.removeEventListener("resize", handleResize);

@@ -1,7 +1,7 @@
 import { logo2, logo3 } from "@/assets"
 import gsap from "gsap"
-
-export const runThemes = () => {
+import {COLLECT} from "@/components/reports.jsx"
+export const runThemes = async() => {
     document.getElementById("NavBar").classList.remove("contact")
     document.getElementById("NavBar").classList.remove("feedback")
     document.getElementById("NavBar").classList.remove("contact")
@@ -63,4 +63,5 @@ export const runThemes = () => {
             duration:3
         })
       }
+      COLLECT()
 }

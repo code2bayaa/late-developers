@@ -295,24 +295,28 @@ const feedbackHome = [
     {
         img:"/image/bnb1.jpg",
         name:"LYDIA KONA",
+        color:"#333399",
         contact:<><FontAwesomeIcon icon={faPhone}/> <span style={{background:"#F6EED8",width:"100%",color:"#000"}}>+254722911960</span></>,
         description:"I had a wonderful experience the entire trip, perfect weather a trip advisor really.The comfort and luxury we experienced came at a surprisingly affordable price, which made the whole experience even better. The kids had a blast, and as a group leader, I had peace of mind knowing we were in good hands.Late Developers didn’t just offer a place to stay; they delivered an exciting, safe, and unforgettable experience. I would highly recommend them to any group, family, or solo traveler looking for the best of Mombasa."
     },
     {
         img:"/image/bnb2.jpg",
         name:"PENINAH MUTENDE",
+        color:"#6dd5ed",
         contact:<><FontAwesomeIcon icon={faPhone}/> <span style={{background:"#F6EED8",width:"100%",color:"#000"}}>+2547114778743</span></>,
         description:"My recent stay in Mombasa, booked through Late Developers Agency, was nothing short of amazing. From the moment I checked in, I felt completely secure and at ease, thanks to their top-tier security systems. The apartment was modern, clean, and elegantly furnished — offering a perfect balance of luxury and comfort."
     },
     {
         img:"/image/bnb3.jpg",
         name:"WALLACE KINYANJUI",
+        color:"#fed6e3",
         contact:<><FontAwesomeIcon icon={faPhone}/> <span style={{background:"#F6EED8",width:"100%",color:"#000"}}>+254728454313</span></>,
         description:"Bringing a group of students for a camping trip in Mombasa could’ve been a logistical nightmare — but thanks to Late Developers Agency, it turned out to be one of the best trips we’ve ever had. The accommodations were not only secure and well-managed, but also incredibly modern and thoughtfully designed.Everything was smooth — from check-in to daily support. "
     },
     {
         img:"/image/bnb4.jpg",
         name:"AYUB ",
+        color:"#fcb69f",
         contact:<><FontAwesomeIcon icon={faPhone}/> <span style={{background:"#F6EED8",width:"100%",color:"#000"}}>+255742440033</span></>,
         description:"What stood out the most was how affordable this experience was, without compromising on quality. Every detail, from the smooth digital check-in to the stylish interior design, made my stay truly exciting and memorable. I highly recommend Late Developers for anyone looking for a reliable, luxurious, and modern travel experience."
     }

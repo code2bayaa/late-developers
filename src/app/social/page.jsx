@@ -2,9 +2,11 @@
 import gsap from "gsap"
 import { useEffect, useState } from "react"
 import TWITTER from "../../components/twitter"
+import YOUTUBE from "../../components/youtube"
 import { faFacebook, faInstagram, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { runThemes } from "../../components/themes"
+import "./social.css"
 import swal from "sweetalert"
 
 export default function SOCIAL(){
@@ -29,7 +31,7 @@ export default function SOCIAL(){
                     className="w-[25%] h-[60px]"
                     style={{backgroundImage:"linear-gradient( #900C3F , #900c85bd, #900c85bd)"}}
                 >
-                    <FontAwesomeIcon style={{fontSize:pane === "twitter" ? "350%" : "150%"}} icon={faTwitter}/> TWITTER
+                    <FontAwesomeIcon style={{fontSize:pane === "twitter" ? "350%" : "150%",textDecoration:pane === "twitter" ? "underline":"none"}} icon={faTwitter}/> TWITTER
                 </button>
                 <button
                     type="button"
@@ -37,7 +39,7 @@ export default function SOCIAL(){
                     className="w-[25%] h-[60px]"
                     style={{backgroundImage:"linear-gradient( #900C3F , #900c85bd, #900c85bd)"}}
                 >
-                    <FontAwesomeIcon style={{fontSize:pane === "facebook" ? "350%" : "150%"}} icon={faFacebook}/> FACEBOOK
+                    <FontAwesomeIcon style={{fontSize:pane === "facebook" ? "350%" : "150%",textDecoration:pane === "facebook" ? "underline":"none"}} icon={faFacebook}/> FACEBOOK
                 </button>
                 <button
                     type="button"
@@ -45,7 +47,7 @@ export default function SOCIAL(){
                     className="w-[25%] h-[60px]"
                     style={{backgroundImage:"linear-gradient( #900C3F , #900c85bd, #900c85bd)"}}
                 >
-                    <FontAwesomeIcon style={{fontSize:pane === "instagram" ? "350%" : "150%"}} icon={faInstagram}/> INSTAGRAM
+                    <FontAwesomeIcon style={{fontSize:pane === "instagram" ? "350%" : "150%",textDecoration:pane === "instagram" ? "underline":"none"}} icon={faInstagram}/> INSTAGRAM
                 </button>
                 <button
                     type="button"
@@ -53,13 +55,16 @@ export default function SOCIAL(){
                     className="w-[25%] h-[60px]"
                     style={{backgroundImage:"linear-gradient( #900C3F , #900c85bd, #900c85bd)"}}
                 >
-                    <FontAwesomeIcon style={{fontSize:pane === "youtube" ? "350%" : "150%"}} icon={faYoutube}/> YOUTUBE
+                    <FontAwesomeIcon style={{fontSize:pane === "youtube" ? "350%" : "150%",textDecoration:pane === "youtube" ? "underline":"none"}} icon={faYoutube}/> YOUTUBE
                 </button>
             </div>
             <div className="w-[100%] min-h-[100%]">
                 {
                     pane === "twitter" ? 
-                    <TWITTER />
+                        <TWITTER />
+                    :
+                        pane === "youtube" ? 
+                            <YOUTUBE/>
                     :
                     <TWITTER />
                 }

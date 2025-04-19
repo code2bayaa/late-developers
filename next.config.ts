@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
   },
   reactStrictMode: true,
   images: {
-    domains: ['cdn.shopify.com','pbs.twimg.com'], // Add Shopify's CDN domain
+    domains: ['cdn.shopify.com','pbs.twimg.com','i.ytimg.com'], // Add Shopify's CDN domain
   },
   webpack(config) {
     config.module.rules.push({

@@ -6,7 +6,7 @@ import { faTwitter, faFacebook, faInstagram, faYoutube, faLinkedin } from '@fort
 import { Loader } from "@googlemaps/js-api-loader"
 import { contact, logo2 } from "@/assets/"
 import Link from 'next/link'
-import gsap from "gsap"
+// import gsap from "gsap"
 import { runThemes } from '../../components/themes'
 
 const CONTACTS = () => {
@@ -15,19 +15,19 @@ const CONTACTS = () => {
 
     useLayoutEffect(() => {
         runThemes()
-        console.log("contact")
-        gsap.to(document.getElementById("NavBar"),{
-            // css:{
-                // backgroundImage:`url(${contact})`,
-            // },
-            // background:`url(${contact})`,
-            onStart:() => {
-                document.getElementById("NavBar").classList.add("contact")
-                logoWall.current.classList.add("transparent")
-            },
-            minHeight:"30%",
-            duration:3
-        })
+        // console.log("contact")
+        // gsap.to(document.getElementById("NavBar"),{
+        //     // css:{
+        //         // backgroundImage:`url(${contact})`,
+        //     // },
+        //     // background:`url(${contact})`,
+        //     onStart:() => {
+        //         document.getElementById("NavBar").classList.add("contact")
+        //         logoWall.current.classList.add("transparent")
+        //     },
+        //     minHeight:"30%",
+        //     duration:3
+        // })
 
         const handleResize = () => setWindowWidth(window.screen.width);
         handleResize()

@@ -8,6 +8,7 @@ const COLLECT = async() => {
 
         let user = localStorage.getItem("session")
         let user_location = localStorage.getItem("location")
+        let device = localStorage.getItem("device")
         const date = new Date()
         const time = date.toLocaleTimeString()
 
@@ -48,19 +49,73 @@ const COLLECT = async() => {
             localStorage.setItem("session",session)
             user = session
         }
-            const browser = navigator.userAgent
-    
+            // const browser = navigator.userAgent
+
+        if(!device){
+            const getUA = () => {
+                let device = "Unknown";
+                const ua = {
+                    "Generic Linux": /Linux/i,
+                    "Android": /Android/i,
+                    "BlackBerry": /BlackBerry/i,
+                    "Bluebird": /EF500/i,
+                    "Chrome OS": /CrOS/i,
+                    "Datalogic": /DL-AXIS/i,
+                    "Honeywell": /CT50/i,
+                    "iPad": /iPad/i,
+                    "iPhone": /iPhone/i,
+                    "iPod": /iPod/i,
+                    "macOS PC": /Macintosh/i,
+                    "Windows PC": /IEMobile|Windows/i,
+                    "Zebra": /TC70|TC55/i,
+                }
+                Object.keys(ua).map(v => navigator.userAgent.match(ua[v]) && (device = v));
+                return device;
+            }
+
+            const deviceType = getUA()
+            function getBrowserName() {
+                const ua = navigator.userAgent;
+              
+                if (ua.includes("Firefox")) return "Firefox";
+                if (ua.includes("Edg")) return "Microsoft Edge";
+                if (ua.includes("OPR") || ua.includes("Opera")) return "Opera";
+                if (ua.includes("Chrome")) return "Chrome";
+                if (ua.includes("Safari")) return "Safari";
+                if (ua.includes("MSIE") || ua.includes("Trident")) return "Internet Explorer";
+              
+                return "Unknown";
+            }
+
+            const browser = getBrowserName()
+            const browserVersion = navigator.userAgent.match(/(?:\d+\.)?\d+/g)[0]
+            const os = navigator.platform
+            const osVersion = navigator.userAgent.match(/(?:\d+\.)?\d+/g)[0]
+            device = JSON.stringify({
+                deviceType,
+                browser,
+                browserVersion,
+                os,
+                osVersion
+            })
+            localStorage.setItem("device",device)
+            
+        }
+            
+        const wireframe = window.location.href
+
             sendForm({
                 url:api_url + "/api/Report",
                 options:{
                     method : "POST",
                     headers : {'Content-type': 'application/json; charset=UTF-8'},
                     body : JSON.stringify({
+                        wireframe,
                         time,
                         user,
                         date,
                         locations: user_location,
-                        browser,
+                        device,
                     })
                 }
             })        

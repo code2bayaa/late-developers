@@ -2,22 +2,16 @@ import {NextResponse} from "next/server"
 import axios from "axios"
 
 
-export async function POST(request){
-    const body = await request.json();
+export async function GET(){
+    // const body = await request.json();
     // const { time, locations, date, browser, user } = body;
   
     try {
 
-      const response = await axios.post(`${process.env.BACKEND_API}/user/report`,
-        body,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-      });
+      const response = await axios.get(`${process.env.BACKEND_API}/report/get`);
   
       if (response.data.status) {  
-        return NextResponse.json({ message: 'Report made', status:true },{status:200});
+        return NextResponse.json({ message: 'Report fetched', status:true, data:response.data.data, users:response.data.users },{status:200});
       } else {
         return NextResponse.json({ message: response.data.message },{status:200});
       }

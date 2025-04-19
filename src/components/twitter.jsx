@@ -23,6 +23,12 @@ const TWITTER = () => {
         handleResize()
     },[])
 
+    const getDate = (date) => {
+        const aDate = new Date(date)
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        return aDate.toLocaleDateString(undefined, options)
+    }
+    
     return (
         <div className="w-[100%] bg-[#000] text-white">
             {
@@ -42,7 +48,7 @@ const TWITTER = () => {
                                     </div>
                                     <div className={windowWidth > 800 ? "w-[48%]":"w-[98%] m-[1%]"}>
                                         {text}
-                                        <p>{created_at}</p>
+                                        <p>{getDate(created_at)}</p>
                                         <a
                                             href={`https://twitter.com/${author_id}/status/${id}`}
                                             target="_blank"

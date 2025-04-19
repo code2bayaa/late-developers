@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Plyr = dynamic(() => import("plyr-react"), { ssr: false });
 import "plyr-react/plyr.css"
+import "./home.css"
 // import { logo1 } from "../assets"
 import Slider from "react-slick";
 import {clients, accreditors, marketing} from "./../components/constants"
@@ -16,7 +17,7 @@ import gsap from "gsap"
 import { ScrollTrigger } from "gsap/all";
 import { runThemes } from "@/components/themes";
 import Link from "next/link";
-import {COLLECT} from "@/components/reports.jsx"
+// import {COLLECT} from "@/components/reports.jsx"
 
 export default function Home() {
 
@@ -27,7 +28,7 @@ export default function Home() {
   const [windowWidth, setWindowWidth] = useState(0);
 
   useEffect(() => {
-    COLLECT()
+    // COLLECT()
     const handleResize = () => setWindowWidth(window.screen.width);
     runThemes()
     window.addEventListener("resize", handleResize);
@@ -133,11 +134,10 @@ export default function Home() {
               <h1 style={{color:windowWidth > 800 ? "#000" : "#fff"}}>STILL UNDER CONSTRUCTION</h1>
               <h1 style={{fontSize:windowWidth > 800 ? "300%" : "180%",color:windowWidth > 800 ? "#000" : "#fff"}}><b>Late Developers</b></h1>
               
-              <h2 ref={textRef} style={{fontSize:windowWidth > 800 ? "300%" : "180%"}} className="text-rose-900"><b>ICT SOLUTIONS & SERVICES</b></h2>
+              <h2 ref={textRef} style={{fontSize:windowWidth > 800 ? "300%" : "180%"}} className="text-rose-900"><b>EARLY SOLUTIONS & SERVICES</b></h2>
               <h3 style={{fontSize:windowWidth > 800 ? "200%" : "150%",color:windowWidth > 800 ? "#000" : "#fff"}}>late again</h3>
             </div>
           </div>
-          {/* {plyrMode} */}
           <Plyr
               source={{
                   type:"video",
@@ -149,6 +149,12 @@ export default function Home() {
                   ],
 
               }}
+              // className="plyr-home"
+              // style={windowWidth > 800 ? {width:"55%",maxHeight:"550px",height:"auto",borderRadius:"5px",marginTop:"5%"} : { maxHeight:"100%",height:"100%",
+              //   width : "100% !important",
+              //   borderRadius:"0px",
+              //   marginTop:"0%"
+              // }}
               options= {{
                 autoplay: true,
                 muted: true,

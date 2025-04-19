@@ -247,12 +247,13 @@ const HOMES = () => {
                 </div>
             </div>
             <b style={{textAlign:"center"}}>FEEDBACK</b>
-            <div className="w-[100%] h-[40%] flex flex-row flex-wrap">
+            <div className="w-[100%] h-[40%] flex flex-row flex-wrap bg-[#cbddff]">
                     {
-                        feedbackHome.map(({img, name, description,contact},index) => 
-                            <div className={windowWidth > 800 ? "w-[23%] h-[60%] m-[1%]" : "w-[98%] h-[100%] m-[1%]"} style={{color:"#fff",backgroundImage:"linear-gradient( #900C3F , #900c85bd, #900c85bd)"}} key={index}>
+                        feedbackHome.map(({img, name, description,contact,color},index) => 
+                            <div className={windowWidth > 800 ? "w-[23%] h-[60%] m-[1%]" : "w-[98%] h-[100%] m-[1%]"} style={{color:"#000"}} key={index}>
                                 <Image alt = "late developers homes" src={img} width={400} height={400} className="m-[1%] h-[100%] w-[60%] rounded-[50%] object-contain"/>
                                 <strong>{name}</strong><FontAwesomeIcon icon={faStar} style={{margin:"1%",color:"#ffd800"}} /> <FontAwesomeIcon icon={faStar} style={{margin:"1%",color:"#ffd800"}} /> <FontAwesomeIcon icon={faStar} style={{margin:"1%",color:"#ffd800"}} /> <FontAwesomeIcon icon={faStar} style={{margin:"1%",color:"#ffd800"}} /> <FontAwesomeIcon icon={faStar} style={{margin:"1%",color:"#ffd800"}} />
+                                <div style={{width:"98%",margin:"1%",height:"20px",border:"none",background:color}}></div>
                                 <article style={{textAlign:"justify"}}>{description}</article>
                                 {contact}
                             </div>
