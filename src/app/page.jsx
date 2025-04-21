@@ -55,7 +55,7 @@ export default function Home() {
           scrollTrigger:{
             trigger:all,
             scroller:"#main-body",
-            start:"top 10%",
+            start:"top 5%",
             end:"bottom bottom",
             // markers:true
           }
@@ -98,7 +98,7 @@ export default function Home() {
     autoplay:true,
     arrows:false,
     pauseOnHover:true,
-    // dots:false,
+    dots:false,
     cssEase:"ease",
     responsive: [{
 
@@ -113,7 +113,7 @@ export default function Home() {
         breakpoint: 600,
         settings: {
           slidesToShow: 1,
-          dots: true
+          dots: false
         }
    
       }, {
@@ -181,7 +181,7 @@ export default function Home() {
             <div className="w-[100%] relative top-[25%] flex flex-row flex-wrap">
               {
                 marketing.map(({title, article, icon}, index) => (
-                    <div key={index} className={windowWidth > 800 ? "w-[30%] h-[150px] m-[1%] flex bg-[#f2f2f2]":"w-[48%] m-[1%] flex flex-col-reverse bg-[#f2f2f2]"}>
+                    <div key={index} className={windowWidth > 800 ? "w-[30%] h-[150px] m-[1%] flex bg-[#f2f2f2]":"w-[98%] m-[1%] flex flex-col-reverse bg-[#f2f2f2]"}>
                       <div className={windowWidth > 800 ? "w-[90%]":"w-[100%]"}>
                         {title}
                         {article}

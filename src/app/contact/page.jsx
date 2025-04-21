@@ -14,7 +14,7 @@ const CONTACTS = () => {
     const [windowWidth, setWindowWidth] = useState(0);
 
     useLayoutEffect(() => {
-        runThemes()
+        runThemes(window.screen.width)
         // console.log("contact")
         // gsap.to(document.getElementById("NavBar"),{
         //     // css:{
@@ -72,12 +72,12 @@ const CONTACTS = () => {
     },[])
 
     return (
-        <div style={{backgroundColor:"#f4f7f7"}} className="w-[100%] h-[100%] grid justify-items-center">
-            <div style={{background:"#FBF7F5",textAlign:"center"}} className={windowWidth > 800 ? "w-[80%]" : "w-[95%]"}>
+        <div style={{backgroundColor:"#f4f7f7"}} className={windowWidth > 800 ? "w-[100%] h-[100%] grid justify-items-center":"w-[100%] h-[800px] grid justify-items-center"}>
+            <div style={{background:"#FBF7F5",textAlign:"center"}} className={windowWidth > 800 ? "w-[80%] relative" : "w-[95%] relative"}>
                     
                 <h2 style={{fontSize:"200%"}}>Connect with us</h2>
                 <p>Do you want to partner with late developers or seek opportunites contact below</p>
-                <div className="w-[100%] flex flex-row">
+                <div className="w-[100%] flex flex-row flex-wrap">
                     <div className={windowWidth > 800 ? "w-[23%] m-[1%]" : "w-[48%] m-[1%]"}  style={{backgroundColor:"#fff",color:"#411342",textAlign:"center"}}>
                         <FontAwesomeIcon icon={faPhone} />
                         <p>+254717323852</p>

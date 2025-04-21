@@ -93,27 +93,25 @@ const WEBSITE = () => {
 
     return (
         <div className="w-[100%] min-h-[100%]">
-            <div className={ windowWidth > 800 ? "relative h-[20%] w-[100%] bg-black" : "relative h-auto w-[100%] bg-black"}>
+            <div className={ windowWidth > 800 ? "relative h-[150px] w-[100%] bg-black" : "relative h-[150px] w-[100%] bg-black"}>
                 <article className="w-[100%] grid justify-items-center">
                     <h1 style={{fontSize:windowWidth > 800 ? "350%" : "250%",color:"#fff"}}><b>WEB DESIGN & DEVELOPMENT</b></h1>
                 </article>
             </div>
             <div className={ windowWidth > 800 ? "relative h-[70%] w-[100%] bg-black" : "relative h-auto w-[100%] bg-black"}>
-                <div className={ windowWidth > 800 ? "flex relative left-[10%] w-[80%]" : "flex flex-col w-[100%]"}>
-                    {SWIPER({bodyPage:newBody,setting:{
-
-                    }})}
+                <div className={ windowWidth > 800 ? "flex relative left-[10%] w-[80%]" : "relative flex w-[100%]"}>
+                    {SWIPER({bodyPage:newBody,setting:windowWidth > 800 ? {} : {default:true}})}
                 </div>
             </div>
             <div style={{backgroundAttachment:"url(" + background1 + ")"}} className={ windowWidth > 800 ? "bg-fixed relative flex h-[100%] w-[100%]" : "relative flex flex-col bg-fixed min-h-[100%] w-[100%]"}>
-                <Image src = {website7} alt="late-developers" className={windowWidth > 800 ? "w-[50%] m-[1%] h-[100%] object-contain border-b-indigo-500/50" : "w-[100%] h-[350px]"}/>
+                <Image src = {website7} alt="late-developers" className={windowWidth > 800 ? "w-[50%] m-[1%] h-[100%] object-contain border-b-indigo-500/50" : "w-[100%] h-[200px]"}/>
                 <article className={ windowWidth > 800 ? "w-[48%] grid justify-center justify-items-center h-[30%] my-[10%]" : "w-[98%] m-[1%] p-[1%] text-justify"}>
                     <h1 style={{fontSize:"250%",color:"#fff"}} className="w-[100%] bg-gradient-to-r from-purple-500 to-pink-500">RESPONSIVE WEBSITES</h1>
                     <h1 style={{fontSize:"250%",color:"#fff"}} className="w-[100%] bg-gradient-to-r from-purple-500 to-pink-500">SEO PROVISION</h1>
                     <h1 style={{fontSize:"250%",color:"#fff"}} className="w-[100%] bg-gradient-to-r from-purple-500 to-pink-500">PERSONALIZED THEMES</h1>
                     <form 
                         id="quote-submit"
-                        onSubmit={sendQuote}
+                        onSubmit={(e) => sendQuote(e)}
                         className="w-[100%] b-[1px]"
                     >
                         <input

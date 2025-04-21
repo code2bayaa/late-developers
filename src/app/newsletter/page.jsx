@@ -13,8 +13,7 @@ export default function NEWSLETTER(){
     const formRef = useRef(null)
 
     useEffect( () => {
-        runThemes()
-        console.log("newsletters")
+        runThemes(window.screen.width)
         gsap.to(document.getElementById("NavBar"),{
             // css:{
                 // backgroundImage:`url(${contact})`,
@@ -75,7 +74,7 @@ export default function NEWSLETTER(){
             <p>late developers are engaged in many rivatilizing technological manouveours, associate with us as we send you the latest news of evolving tch to you daily inbox</p>
             <form
                 ref={formRef}
-                onSubmit={handleSubmit}
+                onSubmit={(e) => handleSubmit(e)}
                 className={windowWidth > 800 ? 'w-[80%] bg-[#F5F5F5] mx-[10%]':'w-[95%] bg-[#F5F5F5] mx-[2.5%] '}
             >
                 <div className='w-[100%] h-[30%]'>
@@ -88,7 +87,7 @@ export default function NEWSLETTER(){
                         placeholder='NAME'
                         required
                         value={form.name}
-                        onChange={handleChange}
+                        onChange={(e) => handleChange(e)}
                     />
                 </div>
                 <div className='w-[100%] h-[30%]'>
@@ -101,7 +100,7 @@ export default function NEWSLETTER(){
                         placeholder='EMAIL'
                         required
                         value={form.email}
-                        onChange={handleChange}
+                        onChange={(e) => handleChange(e)}
                     />
                 </div>
                 <button

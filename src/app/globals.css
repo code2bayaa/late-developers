@@ -103,7 +103,7 @@ body {
 #map{
   height:47%;
   width:60%;
-  position:absolute;
+  position:relative;
   margin:1%;
   margin-top:3%;
 }
@@ -211,6 +211,13 @@ canvas{
 
   .swiper{
     height:auto;
+  }
+
+  #map{
+    height:47%;
+    width:100%;
+    position:relative;
+    margin-top:3%;
   }
 
 }

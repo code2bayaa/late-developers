@@ -92,7 +92,7 @@ const FOOTER = () => {
                         <Link
                             href="/home"
                         >
-                            <Image src = {logo3} alt="late-developers" style={{height:"200px"}} className="w-[100%] object-contain"/>
+                            <Image src = {logo3} alt="late-developers" style={windowWidth > 800 ? {height:"200px",objectFit:"contain"} : {height:"100%"}} className="w-[100%]"/>
                         </Link>
                         <span style={{color:"#000",textAlign:"justify",width:"90%",margin:"2%",display:"inline-block"}}>
                             inspire problem-solving, critical thinking, and creativity—skills that are indispensable in the 21st century.

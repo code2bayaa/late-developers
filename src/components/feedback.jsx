@@ -48,11 +48,10 @@ export default function FEEDBACKCOMPONENT(){
     const formRef = useRef(null)
 
     useEffect( () => {
-        runThemes()
+        runThemes(window.screen.width)
         gsap.to("#NavBar",{
             onStart:() => {
                 document.getElementById("NavBar").classList.add("feedback")
-                // document.getElementById("logo").classList.add("transparent")
                 document.getElementById("logo").style.background = "transparent"
             },
             minHeight:"30%",
@@ -106,7 +105,7 @@ export default function FEEDBACKCOMPONENT(){
             <p>We would like to hear from you; write to us below</p>
             <form
                 ref={formRef}
-                onSubmit={handleSubmit}
+                onSubmit={(e) => handleSubmit(e)}
                 className='w-[80%] bg-[#F5F5F5] mx-[10%]'
             >
                 <div className='w-[100%] h-[30%]'>
@@ -119,7 +118,7 @@ export default function FEEDBACKCOMPONENT(){
                         placeholder='NAME'
                         required
                         value={form.name}
-                        onChange={handleChange}
+                        onChange={(e) => handleChange(e)}
                     />
                 </div>
                 <div className='w-[100%] h-[30%]'>
@@ -132,7 +131,7 @@ export default function FEEDBACKCOMPONENT(){
                         placeholder='EMAIL'
                         required
                         value={form.email}
-                        onChange={handleChange}
+                        onChange={(e) => handleChange(e)}
                     />
                 </div>
                 <div ref={ editorToolbarRef } className='w-[100%] h-[70%]'></div>

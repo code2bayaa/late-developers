@@ -29,15 +29,20 @@ const SWIPER = ({bodyPage,setting}) => {
           autoplay={{delay:7000, disableOnInteraction:true}}
           loop={true}
           slidesPerView={1}
-          cardsEffect={
-            {
-              rotate:20,
-              stretch:0,
-              depth:100,
-              modifier:1,
-              slideShadows:false
+          // Apply effect settings conditionally:
+          {...(setting.hasOwnProperty("default") ? {
+            coverflowEffect: {
+              rotate: 20,
+              stretch: 0,
+              depth: 100,
+              modifier: 1,
+              slideShadows: false,
             }
-          }
+          } : {
+            cardsEffect: {
+              slideShadows: false,
+            }
+          })}
           pagination={{clickable:true}}
           scrollbar={{draggable:true}}
         
