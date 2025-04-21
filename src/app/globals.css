@@ -173,7 +173,8 @@ html, body{
   margin:0px;
   padding:0px;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .swiper{

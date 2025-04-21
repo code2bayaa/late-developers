@@ -27,7 +27,7 @@ export default function SOCIAL(){
     },[])
     return(
         <div className={windowWidth > 800 ? "w-[100%] min-h-[100%] bg-[#000] text-white":"w-[100%] min-h-[100%] bg-[#000] text-white flex flex-col-reverse"}>
-            <div style={{fontSize:"90%"}} className={windowWidth > 800 ? "w-[80%] h-[20%] mx-[10%] flex flex-row":"w-[100%] h-[20%] flex flex-row fixed bottom-0 "}>
+            <div style={{fontSize:"90%"}} className={windowWidth > 800 ? "w-[80%] h-[20%] mx-[10%] flex flex-row":"w-[100%] h-[20%] flex flex-row fixed my-[80%] "}>
                 <button
                     type="button"
                     onClick={() => setPane("twitter")}
