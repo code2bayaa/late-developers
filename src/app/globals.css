@@ -173,7 +173,8 @@ html, body{
   margin:0px;
   padding:0px;
   box-sizing: border-box;
-  overflow-x: hidden;
+  flex:1;
+  /* overflow-x: auto; */
   overflow-y: auto;
 }
 
