@@ -55,7 +55,7 @@ export default function Home() {
           scrollTrigger:{
             trigger:all,
             scroller:"#main-body",
-            start:"top 5%",
+            start:"2% 5%",
             end:"bottom bottom",
             // markers:true
           }
@@ -143,7 +143,7 @@ export default function Home() {
                   type:"video",
                   sources: [
                   {
-                      src: "v-ZhNWabqa8", // YouTube video ID
+                      src: "SyJhyqVUWok", // YouTube video ID
                       provider: "youtube",
                   },
                   ],
@@ -157,14 +157,14 @@ export default function Home() {
               // }}
               options= {{
                 autoplay: true,
-                muted: true,
+                muted: false,
                 controls: ["play"],
               }
             }
           />
         </div>
         <div ref={textAllRef} id="textAll" className = {windowWidth > 800 ? "relative w-[100%] h-[60%]" : "relative w-[100%] h-auto" }>
-          <div className={windowWidth > 800 ? "w-[80%] h-[100%] relative left-[10%] bg-[#E1F977] text-[#411342] flex flex-row":"w-[100%] h-[100%] relative bg-[#E1F977] text-[#411342] flex flex-col"}>
+          <div style={{boxShadow:"0 15px 35px rgba(0, 0, 0, 0.12)"}} className={windowWidth > 800 ? "w-[80%] my-[5%] h-[100%] relative left-[10%] bg-[#E1F977] text-[#411342] flex flex-row":"w-[100%] h-[100%] relative bg-[#E1F977] text-[#411342] flex flex-col"}>
             <article className={windowWidth > 800 ? "w-[48%] m-[1%] text-center ":"w-[98%] m-[1%] text-center "}>
               <FontAwesomeIcon style={{fontSize:"400%",color:"#411342",textAlign:"center"}} icon={faHeart}/>
               <h1 style={{fontSize:"250%",textAlign:"center"}}>MISSION</h1>
@@ -181,14 +181,15 @@ export default function Home() {
             <div className="w-[100%] relative top-[25%] flex flex-row flex-wrap">
               {
                 marketing.map(({title, article, icon}, index) => (
-                    <div key={index} className={windowWidth > 800 ? "w-[30%] h-[150px] m-[1%] flex bg-[#f2f2f2]":"w-[98%] m-[1%] flex flex-col-reverse bg-[#f2f2f2]"}>
-                      <div className={windowWidth > 800 ? "w-[90%]":"w-[100%]"}>
+                    <div key={index} style={{boxShadow:"2 18px 75px rgba(0, 150, 255, 0.25)"}} className={windowWidth > 800 ? "w-[30%] h-[200px] m-[1%] bg-[#FAF3E0]":"w-[98%] m-[1%] bg-[#FAF3E0]"}>
+                      <div className="w-[100%]">
+                        {icon}
+                      </div>
+                      <div className="w-[100%]">
                         {title}
                         {article}
                       </div>
-                      <div className={windowWidth > 800 ? "w-[10%]":"w-[100%]"}>
-                        {icon}
-                      </div>
+
                     </div>
                   )
                 )
@@ -203,7 +204,7 @@ export default function Home() {
               {
                   clients.map(({image,name,link},index) => 
                   (
-                      <div className="w-[23%] m-[1%]" key={index}>
+                      <div className="w-[23%] m-[1%]" style={{boxShadow:"0 18px 45px rgba(0, 150, 255, 0.25)"}} key={index}>
                           <a href={link}>
                               <Image src={image} alt="<i>Late Developers</i>" style={{height:"150px"}} className="w-[40%] object-contain"/>
 
@@ -219,8 +220,8 @@ export default function Home() {
         </div>
 
         <div ref={textAllRef} id="textAll" className = {windowWidth > 800 ? "relative w-[60%] mx-[20%] h-[100%] bg-[#411342] flex flex-row" : "relative w-[100%] h-auto bg-[#411342]" }>
-          <Image src = {avatar} alt="late-developers" style={{height:windowWidth ? "100%" : "50%"}} className={windowWidth > 800 ? "w-[40%] p-0 m-[1%] z-[2] object-contain" : "w-[100%] object-contain"}/>
-          <div className={windowWidth > 800 ? "w-[60%] m-[1%] text-center":"w-[100%]"} style={{borderLeft:"1px solid #fff"}}>
+          <Image src = "/image/home2.png" width={500} height={500} alt="late-developers" style={{height:windowWidth ? "100%" : "50%"}} className={windowWidth > 800 ? "w-[50%]" : "w-[100%] object-contain"}/>
+          <div className={windowWidth > 800 ? "w-[60%] m-[1%] text-center":"w-[100%]"}>
               <h1 className="text-rose-800" style={{fontSize:"180%"}}>Quality Means No Compromise</h1>
               <article className="text-white text-left">
                 At <i>Late Developers</i>, we recognize that technology is more than just a tool; it is an enabler. By equipping young people with programming and digital skills, we empower them to innovate, create, and thrive in a competitive global marketplace. Our programming school curriculum is designed not just to teach coding but to inspire problem-solving, critical thinking, and creativity—skills that are indispensable in the 21st century.
