@@ -98,6 +98,7 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
   position: relative;
+  background:linear-gradient(to right, #f9f9f6 0%, #fff4e6 100%);
 }
 #map{
   height:47%;

@@ -3,7 +3,7 @@
 import {logo3} from "@/assets/index.jsx"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter, faFacebook, faInstagram, faYoutube, faLinkedin } from '@fortawesome/free-brands-svg-icons'
-import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons'
+import { faAddressCard, faArrowRightLong, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
 import Image from "next/image";
 import { useEffect, useState  } from "react"
 
@@ -26,14 +26,14 @@ const FOOTER = () => {
             <section className="w-[100%] flex flex-row flex-wrap">
                 <div style={{borderLeft:"1px solid #fff"}} className = {windowWidth > 800 ? "w-[23%] m-[1%]" : "w-[48%] m-[1%]"}>
                     <h2>Address</h2>
-                    <p>P.O. BOX 908452 - 80100, Mombasa</p>
+                    <p><FontAwesomeIcon icon={faAddressCard} />P.O. BOX 908452 - 80100, Mombasa</p>
                     <p>Shell building Tom Mboya Rd</p>
                     
                 </div>
                 <div style={{borderLeft:"1px solid #fff"}} className={windowWidth > 800 ? "w-[23%] m-[1%]" : "w-[48%] m-[1%]"}>
                     <h2>Contacts</h2>
-                    <p>+254717323852</p>
-                    <p>info@late-developers.com</p>
+                    <p><FontAwesomeIcon icon={faPhone} /> +254717323852</p>
+                    <p><FontAwesomeIcon icon={faEnvelope} /> info@late-developers.com</p>
 
                 </div>
                 <div style={{borderLeft:"1px solid #fff"}} className={windowWidth > 800 ? "w-[23%] m-[1%]" : "w-[48%] m-[1%]"}>

@@ -17,11 +17,13 @@ import gsap from "gsap"
 import { ScrollTrigger } from "gsap/all";
 import { runThemes } from "@/components/themes";
 import Link from "next/link";
+import $ from "jquery"
 // import {COLLECT} from "@/components/reports.jsx"
 
 export default function Home() {
 
   const [plyrMode, setPlyrMode] = useState(null)
+  const [quality, setQuality] = useState(false)
   const textRef = useRef(null)
   const textAllRef = useRef(null)
 
@@ -128,7 +130,7 @@ export default function Home() {
     <>
     {/* <div className="component"> */}
         <div className = {windowWidth > 800 ? "relative w-[100%] h-[100%] flex flex-row wave  bg-[url('/image/wave6.gif')]" : "relative w-[100%] h-[100%]" }>
-          <div style={{width:windowWidth > 800 ? "40%" : "100%", height:windowWidth > 800 ? "70%" : "100%", position:windowWidth > 800 ? "relative" : "absolute", }} className="flex gap-[2%] grid justify-items-center text-white z-[1] bg-shade">
+          <div style={{width:windowWidth > 800 ? "30%" : "100%", height:windowWidth > 800 ? "70%" : "100%", position:windowWidth > 800 ? "relative" : "absolute", }} className="flex gap-[2%] grid justify-items-center text-white z-[1] bg-shade">
             {/* <Image src = {wave1} alt="late-developers" style={{height:"50%"}} className="w-[20%] p-0 m-[-1%] z-[2] object-contain"/> */}
             <div className={windowWidth > 800 ? "w-[100%] my-[20%] relative":"w-[100%] relative my-[20%]"}>
               <h1 style={{color:windowWidth > 800 ? "#000" : "#fff"}}>STILL UNDER CONSTRUCTION</h1>
@@ -143,7 +145,7 @@ export default function Home() {
                   type:"video",
                   sources: [
                   {
-                      src: "SyJhyqVUWok", // YouTube video ID
+                      src: "pxU5nMFx1wM", // YouTube video ID
                       provider: "youtube",
                   },
                   ],
@@ -168,13 +170,69 @@ export default function Home() {
             <article className={windowWidth > 800 ? "w-[48%] m-[1%] text-center ":"w-[98%] m-[1%] text-center "}>
               <FontAwesomeIcon style={{fontSize:"400%",color:"#411342",textAlign:"center"}} icon={faHeart}/>
               <h1 style={{fontSize:"250%",textAlign:"center"}}>MISSION</h1>
-              To empower communities by embracing digital skills, through creativity and innovation contribute and develop to both the industry and the economy
+              To empower individuals and businesses through innovative software solutions and comprehensive training programs, fostering a culture of digital literacy and entrepreneurship that drives sustainable development and economic growth.
             </article>
             <article className={windowWidth > 800 ? "w-[48%] m-[1%] text-center ":"w-[98%] m-[1%] text-center "}>
               <FontAwesomeIcon style={{fontSize:"400%",color:"#411342",textAlign:"center"}} icon={faHandFist}/>
               <h1 style={{fontSize:"250%",textAlign:"center"}}>VISION</h1>
               To be a leading hub for innovation and digital transformation globally, empowering individuals and businesses with world-class technological skills and solutions to drive sustainable development and economic growth.
             </article>
+          </div>
+        </div>
+        <div ref={textAllRef} id="textAll" style={{background:"linear-gradient(to right, #FFE0B2 50%, #FAFAFA 50%)"}} className = {windowWidth > 800 ? "min-h-[100%] w-[100%] h-[auto]" : "relative w-[100%] h-auto" }>
+          <h1 style={{textAlign:"center",fontSize:"200%"}}>PACKAGES OFFERED</h1>
+          <div style={{background:"rgba(0,0,0,0.75)",color:"#fff",width:windowWidth > 800 ? "70%" : "98%",marginBottom:"1%",marginLeft:windowWidth > 800 ? "15%" : "1%",textAlign:"justify"}}>
+            <p>At Late Developers, we believe technology should be accessible, affordable, and transformational — whether you're a community organization working to uplift society, or a growing business ready to scale.
+            That's why we've designed custom digital packages tailored specifically for:</p>
+          </div>
+          <div className={windowWidth > 800 ? "w-[100%] flex flex-row":"w-[100%] flex flex-col"}>
+            <div className={windowWidth > 800 ? "w-[50%] min-h-[100%] text-[#411342]":"w-[100%] h-[auto] relative text-[#411342] flex flex-col"}>
+              <Image src = "/image/package1.jpeg" width={500} height={500} alt="late-developers" style={{height:"300px"}} className="w-[100%] object-contain"/>
+
+              <article className={windowWidth > 800 ? "w-[90%] mx-[5%] text-justify ":"w-[98%] m-[1%] text-center"}>
+                <h1 style={{fontSize:"250%",textAlign:"center"}}>COMMUNITY PACKAGE</h1>
+                At Late Developers, we believe true community change starts with visionary ideas, supported by strategic digital solutions. Whether you’re serving a neighborhood, a region, or a global mission — we are your technology and visibility partner.
+
+                We understand that investors want to see impact. Not just ideas, but structured outcomes, transparent systems, and measurable growth. That’s where we come in.              
+                <ul>
+                  <li>Churches & Religious Institutions</li>
+                  <li>Community-Based Organizations (CBOs)</li>
+                  <li>Public Benefit Organizations (PBOs)</li>
+                  <li>Youth & Women Empowerment Groups</li>
+                  <li>Grassroots Environmental Movements</li>
+                  <li>…and more</li>
+                </ul>
+                <p>But we don’t stop at websites. We help you tell your story in a way that inspires funding, engages the community, and scales your vision.</p>
+                <p>Send a mail below for more information</p>
+                <Link href="/feedback" className={windowWidth > 800 ? "bg-[#900C3F] text-center underline h-[40px] w-[20%] inline-block text-white rounded" :"bg-[#900C3F] text-center underline h-[40px] w-[50%] inline-block text-white rounded" }>
+                  More Info
+                </Link>
+              </article>
+            </div>
+            <div className={windowWidth > 800 ? "w-[50%] min-h-[100%] relative text-[#411342]":"w-[100%] h-[auto] relative text-[#411342] flex flex-col"}>
+              <Image src = "/image/package2.jpg" width={500} height={500} alt="late-developers" style={{height:"300px"}} className="w-[100%] object-contain"/>
+
+              <article className={windowWidth > 800 ? "w-[90%] mx-[5%] text-justify ":"w-[98%] m-[1%] text-center"}>
+                <h1 style={{fontSize:"250%",textAlign:"center"}}>ENTERPRISE PACKAGE</h1>
+                <h3>Smart Solutions for Smart Businesses — Scale Your Enterprise with Late Developers</h3>
+                In today’s fast-paced world, growth belongs to the bold — and the digitally prepared.
+                At Late Developers, we provide intelligent, automated, and scalable tech solutions for businesses ready to lead, not follow.
+
+                Whether you run a bank, bar, restaurant, logistics firm, or retail chain, our enterprise packages are designed to transform your operations, unlock efficiency, and drive revenue — all through the power of AI, IoT, Robotics, and Automation.
+                <strong>Embrace the Future — We Build it For You</strong>
+                <ol>
+                  <li>AI-Powered Business Intelligence</li>
+                  <li>IoT & Robotics Integration</li>
+                  <li>Workflow Automation for Speed & Accuracy</li>
+                  <li>Scale with Data, Not Guesswork</li>
+                  <li>Custom Software for Business Evolution</li>
+                </ol>
+                <p>Send a mail below for more information</p>
+                <Link href="/feedback" className={windowWidth > 800 ? "bg-[#900C3F] text-center underline h-[40px] w-[20%] inline-block text-white rounded" :"bg-[#900C3F] text-center underline h-[40px] w-[50%] inline-block text-white rounded" }>
+                  More Info
+                </Link>
+              </article>
+            </div>
           </div>
         </div>
         <div ref={textAllRef} id="textAll" style={windowWidth > 800 ? {clipPath:"polygon(0 20%, 100% 0, 100% 80%, 0 100%)"} : {}} className = {windowWidth > 800 ? "relative w-[100%] h-[100%] bg-[url('/image/background1.jpg')]" : "relative w-[100%] h-auto bg-[url('/image/background1.jpg')] flex flex-row flex-wrap" }>
@@ -219,23 +277,43 @@ export default function Home() {
           
         </div>
 
-        <div ref={textAllRef} id="textAll" className = {windowWidth > 800 ? "relative w-[60%] mx-[20%] h-[100%] bg-[#411342] flex flex-row" : "relative w-[100%] h-auto bg-[#411342]" }>
+        <div style={{boxShadow:"0 15px 35px rgba(0, 0, 0, 0.12)"}} className = {windowWidth > 800 ? "relative w-[60%] mx-[20%] h-[auto] bg-[#411342] flex flex-row" : "relative w-[100%] h-auto bg-[#411342]" }>
           <Image src = "/image/home2.png" width={500} height={500} alt="late-developers" style={{height:windowWidth ? "100%" : "50%"}} className={windowWidth > 800 ? "w-[50%]" : "w-[100%] object-contain"}/>
           <div className={windowWidth > 800 ? "w-[60%] m-[1%] text-center":"w-[100%]"}>
               <h1 className="text-rose-800" style={{fontSize:"180%"}}>Quality Means No Compromise</h1>
               <article className="text-white text-left">
                 At <i>Late Developers</i>, we recognize that technology is more than just a tool; it is an enabler. By equipping young people with programming and digital skills, we empower them to innovate, create, and thrive in a competitive global marketplace. Our programming school curriculum is designed not just to teach coding but to inspire problem-solving, critical thinking, and creativity—skills that are indispensable in the 21st century.
-                Catalyzing Economic Growth
-                The economic impact of digital literacy cannot be overstated. As Kenya seeks to solidify its position as a technological hub in Africa, a skilled workforce is essential. <i>Late Developers</i> is committed to producing tech talent that will contribute to key industries such as finance, healthcare, education, and agriculture.
+                <br/>
+                <button className="bg-[#900C3F] text-white p-[2%] m-[2%] rounded"
+                  onClick={() => {
+                    // Handle button click
+                    if(quality){
+                      $("#quality").slideUp(1000)
+                      setTimeout(() => {
+                        $("#quality").addClass("hidden")
+                      }, 1000)
+                    }else{
+                      $("#quality").removeClass("hidden")
+                      $("#quality").slideDown(1000)
+                    }
+                    setQuality(!quality)
+                  }
+                }>
+                  Learn More
+                </button>
+                <div id="quality" className="hidden w-[100%]">
+                  <strong>Catalyzing Economic Growth</strong>
+                  The economic impact of digital literacy cannot be overstated. As Kenya seeks to solidify its position as a technological hub in Africa, a skilled workforce is essential. <i>Late Developers</i> is committed to producing tech talent that will contribute to key industries such as finance, healthcare, education, and agriculture.
 
-                By fostering innovation, we are not only enhancing individual livelihoods but also driving national economic growth. A tech-literate population will attract investment, boost productivity, and position Kenya as a leader in the global digital economy.
+                  By fostering innovation, we are not only enhancing individual livelihoods but also driving national economic growth. A tech-literate population will attract investment, boost productivity.
 
-                A Call to Action
-                As the founder of <i>Late Developers</i>, I believe in the power of collaboration. Together, we can build a Kenya where no one is left behind in the digital age. We invite individuals, organizations, and policymakers to join us in this mission to innovate development, eradicate digital illiteracy, and create a future where technology works for everyone.
+                  <strong>A Call to Action</strong>
+                  We invite individuals, organizations, and policymakers to join us in this mission to innovate development, eradicate digital illiteracy, and create a future where technology works for everyone.
 
-                At <i>Late Developers</i>, we are not just teaching programming; we are cultivating a movement—one that will define the next chapter of Kenya’s growth story. Let us work together to empower our community, transform our youth, and energize our economy.
+                  At <i>Late Developers</i>, we are not just teaching programming; we are cultivating a movement—one that will define the next chapter, the next <b>digital native</b>. Let us work together to empower our community, transform our youth, and energize our economy.
 
-                Together, we code the future.
+                  Together, we code the future.
+                </div>
               </article>
           </div>
         </div>
@@ -261,7 +339,7 @@ export default function Home() {
               </article>
 
             </div>
-            <div className={windowWidth > 800 ? "w-[23%] m-[1%] shadow-md grid items-center" : "w-[98%] m-[1%] shadow-md grid items-center"}>
+            <div style={{background:"#000",color:"#fff"}} className={windowWidth > 800 ? "w-[23%] m-[1%] shadow-md grid items-center" : "w-[98%] m-[1%] shadow-md grid items-center"}>
               <Image src = {solutions2} alt="late-developers" style={{height:"200px"}} className="w-[100%]"/>
 
               <article className="w-[80%] text-left relative left-[10%]">
@@ -283,11 +361,11 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="w-[100%] h-[30%] grid justify-items-center">
-          <div className="bg-[#1C2B33] w-[60%] h-[100%] text-center justify-text rounded text-white">
-              <h1>Subscribe To Our Newsletters</h1>
-              <p>Be in the know on cloud, AI as well as online market trends</p>
-              <Link href="/newsletter" className="underline">SIGN UP</Link>
+        <div className={windowWidth > 800 ? "w-[100%] h-[30%] grid justify-items-center" : "w-[100%] h-[auto] grid justify-items-center"} style={{background:"linear-gradient(to right, rgb(136 19 55 / var(--tw-text-opacity, 1)) 0%, rgba(245, 182, 193, 1) 100%)"}}>
+          <div className="w-[60%] h-[100%] text-center justify-text rounded text-black">
+              <h1 style={{fontSize:"200%",textDecoration:"underline",color:"#4"}}>Subscribe To Our Newsletters</h1>
+              <p>Cloud technology is changing, AI trends are outpacing norm jobs, are tech jobs at risk. What can tech do for your business, the next unicorn. Much more to learn, are you <strong>late</strong>? Not really. But don't be left behind</p>
+              <Link href="/newsletter" className="underline">SUBSCRIBE</Link>
           </div>
         </div>
         <div className = {windowWidth > 800 ? "relative w-[100%] h-[90%]" : "relative w-[100%] h-auto" }>

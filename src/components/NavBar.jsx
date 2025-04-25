@@ -3,7 +3,7 @@ import Image from "next/image"
 import { logo2, logo3, contact } from "../assets"
 import Link from "next/link"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faHome, faChevronUp, faBars, faBarsStaggered } from "@fortawesome/free-solid-svg-icons"
+import { faChevronDown, faHome, faChevronUp, faBars, faBarsStaggered, faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons"
 import { useState,useRef, useEffect } from "react"
 import $ from "jquery"
 
@@ -139,7 +139,7 @@ const NavBar = () => {
                 </button>
             </div>
         }
-            <div ref={navBar} id="NavBar" style={{backgroundImage:"linear-gradient( #900C3F , #900c85bd, #900c85bd)"}} className={windowWidth > 800 ? "w-[100%] min-h-[20%] flex text-white" : "w-[100%] min-h-[100%] flex flex-col fixed text-white z-[10] top-[-1%] hidden"}>
+            <div ref={navBar} id="NavBar" style={{backgroundImage:"linear-gradient( #900C3F , #900c85bd, #900c85bd)"}} className={windowWidth > 800 ? "w-[100%] min-h-[15%] flex text-white" : "w-[100%] min-h-[100%] flex flex-col fixed text-white z-[10] top-[-1%] hidden"}>
                 <div id = "logo" ref={logoWall} className={windowWidth > 800 ? "w-[30%] bg-white" :"w-[100%] bg-white"}>
                     {
                         imageData === 1 ?
@@ -155,7 +155,7 @@ const NavBar = () => {
                 <div className={windowWidth > 800 ? "w-[70%] flex flex-wrap" : "w-[100%] flex flex-col"}>
                     <div className={windowWidth > 800 ? "flex flex-col w-[12%] m-[1%]" : "w-[100%]"}>
                         <div className="w-[100%]">
-                            <Link href="/" className="w-[100%] cursor"  onClick={() => removeNavBar()} style={{width:"100%",display:"block"}}>
+                            <Link href="/" className="w-[100%] cursor"  onClick={removeNavBar} style={{width:"100%",display:"block"}}>
                                 <FontAwesomeIcon icon={faHome}/> <span>Home</span>
                             </Link>
                         </div>
@@ -174,12 +174,12 @@ const NavBar = () => {
                             </button>
                         </div>
                         <div id = "introductions-header" className="w-[100%] hidden" style={{fontSize:"90%"}}>
-                            <Link href="/erp"  style={{width:"100%",display:"block"}} className="h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={() => removeNavBar()}>erp</Link>
-                            <Link href="/crm"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={() => removeNavBar()}>crm</Link>
-                            <Link href="/hr"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={() => removeNavBar()}>hr & payroll</Link>
-                            <Link href="/email"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={() => removeNavBar()}>email archiving</Link>
-                            <Link href="/edrms"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={() => removeNavBar()}>electronic document and records management system</Link>
-                            <Link href="/customs"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={() => removeNavBar()}>custom solutions</Link>
+                            <Link href="/erp"  style={{width:"100%",display:"block"}} className="h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}>erp</Link>
+                            <Link href="/crm"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}>crm</Link>
+                            <Link href="/hr"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}>hr & payroll</Link>
+                            <Link href="/email"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}>email archiving</Link>
+                            <Link href="/edrms"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}>electronic document and records management system</Link>
+                            <Link href="/customs"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}>custom solutions</Link>
                             
                         </div>
                     </div>
@@ -197,8 +197,8 @@ const NavBar = () => {
                             </button>
                         </div>
                         <div id = "services-header" className="w-[100%] hidden">
-                            <Link href="/website"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={() => removeNavBar()}>website development</Link>
-                            <Link href="/mobile"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={() => removeNavBar()}>mobile application development</Link>
+                            <Link href="/website"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}>website development</Link>
+                            <Link href="/mobile"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}>mobile application development</Link>
                         </div>
                     </div>
                     <div className={windowWidth > 800 ? "flex flex-col w-[12%] m-[1%]" : "flex flex-col w-[100%]"}>
@@ -215,10 +215,10 @@ const NavBar = () => {
                             </button>
                         </div>
                         <div id="projects-header" className="w-[100%] hidden">
-                            <Link href="/uko"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={() => removeNavBar()}>UKO</Link>
-                            <Link href="/drones"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={() => removeNavBar()}>Raid Drones</Link>
-                            <Link href="/doors"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={() => removeNavBar()}>Thinking Doors</Link>  
-                            <Link href="/arcade"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={() => removeNavBar()}>Arcades</Link>  
+                            <Link href="/uko"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}>UKO</Link>
+                            <Link href="/drones"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}>Raid Drones</Link>
+                            <Link href="/doors"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}>Thinking Doors</Link>  
+                            <Link href="/arcade"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}>Arcades</Link>  
                         </div>
                     </div>
                     <div className={windowWidth > 800 ? "flex flex-col w-[12%] m-[1%]" : "flex flex-col w-[100%]"}>
@@ -235,8 +235,8 @@ const NavBar = () => {
                             </button>
                         </div>
                         <div id = "shop-header" className="w-[100%] hidden">
-                            <Link href="/store"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={() => removeNavBar()}>Store</Link>
-                            <Link href="/checkout"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={() => removeNavBar()}>Checkout</Link> 
+                            <Link href="/store"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}>Store</Link>
+                            <Link href="/checkout"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}>Checkout</Link> 
                         </div>
                     </div>
                     <div className={windowWidth > 800 ? "flex flex-col w-[12%] m-[1%]" : "flex flex-col w-[100%]"}>
@@ -253,11 +253,11 @@ const NavBar = () => {
                             </button>
                         </div>
                         <div id = "activities-header" className="w-[100%] hidden">
-                            <Link href="/feedback"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={() => removeNavBar()}>Feedback</Link>
-                            <Link href="/contact"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={() => removeNavBar()}>Contact Us</Link> 
-                            <Link href="/newsletter"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={() => removeNavBar()}>Newsletter</Link>
-                            <Link href="/blogs"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={() => removeNavBar()}>Blogs</Link> 
-                            <Link href="/social"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={() => removeNavBar()}>Social Media</Link>
+                            <Link href="/feedback"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}>Feedback</Link>
+                            <Link href="/contact"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}>Contact Us</Link> 
+                            <Link href="/newsletter"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}>Newsletter</Link>
+                            <Link href="/blogs"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}>Blogs</Link> 
+                            <Link href="/social"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}>Social Media</Link>
                         </div>
                     </div>
                     <div className={windowWidth > 800 ? "flex flex-col w-[12%] m-[1%]" : "flex flex-col w-[100%]"}>
@@ -274,14 +274,19 @@ const NavBar = () => {
                             </button>
                         </div>
                         <div id = "school-header" className="w-[100%] hidden">
-                        <Link href="/users/signin"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={() => removeNavBar()}>Sign In</Link> 
-                        <Link href="/users/signup"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={() => removeNavBar()}>Sign Up</Link> 
-                        <Link href="/users/dashboard"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={() => removeNavBar()}>Account</Link>
-                        <Link href="/users/forgot"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={() => removeNavBar()}>Forgot Password</Link>  
+                        <Link href="/users/signin"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}>Sign In</Link> 
+                        <Link href="/users/signup"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}>Sign Up</Link> 
+                        <Link href="/users/dashboard"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}>Account</Link>
+                        <Link href="/users/forgot"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center m-[1%]" onClick={removeNavBar}>Forgot Password</Link>  
                         </div>
                     </div>
-                    <Link href="/homes"  style={{width:"20%",display:"block"}} className="min-h-[40px] bg-transparent text-white text-left m-[1%]" onClick={() => removeNavBar()}>homes</Link>
-
+                    <Link href="/homes"  style={{width:"20%",display:"block"}} className="min-h-[40px] bg-transparent text-white text-left m-[1%]" onClick={removeNavBar}>homes</Link>
+                    <div className={windowWidth > 800 ? "flex flex-col w-[12%] m-[1%]" : "flex flex-col w-[100%]"}>
+                        <p><FontAwesomeIcon icon={faPhone} /> +254717323852</p>
+                    </div>
+                    <div className={windowWidth > 800 ? "flex flex-col w-[12%] m-[1%]" : "flex flex-col w-[100%]"}>
+                        <p><FontAwesomeIcon icon={faEnvelope} /> info@late-developers.com</p>
+                    </div>
                 </div>
             </div>
         </>

@@ -1,5 +1,8 @@
 User-agent: *
 Disallow: /admin/
 Disallow: /private/
+Disallow: /login/
+Disallow: /cart/
+Disallow: /checkout/
 Allow: /public/
-Sitemap: https://www.late-developers.com/sitemap.xml
+Sitemap: https://www.weforshe.netlify.app/sitemap.xml
