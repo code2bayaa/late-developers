@@ -13,6 +13,8 @@ const NavBar = () => {
 
     const [windowWidth, setWindowWidth] = useState(0);
     const [imageData, setImageData] = useState(1)
+    const [mobileOpen, setMobileOpen] = useState(false)
+    const [navBarVisible, setNavBarVisible] = useState(false)
     const logoFrame = useRef(null)
     const logoWall = useRef(null)
     const navBar = useRef(null)
@@ -48,43 +50,67 @@ const NavBar = () => {
         if(windowWidth < 800){
             setBtnChange({ ...btnChange, mobile : false })
             
-                mobileHeader.current.attributes["clicked"].value = 1 
+                // mobileHeader.current.attributes["clicked"].value = 1 
 
             
             // document.querySelector("#NavBar").style.display = "none"
-            gsap.to(navBar.current,{
-                opacity:0,
-                duration:1,
-                x:"-10%"
-            })
+            // gsap.to(navBar.current,{
+            //     opacity:0,
+            //     duration:1,
+            //     x:"100%",
+            //     onComplete: () => {
+                    
+            //     }
+            // })
+            setNavBarVisible(false)
+            setMobileOpen(false)
         }
     }
 
     const mobile = () => {
 
 
-        const event = mobileHeader.current.attributes["clicked"].value
-
-        if(event === "1"){
-            setBtnChange({ ...btnChange, mobile : true })
-            mobileHeader.current.attributes["clicked"].value = 0
-            document.querySelector("#NavBar").style.display = "block"
-            gsap.fromTo("#NavBar",{x:"40%",opacity:0},{
-                opacity:1,
-                duration:2,
-                x:"0%"
-            })
-        }else{
+        if(mobileOpen){
             setBtnChange({ ...btnChange, mobile : false })
-            mobileHeader.current.attributes["clicked"].value = 1 
-            document.querySelector("#NavBar").style.display = "none"
-            gsap.to("#NavBar",{
-                opacity:0,
-                duration:2,
-                delay:1,
-                x:"-10%"
-            })
+            // mobileHeader.current.attributes["clicked"].value = 1 
+            // document.querySelector("#NavBar").style.display = "none"
+            // gsap.to("#NavBar",{
+            //     opacity:0,
+            //     duration:2,
+            //     // delay:1,
+            //     x:"100%",
+            //     onComplete: () => {
+                    
+                    
+            //     }
+
+            // })
+            setNavBarVisible(false)
+            setMobileOpen(false)
+        }else{
+
+
+            setBtnChange({ ...btnChange, mobile : true })
+            // mobileHeader.current.attributes["clicked"].value = 0
+            // document.querySelector("#NavBar").style.display = "block"
+            setNavBarVisible(true)
+            setMobileOpen(true)
+            // gsap.to("#NavBar",{
+            //     opacity:1,
+            //     duration:0,
+            //     x:"0%",
+            //     onComplete: () => {
+                    
+            //     }
+            // })
+            // gsap.fromTo("#NavBar",{x:"40%",opacity:0},{
+            //     opacity:1,
+            //     duration:2,
+            //     x:"0%"
+            // })
         }
+        
+        
     }
 
     const openHeader = (prop) => {
@@ -128,7 +154,7 @@ const NavBar = () => {
             ""
             :
             <div className="fixed z-[20] " style={{width:"100%",backgroundColor:"linear-gradient(rgba(0,0,0,0.57),rgba(0,0,0,0.75),rgba(0,0,0,0.84)"}}>
-                <button className = "btn-mobile w-[20%] bg-[#000] text-white" ref={mobileHeader} onClick={mobile} clicked = "1">
+                <button className = "btn-mobile w-[20%] bg-[#000] text-white" onClick={() => mobile()}>
                     {
                         btnChange.mobile ? 
                             <FontAwesomeIcon icon={faBarsStaggered} />
@@ -139,7 +165,7 @@ const NavBar = () => {
                 </button>
             </div>
         }
-            <div ref={navBar} id="NavBar" style={{backgroundImage:"linear-gradient( #900C3F , #900c85bd, #900c85bd)"}} className={windowWidth > 800 ? "w-[100%] min-h-[15%] flex text-white" : "w-[100%] min-h-[100%] flex flex-col fixed text-white z-[10] top-[-1%] hidden"}>
+            <div ref={navBar} id="NavBar" style={{backgroundImage:"linear-gradient( #900C3F , #900c85bd, #900c85bd)"}} className={windowWidth > 800 ? "w-[100%] min-h-[15%] flex text-white" : `w-[100%] min-h-[100%] flex flex-col fixed text-white z-[10] top-[-1%] ${navBarVisible ? "" : "hidden"}`}>
                 <div id = "logo" ref={logoWall} className={windowWidth > 800 ? "w-[30%] bg-white" :"w-[100%] bg-white"}>
                     {
                         imageData === 1 ?
