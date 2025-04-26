@@ -11,10 +11,10 @@ const BLOGS = () => {
     return (
         <>
             <div className={windowWidth > 800 ? "flex flex-row w-[100%] relative min-h-[100%]" : "flex flex-col w-[100%] min-h-[100%]" }>
-                <div className="w-[95%] m-[2.5%] h-[auto]" style={{backgroundImage:"linear-gradient(to right, #89CFF0, #F0F8FF)"}}>
+                <div className="w-[95%] m-[2.5%] h-[auto]">
                     {
-                        blogs.map(({title,header,description},index) => 
-                            <SNIPPET title={title} header={header} description={description} key={index}/>
+                        blogs.map(({img,title,header,description},index) => 
+                            <SNIPPET img={img} title={title} header={header} description={description} key={index}/>
                         )
                     }
                 </div>

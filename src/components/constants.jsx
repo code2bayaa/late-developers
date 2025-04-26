@@ -17,7 +17,7 @@ const clients = [
     },
     {
         image:client1,
-        link:"https://weforshe.netlify.app/",
+        link:"https://weforshemvnt.org",
         name:"WE FOR SHE"
     },
     {
@@ -177,6 +177,7 @@ const marketing = [
 
 const blogs = [
     {
+        img:"/image/phishing.jpg",
         title:"PHISHING",
         header:"PHISHING FOR LATE DEVELOPERS",
         description:<>
