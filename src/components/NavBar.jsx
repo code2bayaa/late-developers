@@ -307,10 +307,10 @@ const NavBar = () => {
                         </div>
                     </div>
                     <Link href="/homes"  style={{width:"20%",display:"block"}} className="min-h-[40px] bg-transparent text-white text-left m-[1%]" onClick={removeNavBar}>homes</Link>
-                    <div className={windowWidth > 800 ? "flex flex-col w-[12%] m-[1%]" : "flex flex-col w-[100%]"}>
+                    <div className={windowWidth > 800 ? "flex flex-col w-[auto] m-[1%]" : "flex flex-col w-[100%]"}>
                         <p><FontAwesomeIcon icon={faPhone} /> +254717323852</p>
                     </div>
-                    <div className={windowWidth > 800 ? "flex flex-col w-[12%] m-[1%]" : "flex flex-col w-[100%]"}>
+                    <div className={windowWidth > 800 ? "flex flex-col w-[auto] m-[1%]" : "flex flex-col w-[100%]"}>
                         <p><FontAwesomeIcon icon={faEnvelope} /> info@late-developers.com</p>
                     </div>
                 </div>

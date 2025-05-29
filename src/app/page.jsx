@@ -84,9 +84,14 @@ export default function Home() {
       duration: 0.5,
       ease: "power1.out",
     });
-
-    return () => window.removeEventListener("resize", handleResize);
+    // return () => {
+    //   setPlyrMode(() => true)
+    //   // window.removeEventListener("resize", handleResize);
+    // }
   }, []);
+  useLayoutEffect(() => {
+    setPlyrMode(true)
+  },[])
 
   const settings = {
     dots: true,
@@ -140,30 +145,28 @@ export default function Home() {
               <h3 style={{fontSize:windowWidth > 800 ? "200%" : "150%",color:windowWidth > 800 ? "#000" : "#fff"}}>late again</h3>
             </div>
           </div>
-          <Plyr
-              source={{
-                  type:"video",
-                  sources: [
-                  {
-                      src: "pxU5nMFx1wM", // YouTube video ID
-                      provider: "youtube",
-                  },
-                  ],
+          {
+            plyrMode && 
+            < Plyr
+                source={{
+                    type:"video",
+                    sources: [
+                    {
+                        src: "pxU5nMFx1wM", // YouTube video ID
+                        provider: "youtube",
+                    },
+                    ],
 
-              }}
-              // className="plyr-home"
-              // style={windowWidth > 800 ? {width:"55%",maxHeight:"550px",height:"auto",borderRadius:"5px",marginTop:"5%"} : { maxHeight:"100%",height:"100%",
-              //   width : "100% !important",
-              //   borderRadius:"0px",
-              //   marginTop:"0%"
-              // }}
-              options= {{
-                autoplay: true,
-                muted: false,
-                controls: ["play"],
+                }}
+                options= {{
+                  autoplay: true,
+                  muted: false,
+                  controls: ["play", "volume", "fullscreen"],
+                }
               }
-            }
-          />
+            />
+          }
+
         </div>
         <div ref={textAllRef} id="textAll" className = {windowWidth > 800 ? "relative w-[100%] h-[60%]" : "relative w-[100%] h-auto" }>
           <div style={{boxShadow:"0 15px 35px rgba(0, 0, 0, 0.12)"}} className={windowWidth > 800 ? "w-[80%] my-[5%] h-[100%] relative left-[10%] bg-[#E1F977] text-[#411342] flex flex-row":"w-[100%] h-[100%] relative bg-[#E1F977] text-[#411342] flex flex-col"}>
@@ -189,7 +192,7 @@ export default function Home() {
             <div className={windowWidth > 800 ? "w-[50%] min-h-[100%] text-[#411342]":"w-[100%] h-[auto] relative text-[#411342] flex flex-col"}>
               <Image src = "/image/package1.jpeg" width={500} height={500} alt="late-developers" style={{height:"300px"}} className="w-[100%] object-contain"/>
 
-              <article className={windowWidth > 800 ? "w-[90%] mx-[5%] text-justify ":"w-[98%] m-[1%] text-center"}>
+              <article className={windowWidth > 800 ? "w-[90%] mx-[5%] text-justify ":"w-[98%] m-[1%] text-justify"}>
                 <h1 style={{fontSize:"250%",textAlign:"center"}}>COMMUNITY PACKAGE</h1>
                 At Late Developers, we believe true community change starts with visionary ideas, supported by strategic digital solutions. Whether you’re serving a neighborhood, a region, or a global mission — we are your technology and visibility partner.
 
@@ -200,7 +203,6 @@ export default function Home() {
                   <li>Public Benefit Organizations (PBOs)</li>
                   <li>Youth & Women Empowerment Groups</li>
                   <li>Grassroots Environmental Movements</li>
-                  <li>…and more</li>
                 </ul>
                 <p>But we don’t stop at websites. We help you tell your story in a way that inspires funding, engages the community, and scales your vision.</p>
                 <p>Send a mail below for more information</p>
@@ -212,7 +214,7 @@ export default function Home() {
             <div className={windowWidth > 800 ? "w-[50%] min-h-[100%] relative text-[#411342]":"w-[100%] h-[auto] relative text-[#411342] flex flex-col"}>
               <Image src = "/image/package2.jpg" width={500} height={500} alt="late-developers" style={{height:"300px"}} className="w-[100%] object-contain"/>
 
-              <article className={windowWidth > 800 ? "w-[90%] mx-[5%] text-justify ":"w-[98%] m-[1%] text-center"}>
+              <article className={windowWidth > 800 ? "w-[90%] mx-[5%] text-justify ":"w-[98%] m-[1%] text-justify"}>
                 <h1 style={{fontSize:"250%",textAlign:"center"}}>ENTERPRISE PACKAGE</h1>
                 <h3>Smart Solutions for Smart Businesses — Scale Your Enterprise with Late Developers</h3>
                 In today’s fast-paced world, growth belongs to the bold — and the digitally prepared.
