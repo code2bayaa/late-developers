@@ -55,9 +55,9 @@ export default function Home() {
         { y: 50, opacity: 0 }, // Start position (bottom & invisible)
         { y: 0, opacity: 1, duration: 2, ease: "power3.out",
           scrollTrigger:{
-            trigger:all,
+            trigger:all.children,
             scroller:"#main-body",
-            start:"2% 5%",
+            start:"2% 10%",
             end:"bottom bottom",
             // markers:true
           }
@@ -90,8 +90,10 @@ export default function Home() {
     // }
   }, []);
   useLayoutEffect(() => {
-    setPlyrMode(true)
-  },[])
+    // return () => {
+      setPlyrMode(true)
+    // }
+  },[setPlyrMode])
 
   const settings = {
     dots: true,
@@ -190,7 +192,7 @@ export default function Home() {
           </div>
           <div className={windowWidth > 800 ? "w-[100%] flex flex-row":"w-[100%] flex flex-col"}>
             <div className={windowWidth > 800 ? "w-[50%] min-h-[100%] text-[#411342]":"w-[100%] h-[auto] relative text-[#411342] flex flex-col"}>
-              <Image src = "/image/package1.jpeg" width={500} height={500} alt="late-developers" style={{height:"300px"}} className="w-[100%] object-contain"/>
+              <Image src = "/image/package1.jpeg" width={500} height={500} alt="late developers https://late-developers.com" style={{height:"300px"}} className="w-[100%] object-contain"/>
 
               <article className={windowWidth > 800 ? "w-[90%] mx-[5%] text-justify ":"w-[98%] m-[1%] text-justify"}>
                 <h1 style={{fontSize:"250%",textAlign:"center"}}>COMMUNITY PACKAGE</h1>
@@ -212,7 +214,7 @@ export default function Home() {
               </article>
             </div>
             <div className={windowWidth > 800 ? "w-[50%] min-h-[100%] relative text-[#411342]":"w-[100%] h-[auto] relative text-[#411342] flex flex-col"}>
-              <Image src = "/image/package2.jpg" width={500} height={500} alt="late-developers" style={{height:"300px"}} className="w-[100%] object-contain"/>
+              <Image src = "/image/package2.jpg" width={500} height={500} alt="late developers https://late-developers.com" style={{height:"300px"}} className="w-[100%] object-contain"/>
 
               <article className={windowWidth > 800 ? "w-[90%] mx-[5%] text-justify ":"w-[98%] m-[1%] text-justify"}>
                 <h1 style={{fontSize:"250%",textAlign:"center"}}>ENTERPRISE PACKAGE</h1>
@@ -266,7 +268,7 @@ export default function Home() {
                   (
                       <div className="w-[23%] m-[1%]" style={{boxShadow:"0 18px 45px rgba(0, 150, 255, 0.25)"}} key={index}>
                           <a href={link}>
-                              <Image src={image} alt="<i>Late Developers</i>" style={{height:"150px"}} className="w-[40%] object-contain"/>
+                              <Image src={image} alt="Late Developers  https://late-developers.com" style={{height:"150px"}} className="w-[40%] object-contain"/>
 
                           </a>
                           <h3>{name}</h3>
@@ -323,7 +325,7 @@ export default function Home() {
           <h1 className="text-rose-800 text-center" style={{fontSize:"250%"}}>Best Solutions</h1>
           <div className="flex flex-row flex-wrap w-[100%]">
             <div className={windowWidth > 800 ? "w-[23%] m-[1%] shadow-md grid items-center" : "w-[98%] m-[1%] shadow-md grid items-center"}>
-              <Image src = {solutions1} alt="late-developers" style={{height:"200px"}} className="w-[100%]"/>
+              <Image src = {solutions1} alt="late developers https://late-developers.com" style={{height:"200px"}} className="w-[100%]"/>
             
               <article className="w-[80%] text-left relative left-[10%]">
                 <h2><b>Software Development Training</b></h2>
@@ -332,7 +334,7 @@ export default function Home() {
 
             </div>
             <div className={windowWidth > 800 ? "w-[23%] m-[1%] shadow-md grid items-center" : "w-[98%] m-[1%] shadow-md grid items-center"}>
-              <Image src = {solutions3} alt="late-developers" style={{height:"200px"}} className="w-[100%]"/>
+              <Image src = {solutions3} alt="late developers https://late-developers.com" style={{height:"200px"}} className="w-[100%]"/>
 
               <article className="w-[80%] text-left relative left-[10%]">
               <h2><b>Custom Software Solutions for Businesses</b></h2>
@@ -342,7 +344,7 @@ export default function Home() {
 
             </div>
             <div style={{background:"#000",color:"#fff"}} className={windowWidth > 800 ? "w-[23%] m-[1%] shadow-md grid items-center" : "w-[98%] m-[1%] shadow-md grid items-center"}>
-              <Image src = {solutions2} alt="late-developers" style={{height:"200px"}} className="w-[100%]"/>
+              <Image src = {solutions2} alt="late developers https://late-developers.com" style={{height:"200px"}} className="w-[100%]"/>
 
               <article className="w-[80%] text-left relative left-[10%]">
               <h2><b>Digital Literacy and E-Learning Platforms</b></h2>
@@ -352,7 +354,7 @@ export default function Home() {
 
             </div>
             <div className={windowWidth > 800 ? "w-[23%] m-[1%] shadow-md grid items-center" : "w-[98%] m-[1%] shadow-md grid items-center"}>
-              <Image src = {solutions4} alt="late-developers" style={{height:"200px"}} className="w-[100%]"/>
+              <Image src = {solutions4} alt="late developers https://late-developers.com" style={{height:"200px"}} className="w-[100%]"/>
 
               <article className="w-[80%] text-left relative left-[10%]">
               <h2><b>Innovative Tech for Social Good</b></h2>
@@ -382,7 +384,7 @@ export default function Home() {
                   (
                       <div className="w-[23%] m-[1%]" key={index}>
                           <a href={link}>
-                              <Image src={image} alt="<i>Late Developers</i>" style={{height:"150px"}} className="w-[40%] object-contain"/>
+                              <Image src={image} alt="Late Developers https://late-developers.com" style={{height:"150px"}} className="w-[40%] object-contain"/>
 
                           </a>
                           {/* <h3>{name}</h3> */}

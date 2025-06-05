@@ -78,7 +78,7 @@ const UKO = () => {
             <div className={windowWidth > 800 ? "flex flex-row w-[100%] relative" : "flex flex-col w-[100%]" }>
                 <div ref={triggerRef} className={windowWidth > 800 ? "w-[60%] text-justify three m-[0px]" : "w-[100%] text-justify three"}>
                     <article>
-                        <p><span style={{fontSize:"300%"}}>L</span>ooking to invest in a <strong>start up</strong> production, introducing <b>UKO</b> read below for more details</p>
+                        <p><span style={{fontSize:"300%"}}>L</span>ooking to invest in a <strong>start up</strong> production, introducing <b>UKO</b></p>
                         <form 
                             id="investors-submit"
                             onSubmit={investorsQuote}
@@ -102,6 +102,8 @@ const UKO = () => {
                     </article>
                     <article>
                         <span><span style={{fontSize:"300%"}}>S</span>et to make waves in the entertainment industry with its latest project, UKO. Designed as a platform to stream and react to movies—both international blockbusters and locally embraced films—UKO aims to create a unique global community for movie enthusiasts</span>
+                        <p>https://uko-app.com</p>
+                        <p>https://uko.netlify.app</p>
                     </article>
                     <article>
                         <p><span style={{fontSize:"300%"}}>H</span>ere are the core technologies driving UKO:</p>
@@ -137,7 +139,7 @@ const UKO = () => {
                     </article>
                     <article>
                         <h2>Strategies</h2>
-                        <p><i>Late Developers</i> understands that an innovative product needs strong financial backing. Here's how the company plans to attract investors for UKO:</p>
+                        <p><i>Late Developers</i> understands that an innovative product needs strong financial backing. Here's how we attract investors for UKO:</p>
                         <ol>
                             <li>
                                 <h2>Showcasing Market Potential</h2>
@@ -168,7 +170,7 @@ const UKO = () => {
                     <article>
                         <span><span style={{fontSize:"300%"}}>U</span>KO represents <i>Late Developers’</i> commitment to innovation and community building. With a robust technological foundation and a clear roadmap to attract investors, the project is poised to become a global sensation in the entertainment industry. By blending streaming with social engagement, UKO not only caters to movie enthusiasts but also empowers filmmakers and content creators on a global scale.
 
-                        <i>Late Developers</i> invites investors to be part of this groundbreaking journey to redefine how the world experiences movies and reactions.</span>
+                        <i>Late Developers</i> invites investors to be part of this groundbreaking journey to redefine how the world experiences block busters, streams and reactions.</span>
                     </article>
                     <form 
                         id="investors-submit"

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRibbon, faPhone, faMailForward, faAddressCard } from '@fortawesome/free-solid-svg-icons'
 import {useRef, useState, useLayoutEffect} from 'react'
 import { faTwitter, faFacebook, faInstagram, faYoutube, faLinkedin } from '@fortawesome/free-brands-svg-icons'
-import { Loader } from "@googlemaps/js-api-loader"
+// import { Loader } from "@googlemaps/js-api-loader"
 import { contact, logo2 } from "@/assets/"
 import Link from 'next/link'
 // import gsap from "gsap"
@@ -12,6 +12,7 @@ import { runThemes } from '../../components/themes'
 const CONTACTS = () => {
 
     const [windowWidth, setWindowWidth] = useState(0);
+    const map = useRef(null)
 
     useLayoutEffect(() => {
         runThemes(window.screen.width)
@@ -32,42 +33,44 @@ const CONTACTS = () => {
         const handleResize = () => setWindowWidth(window.screen.width);
         handleResize()
 
-        const loader = new Loader({
-            apiKey: process.env.map,
-            version: "weekly",
-            // options,
-          });
+        map.current.innerHTML = `<iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=39.661126%2C-4.038160%2C39.661126%2C-4.038160&amp;layer=mapnik&amp;marker=-4.038160%2C39.661126" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=-4.038160&amp;mlon=39.661126#map=19/-4.038160/39.661126">View Larger Map</a></small>`
+
+        // const loader = new Loader({
+        //     apiKey: process.env.map,
+        //     version: "weekly",
+        //     // options,
+        //   });
           
 
-          loader.load().then(async () => {
-            const { Map } = await google.maps.importLibrary("maps");
-            const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker");
+        //   loader.load().then(async () => {
+        //     const { Map } = await google.maps.importLibrary("maps");
+        //     const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker");
 
-            let position = {lat:-3.9968431767133388,lng:39.699020416678195}
+        //     let position = {lat:-3.9968431767133388,lng:39.699020416678195}
 
-            let map = new Map(document.getElementById("map"), {
-              center: position,
-              zoom: 18,
-              mapId: "late_developer_3"
-            });
+        //     let map = new Map(document.getElementById("map"), {
+        //       center: position,
+        //       zoom: 18,
+        //       mapId: "late_developer_3"
+        //     });
 
-            // Define the custom icon
-            var customIcon = {
-                url: logo2, // URL to your custom image
-                scaledSize: new google.maps.Size(60, 60), // Desired size
-                origin: new google.maps.Point(0, 0), // Origin point (0, 0)
-                anchor: new google.maps.Point(25, 50) // Anchor point (center of the image)
-            };
+        //     // Define the custom icon
+        //     var customIcon = {
+        //         url: logo2, // URL to your custom image
+        //         scaledSize: new google.maps.Size(60, 60), // Desired size
+        //         origin: new google.maps.Point(0, 0), // Origin point (0, 0)
+        //         anchor: new google.maps.Point(25, 50) // Anchor point (center of the image)
+        //     };
 
-            // Create a marker with the custom icon
-            var marker = new google.maps.Marker({
-                position,
-                map,
-                icon: customIcon,
-                title: 'we for she movement'
-            });
+        //     // Create a marker with the custom icon
+        //     var marker = new google.maps.Marker({
+        //         position,
+        //         map,
+        //         icon: customIcon,
+        //         title: 'we for she movement'
+        //     });
 
-          });
+        //   });
 
     },[])
 
@@ -112,7 +115,7 @@ const CONTACTS = () => {
                         </Link>
                     </div>
                 </div>
-                <div id="map">
+                <div id="map" ref={map}>
                     <h1>late developers map</h1>
                 </div>
             </div>

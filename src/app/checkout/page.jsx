@@ -433,7 +433,7 @@ const CHECKOUT = () => {
                                 <>
                                     <div className="flex justify-between items-center border-b pb-2 mb-4">
                                         <h2 className="text-lg font-semibold">MPESA PAYMENT</h2>
-                                        <Image src = {load} alt="late-developers" className="w-[30%] object-contain"/>
+                                        <Image src = {load} alt="late developers https://late-developers.com" className="w-[30%] object-contain"/>
 
                                     </div>
                                     <p className="mb-4">The payment prompt is sent to your phone.</p>
