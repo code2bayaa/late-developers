@@ -8,7 +8,7 @@ import { useState,useRef, useEffect } from "react"
 import $ from "jquery"
 
 // const GSAP = dynamic(() => import("gsap"), { ssr: false });
-import gsap from "gsap";
+// import gsap from "gsap";
 const NavBar = () => {
 
     const [windowWidth, setWindowWidth] = useState(0);

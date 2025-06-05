@@ -182,7 +182,7 @@ const blogs = [
         header:"PHISHING FOR LATE DEVELOPERS",
         description:<>
             <article style={{textAlign:"justify",width:"80%",marginLeft:"10%"}}>
-            <span class = "gradient-text">M</span>odern innovations like smartphones, cloud computing, 
+            <span className = "gradient-text">M</span>odern innovations like smartphones, cloud computing, 
             and social media have given rise to a hyperconnected 
             society and radically transformed the workplace. It has 
             never been easier to keep in touch with your peers around the 
