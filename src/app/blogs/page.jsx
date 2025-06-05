@@ -25,7 +25,7 @@ const BLOGS = () => {
                 {
                     windowWidth > 800 ? 
                         <div ref={showMore} className="w-[70%] h-[auto]">
-                            <h1 style={{textDecoration:"underline",fontSize:"150%"}}>{lightHeader}</h1>
+                            <h1 style={{textDecoration:"underline",marginLeft:"10%",fontSize:"150%"}}>{lightHeader}</h1>
                             {lightDescription}
                         </div>
                     :
