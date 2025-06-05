@@ -19,13 +19,10 @@ const NavBar = () => {
     const logoWall = useRef(null)
     const navBar = useRef(null)
     useEffect(() => {
-        
       const handleResize = () => setWindowWidth(window.screen.width);
-  
       window.addEventListener("resize", handleResize);
       handleResize(); // Initialize width
 
-  
       return () => window.removeEventListener("resize", handleResize);
     }, []);
 
@@ -153,8 +150,8 @@ const NavBar = () => {
             ?
             ""
             :
-            <div className="fixed z-[20] " style={{width:"100%",backgroundColor:"linear-gradient(rgba(0,0,0,0.57),rgba(0,0,0,0.75),rgba(0,0,0,0.84)"}}>
-                <button className = "btn-mobile w-[20%] bg-[#000] text-white" onClick={() => mobile()}>
+            <div className="relative z-[20] " style={{width:"100%",height:"40px",background:"linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.85),rgba(0,0,0,0.84))"}}>
+                <button className = "btn-mobile w-[20%] h-[100%] bg-[transparent] text-white" onClick={() => mobile()}>
                     {
                         btnChange.mobile ? 
                             <FontAwesomeIcon icon={faBarsStaggered} />

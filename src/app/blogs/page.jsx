@@ -18,7 +18,7 @@ const BLOGS = () => {
                 <div className={windowWidth > 800 ? "w-[30%] h-[auto]":"w-[95%] m-[2.5%] h-[auto]"}>
                     {
                         blogs.map(({img,title,header,description},index) => 
-                            <SNIPPET setLightHeader={setLightHeader} setLigthDescription={setLigthDescription} showMore={showMore} img={img} title={title} header={header} description={description} key={index}/>
+                            <SNIPPET windowWidth={windowWidth} setLightHeader={setLightHeader} setLigthDescription={setLigthDescription} showMore={showMore} img={img} title={title} header={header} description={description} key={index}/>
                         )
                     }
                 </div>

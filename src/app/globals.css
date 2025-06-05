@@ -130,20 +130,20 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.55),rgba(0,0,0,0.35)), url(/image/newsletters.png) !important;
+  background-image: linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.55),rgba(0,0,0,0.35)), url("/image/newsletters.png") !important;
 }
 
 .feedback{
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.55),rgba(0,0,0,0.35)), url(/image/feedback.webp) !important;
+  background-image: linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.55),rgba(0,0,0,0.35)), url("/image/feedback.webp") !important;
 }
 .contact{
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.55),rgba(0,0,0,0.35)), url(/image/contact.png) !important;
+  background-image: linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.55),rgba(0,0,0,0.35)), url("/image/contact.png") !important;
 }
 
 .transparent{
@@ -224,6 +224,10 @@ canvas{
     width:100%;
     position:relative;
     margin-top:3%;
+  }
+
+  .gradient-text {
+    font-size: 120px;
   }
 
 }

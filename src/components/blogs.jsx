@@ -2,33 +2,13 @@ import { useEffect, useRef, useState } from "react"
 import $ from "jquery"
 import Image from "next/image"
 
-const SNIPPET = ({setLigthDescription,setLightHeader,showMore,img,title,header,description}) => {
+const SNIPPET = ({windowWidth,setLigthDescription,setLightHeader,showMore,img,title,header,description}) => {
 
-    const [windowWidth, setWindowWidth] = useState(0);
-    useEffect(() => {
-        console.log(description)
-        const handleResize = () => {
-            setWindowWidth(window.innerWidth)
-        }
-        window.addEventListener("resize", handleResize)
-        return () => {
-            window.removeEventListener("resize", handleResize)
-        }
-    },[])
     const blogDiv = useRef(null)
     const [slide, setSlide] = useState(false)
     const seeMore = (e) => {
+        console.log(windowWidth,"windowWidth")
         if(windowWidth > 800){
-            if(!slide){
-                $(blogDiv.current).removeClass("hidden")
-                $(blogDiv.current).slideDown("slow")
-                e.target.innerText = "View Less"
-            }else{
-                $(blogDiv.current).slideUp("fast")
-                $(blogDiv.current).addClass("hidden")
-                e.target.innerText = "Read More"
-            }
-        }else{
             if(!slide){
                 $(showMore.current).slideUp("fast")
                 $(showMore.current).addClass("hidden")
@@ -39,6 +19,17 @@ const SNIPPET = ({setLigthDescription,setLightHeader,showMore,img,title,header,d
                 $(showMore.current).removeClass("hidden")
                 $(showMore.current).slideDown("slow")
                 e.target.innerText = "View Less"
+            }
+        }else{
+            console.log("open mobile blog")
+            if(!slide){
+                $(blogDiv.current).removeClass("hidden")
+                $(blogDiv.current).slideDown("slow")
+                e.target.innerText = "View Less"
+            }else{
+                $(blogDiv.current).slideUp("fast")
+                $(blogDiv.current).addClass("hidden")
+                e.target.innerText = "Read More"
             }
         }
 
