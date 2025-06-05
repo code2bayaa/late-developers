@@ -181,7 +181,7 @@ const blogs = [
         title:"PHISHING",
         header:"PHISHING FOR LATE DEVELOPERS",
         description:<>
-            <article style={{textAlign:"justify",width:"80%",marginLeft:"10%"}}>
+            <article style={{textAlign:"justify",width:"98%",margin:"1%"}}>
             <span class = "gradient-text">M</span>odern innovations like smartphones, cloud computing, 
             and social media have given rise to a hyperconnected 
             society and radically transformed the workplace. It has 
@@ -200,7 +200,7 @@ const blogs = [
             phishing and goes over some of the basics of phishing including 
             the issues that lead to phishing attacks.
         </article>
-        <article style={{textAlign:"justify",width:"80%",marginLeft:"10%"}}>
+        <article style={{textAlign:"justify",width:"98%",margin:"1%"}}>
             <em>Phishing</em> is a type of electronically delivered social engineering 
             attack in which a perpetrator, often posing as a legitimate entity, 
             attempts to obtain sensitive information from an unsuspecting 
@@ -232,7 +232,7 @@ const blogs = [
             to defend against it. Thankfully, defenses have evolved to keep 
             pace with increasingly sophisticated attacks.
         </article>
-        <article style={{textAlign:"justify",width:"80%",marginLeft:"10%"}}>
+        <article style={{textAlign:"justify",width:"98%",margin:"1%"}}>
             <h2>Types of Phishing Attacks</h2>
             <strong>Mass phishing:</strong>This targets a large group of people with a 
             generic message. The attacker may send out thousands or 
