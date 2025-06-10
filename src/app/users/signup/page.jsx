@@ -15,7 +15,7 @@ const SIGNUP = () => {
   const [form, setForm] = useState({name:"",email:"",password:"",repeat_password:"",telephone:""});
   const [confirming, setConfirming] = useState(false)
   const [code, setCode] = useState(null)
-  const [verify, setVerify] = useState(false)
+//   const [verify, setVerify] = useState(false)
   const [view, setView] = useState(true)
   const [loading, setLoading] = useState(false)
   const [passwordType, setPasswordType] = useState("password")
@@ -49,12 +49,17 @@ const SIGNUP = () => {
         
         if(!form.email)
             swal("oops","input email","error")
+                
+        if(!form.telephone)
+            swal("oops","input telephone","error")
+
         if(!form.password)
             swal("oops","input passowrd","error")
         setLoading(false)
         return null
     }
 
+    console.log(form)
     const randomCode = Math.floor(1000 + Math.random() * 9999);
 
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Signup`, {
