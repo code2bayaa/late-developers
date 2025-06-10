@@ -7,11 +7,12 @@ export async function POST(req){
     const { RECEIVER, MSG, SUBJECT, CC, ATTATCHMENTS } = body
 
     // return NextResponse.json({message:body},{status:200})
+    console.log(process.env.email_service,process.env.email)
     try{
 
         let transporter = nodemailer.createTransport({
-            service:process.env.email_server,
-            host:process.env.email_server,
+            service:process.env.email_service,
+            host:process.env.email_service,
             port: 587,
             
             secure: false,
@@ -21,7 +22,7 @@ export async function POST(req){
             }
         });
         const mailOptions = {
-            from:"late developers " + process.env.email,
+            from:`late developers ${process.env.email}`,
             to : RECEIVER, // list of receivers
             subject : SUBJECT, // Subject line
             html : MSG, // plain text body
