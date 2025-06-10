@@ -61,23 +61,7 @@ const SIGNUP = () => {
 
     console.log(form)
     const randomCode = Math.floor(1000 + Math.random() * 9999);
-
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Signup`, {
-        method: "POST",
-        body:JSON.stringify({...form, randomCode}),
-        headers: {
-          'Content-Type': 'application/json', // Indicates the body is JSON
-        },
-      });
-
-      console.log(response)
-      const {status, message} = await response.json()
-      console.log(status,"status")
-      if(!status){
-          swal("oops",message,"error")
-          setLoading(false)
-          return null
-      }
+    //email first
       
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Email/`, {
         cache: "no-store",
@@ -104,6 +88,22 @@ const SIGNUP = () => {
         return null
     }
 
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Signup`, {
+        method: "POST",
+        body:JSON.stringify({...form, randomCode}),
+        headers: {
+            'Content-Type': 'application/json', // Indicates the body is JSON
+        },
+    });
+
+    console.log(response)
+    const {status, message} = await response.json()
+    console.log(status,"status")
+    if(!status){
+        swal("oops",message,"error")
+        setLoading(false)
+        return null
+    }
 
       setLoading(false)
 
