@@ -185,20 +185,14 @@ export default function Home() {
           </div>
         </div>
         <div ref={textAllRef} id="textAll" style={{background:"linear-gradient(to right, #FFE0B2 50%, #FAFAFA 50%)"}} className = {windowWidth > 800 ? "min-h-[100%] w-[100%] h-[auto]" : "relative w-[100%] h-auto" }>
-          <h1 style={{textAlign:"center",fontSize:"200%"}}>PACKAGES OFFERED</h1>
-          <div style={{background:"rgba(0,0,0,0.75)",color:"#fff",width:windowWidth > 800 ? "70%" : "98%",marginBottom:"1%",marginLeft:windowWidth > 800 ? "15%" : "1%",textAlign:"justify"}}>
-            <p>At Late Developers, we believe technology should be accessible, affordable, and transformational — whether you're a community organization working to uplift society, or a growing business ready to scale.
-            That's why we've designed custom digital packages tailored specifically for:</p>
-          </div>
+          
           <div className={windowWidth > 800 ? "w-[100%] flex flex-row":"w-[100%] flex flex-col"}>
             <div className={windowWidth > 800 ? "w-[50%] min-h-[100%] text-[#411342]":"w-[100%] h-[auto] relative text-[#411342] flex flex-col"}>
+              <h1 style={{textAlign:"center",fontSize:"300%",textShadow:"0 0 0 #000",position:"relative",right:"0%"}}>PACKAGES</h1>
               <Image src = "/image/package1.jpeg" width={500} height={500} alt="late developers https://late-developers.com" style={{height:"300px"}} className="w-[100%] object-contain"/>
 
               <article className={windowWidth > 800 ? "w-[90%] mx-[5%] text-justify ":"w-[98%] m-[1%] text-justify"}>
                 <h1 style={{fontSize:"250%",textAlign:"center"}}>COMMUNITY PACKAGE</h1>
-                At Late Developers, we believe true community change starts with visionary ideas, supported by strategic digital solutions. Whether you’re serving a neighborhood, a region, or a global mission — we are your technology and visibility partner.
-
-                We understand that investors want to see impact. Not just ideas, but structured outcomes, transparent systems, and measurable growth. That’s where we come in.              
                 <ul>
                   <li>Churches & Religious Institutions</li>
                   <li>Community-Based Organizations (CBOs)</li>
@@ -214,23 +208,21 @@ export default function Home() {
               </article>
             </div>
             <div className={windowWidth > 800 ? "w-[50%] min-h-[100%] relative text-[#411342]":"w-[100%] h-[auto] relative text-[#411342] flex flex-col"}>
+              <h1 style={{textAlign:"center",fontSize:"300%",textShadow:"0 0 0 #000"}}>OFFERED</h1>
               <Image src = "/image/package2.jpg" width={500} height={500} alt="late developers https://late-developers.com" style={{height:"300px"}} className="w-[100%] object-contain"/>
 
               <article className={windowWidth > 800 ? "w-[90%] mx-[5%] text-justify ":"w-[98%] m-[1%] text-justify"}>
                 <h1 style={{fontSize:"250%",textAlign:"center"}}>ENTERPRISE PACKAGE</h1>
                 <h3>Smart Solutions for Smart Businesses — Scale Your Enterprise with Late Developers</h3>
-                In today’s fast-paced world, growth belongs to the bold — and the digitally prepared.
-                At Late Developers, we provide intelligent, automated, and scalable tech solutions for businesses ready to lead, not follow.
-
-                Whether you run a bank, bar, restaurant, logistics firm, or retail chain, our enterprise packages are designed to transform your operations, unlock efficiency, and drive revenue — all through the power of AI, IoT, Robotics, and Automation.
-                <strong>Embrace the Future — We Build it For You</strong>
-                <ol>
+                
+                <ul>
                   <li>AI-Powered Business Intelligence</li>
                   <li>IoT & Robotics Integration</li>
                   <li>Workflow Automation for Speed & Accuracy</li>
                   <li>Scale with Data, Not Guesswork</li>
                   <li>Custom Software for Business Evolution</li>
-                </ol>
+                </ul>
+                <strong>Embrace the Future — We Build it For You</strong>
                 <p>Send a mail below for more information</p>
                 <Link href="/feedback" className={windowWidth > 800 ? "bg-[#900C3F] text-center underline h-[40px] w-[20%] inline-block text-white rounded" :"bg-[#900C3F] text-center underline h-[40px] w-[50%] inline-block text-white rounded" }>
                   More Info

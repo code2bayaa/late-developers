@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image"
-import { logo2, logo3, contact } from "../assets"
+import { logo3 } from "../assets"
 import Link from "next/link"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faHome, faChevronUp, faBars, faBarsStaggered, faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons"
@@ -166,10 +166,10 @@ const NavBar = () => {
                 <div id = "logo" ref={logoWall} className={windowWidth > 800 ? "w-[30%] bg-white" :"w-[100%] bg-white"}>
                     {
                         imageData === 1 ?
-                            <Image id="imageFrame" src = {logo2} ref={logoFrame} alt="late-developers" className="w-[100%] p-0 m-[1%] z-[2] object-contain"/>
+                            <Image id="imageFrame" src = "/image/logo2.png" width={200} height={200} ref={logoFrame} alt="late-developers https://late-developers.com" className="w-[100%] object-contain"/>
 
                         :
-                            <Image src = {logo3} ref={logoFrame} alt="late-developers" className="w-[100%] p-0 h-[150px] z-[2] object-cover"/>
+                            <Image src = {logo3} ref={logoFrame} alt="late-developers https://late-developers.com" className="w-[100%] p-0 h-[150px] z-[2] object-cover"/>
 
                         
                     }

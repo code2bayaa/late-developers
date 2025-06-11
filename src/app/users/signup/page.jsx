@@ -10,10 +10,12 @@ import gsap from "gsap"
 import { faEye, faEyeLowVision, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link"
 import { runThemes } from "@/components/themes";
+// import { count } from "console";
 
 const SIGNUP = () => {
   const [form, setForm] = useState({name:"",email:"",password:"",repeat_password:"",telephone:""});
   const [confirming, setConfirming] = useState(false)
+  const [check_password, setCheckPassword] = useState(false)
   const [code, setCode] = useState(null)
 //   const [verify, setVerify] = useState(false)
   const [view, setView] = useState(true)
@@ -177,6 +179,42 @@ const SIGNUP = () => {
     setView(!view)
   }
 
+  const checkTelephone = (e) => {
+    const value = e.target.value;
+    const telephoneData = localStorage.getItem("location")
+    let telephonePass = true;
+    if(value.length > 3 && telephoneData){
+        const [one, two, three] = JSON.parse(telephoneData);
+        const { country_calling_code } = two
+        const proper_calling = country_calling_code.replace("+", "")
+        if(!value.startsWith(proper_calling)){
+            telephonePass = false;
+            swal("oops","telephone must start with "+proper_calling,"error")
+        }
+    }
+    
+    const regex = /^[0-9]{0,15}$/; // Allow only numbers and limit to 15 digits
+    if (regex.test(value) && telephonePass) {
+        setForm(() => ({...form, [e.target.name]:value}));
+    }
+}
+
+const checkPassword = (e) => {
+    console.log(e.target)
+    setCheckPassword(false)
+    const value = e.target.value;
+
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/; // At least 8 characters, one uppercase, one lowercase, and one number
+    if (regex.test(value)) {
+        setForm(() => ({...form, [e.target.name]:value}));
+        e.target.classList.remove("text-red")
+        setCheckPassword(false)
+    }else {
+        e.target.classList.add("text-red")
+        setCheckPassword(true)
+    }
+}
+
     return (
     <div className="w-[100%] min-h-[100%] bg-[linear-gradient(#fdfcfb,#e2d1c3,#e2d1c3)]">
       <h1 style={{textAlign:"center",fontSize:"200%"}}>Create an Account</h1>
@@ -212,11 +250,11 @@ const SIGNUP = () => {
                     <legend>Telephone</legend>
                     <input
                         type="telephone"
-                        placeholder="Telephone"
+                        placeholder="254717323852"
                         value={form.telephone}
                         className="w-[100%] m-[0.5%] items-center h-[40px] border border-[#ccc]"
                         name="telephone"
-                        onChange={(e) => setForm(() => ({...form, [e.target.name] : e.target.value}))}
+                        onChange={(e) => checkTelephone(e)}
                     />
                 </fieldset>
                 <fieldset>
@@ -224,10 +262,10 @@ const SIGNUP = () => {
                     <input
                         type={passwordType}
                         placeholder="Password"
-                        value={form.password}
+                        // value={form.password}
                         className="w-[89%] m-[0.5%] h-[40px] border border-[#ccc]"
                         name="password"
-                        onChange={(e) => setForm(() => ({...form, [e.target.name]:e.target.value}))}
+                        onChange={(e) => checkPassword(e)}
                     />
                     <button 
                         type="button"
@@ -237,6 +275,16 @@ const SIGNUP = () => {
                         { view ? <FontAwesomeIcon icon={faEyeSlash}/> : <FontAwesomeIcon icon={faEye}/> }
                     </button>
                 </fieldset>
+                {
+                    check_password ? 
+                    <ul>
+                        <li className="text-red">Password must be at least 8 characters long</li>
+                        <li className="text-red">Must contain at least one uppercase letter</li>
+                        <li className="text-red">Must contain at least one lowercase letter</li>
+                        <li className="text-red">Must contain at least one number</li>
+                    </ul>
+                    : ""
+                }
                 <fieldset>
                     <legend>Repeat Password</legend>
                     <input
@@ -268,7 +316,7 @@ const SIGNUP = () => {
                 <p>A code was sent to your email. Input it below</p>
                 <form onSubmit={verifyEmail}>
                     <input
-                        type="text"
+                        type="number"
                         placeholder="Input Code"
                         className="w-[100%] m-[0.5%] h-[40px] border border-[#000]"
                         name="code"

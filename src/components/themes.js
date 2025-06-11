@@ -7,9 +7,9 @@ export const runThemes = async(screen) => {
     document.getElementById("NavBar").classList.remove("contact")
     document.getElementById("logo").classList.remove("transparent")
     document.getElementById("NavBar").classList.remove("newsletters")
-    document.getElementById("imageFrame").srcset = logo2.src
-    document.getElementById("imageFrame").style.objectFit = "contain"
-    document.getElementById("imageFrame").style.height = "auto"
+    document.getElementById("imageFrame").srcset =  "/image/logo2.png"
+    document.getElementById("imageFrame").style.objectFit = "cover"
+    document.getElementById("imageFrame").style.height = "150px"
     document.getElementById("logo").style.background = "#fff"
     document.getElementById("NavBar").style.background = "linear-gradient( #900C3F , #900c85bd, #900c85bd)"
 
