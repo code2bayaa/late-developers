@@ -196,7 +196,7 @@ const NavBar = () => {
                                 
                             </button>
                         </div>
-                        <div id = "introductions-header" className={windowWidth > 800 ? "w-[9%] top-[5%] absolute hidden":"w-[100%] hidden"} style={{fontSize:"90%"}}>
+                        <div id = "introductions-header" style={{zIndex:1}} className={windowWidth > 800 ? "w-[9%] top-[5%] absolute hidden":"w-[100%] hidden"}>
                             <Link href="/erp"  style={{width:"100%",display:"block"}} className="h-[40px] bg-white w-[98%] text-black text-center border-b-[#ccc] border-[1px]" onClick={removeNavBar}>erp</Link>
                             <Link href="/crm"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center border-b-[#ccc] border-[1px]" onClick={removeNavBar}>crm</Link>
                             <Link href="/hr"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center border-b-[#ccc] border-[1px]" onClick={removeNavBar}>hr & payroll</Link>
@@ -219,7 +219,7 @@ const NavBar = () => {
                                 
                             </button>
                         </div>
-                        <div id = "services-header" className={windowWidth > 800 ? "w-[9%] top-[5%] absolute hidden":"w-[100%] hidden"}>
+                        <div id = "services-header" style={{zIndex:1}} className={windowWidth > 800 ? "w-[9%] top-[5%] absolute hidden":"w-[100%] hidden"}>
                             <Link href="/website"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center border-b-[#ccc] border-[1px]" onClick={removeNavBar}>website development</Link>
                             <Link href="/mobile"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center border-b-[#ccc] border-[1px]" onClick={removeNavBar}>mobile application development</Link>
                         </div>
@@ -237,7 +237,7 @@ const NavBar = () => {
                                 
                             </button>
                         </div>
-                        <div id="projects-header" className={windowWidth > 800 ? "w-[9%] top-[5%] absolute hidden":"w-[100%] hidden"}>
+                        <div id="projects-header" style={{zIndex:1}} className={windowWidth > 800 ? "w-[9%] top-[5%] absolute hidden":"w-[100%] hidden"}>
                             <Link href="/uko"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center border-b-[#ccc] border-[1px]" onClick={removeNavBar}>UKO</Link>
                             <Link href="/drones"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center border-b-[#ccc] border-[1px]" onClick={removeNavBar}>Raid Drones</Link>
                             <Link href="/doors"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center border-b-[#ccc] border-[1px]" onClick={removeNavBar}>Thinking Doors</Link>  
@@ -257,7 +257,7 @@ const NavBar = () => {
                                 
                             </button>
                         </div>
-                        <div id = "shop-header" className={windowWidth > 800 ? "w-[9%] top-[5%] absolute hidden":"w-[100%] hidden"}>
+                        <div id = "shop-header" style={{zIndex:1}} className={windowWidth > 800 ? "w-[9%] top-[5%] absolute hidden":"w-[100%] hidden"}>
                             <Link href="/store"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center border-b-[#ccc] border-[1px]" onClick={removeNavBar}>Store</Link>
                             <Link href="/checkout"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center border-b-[#ccc] border-[1px]" onClick={removeNavBar}>Checkout</Link> 
                         </div>
@@ -275,7 +275,7 @@ const NavBar = () => {
                                 
                             </button>
                         </div>
-                        <div id = "activities-header" className={windowWidth > 800 ? "w-[9%] top-[5%] absolute hidden":"w-[100%] hidden"}>
+                        <div id = "activities-header" style={{zIndex:1}} className={windowWidth > 800 ? "w-[9%] top-[5%] absolute hidden":"w-[100%] hidden"}>
                             <Link href="/feedback"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center border-b-[#ccc] border-[1px]" onClick={removeNavBar}>Feedback</Link>
                             <Link href="/contact"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center border-b-[#ccc] border-[1px]" onClick={removeNavBar}>Contact Us</Link> 
                             <Link href="/newsletter"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center border-b-[#ccc] border-[1px]" onClick={removeNavBar}>Newsletter</Link>
@@ -296,7 +296,7 @@ const NavBar = () => {
                                 
                             </button>
                         </div>
-                        <div id = "school-header" className={windowWidth > 800 ? "w-[9%] top-[5%] absolute hidden":"w-[100%] hidden"}>
+                        <div id = "school-header" style={{zIndex:1}} className={windowWidth > 800 ? "w-[9%] top-[5%] absolute hidden":"w-[100%] hidden"}>
                         <Link href="/users/signin"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center border-b-[#ccc] border-[1px]" onClick={removeNavBar}>Sign In</Link> 
                         <Link href="/users/signup"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center border-b-[#ccc] border-[1px]" onClick={removeNavBar}>Sign Up</Link> 
                         <Link href="/users/dashboard"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center border-b-[#ccc] border-[1px]" onClick={removeNavBar}>Account</Link>
