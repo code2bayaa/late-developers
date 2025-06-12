@@ -188,7 +188,12 @@ export default function Home() {
           
           <div className={windowWidth > 800 ? "w-[100%] flex flex-row":"w-[100%] flex flex-col"}>
             <div className={windowWidth > 800 ? "w-[50%] min-h-[100%] text-[#411342]":"w-[100%] h-[auto] relative text-[#411342] flex flex-col"}>
-              <h1 style={{textAlign:"center",fontSize:"300%",textShadow:"0 0 0 #000",position:"relative",right:"0%"}}>PACKAGES</h1>
+              {
+                windowWidth > 800 ? 
+                  <h1 style={{textAlign:"center",fontSize:"300%",textShadow:"0 0 0 #000",position:"relative",right:"0%"}}>PACKAGES</h1>
+                :
+                  <h1 style={{textAlign:"center",fontSize:"200%",textShadow:"0 0 0 #000",position:"relative",right:"0%"}}>PACKAGES OFFERED</h1>
+              }
               <Image src = "/image/package1.jpeg" width={500} height={500} alt="late developers https://late-developers.com" style={{height:"300px"}} className="w-[100%] object-contain"/>
 
               <article className={windowWidth > 800 ? "w-[90%] mx-[5%] text-justify ":"w-[98%] m-[1%] text-justify"}>
@@ -208,7 +213,12 @@ export default function Home() {
               </article>
             </div>
             <div className={windowWidth > 800 ? "w-[50%] min-h-[100%] relative text-[#411342]":"w-[100%] h-[auto] relative text-[#411342] flex flex-col"}>
-              <h1 style={{textAlign:"center",fontSize:"300%",textShadow:"0 0 0 #000"}}>OFFERED</h1>
+              {
+                windowWidth > 800 ?
+                  <h1 style={{textAlign:"center",fontSize:"300%",textShadow:"0 0 0 #000"}}>OFFERED</h1>
+                  :
+                  ""
+              }
               <Image src = "/image/package2.jpg" width={500} height={500} alt="late developers https://late-developers.com" style={{height:"300px"}} className="w-[100%] object-contain"/>
 
               <article className={windowWidth > 800 ? "w-[90%] mx-[5%] text-justify ":"w-[98%] m-[1%] text-justify"}>
