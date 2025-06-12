@@ -42,21 +42,27 @@ const SIGNUP = () => {
     e.preventDefault();
 
     setLoading(true)
-    if(Object.values(form).find( value => !value)){
+    const values = [...Object.values(form)]
+    const check = values.findIndex( value => value === "")
+    if(check > -1){
+        let msg = ""
         if(!form.name)
-            swal("oops","input name","error")
+            msg += "input name, "
+            
 
         if(!form.repeat_password)
-            swal("oops","input repeat password","error")
+            msg += "input repeat password, "
         
         if(!form.email)
-            swal("oops","input email","error")
+            msg += "input email, "
                 
         if(!form.telephone)
-            swal("oops","input telephone","error")
+            msg += "input telephone, "
 
         if(!form.password)
-            swal("oops","input passowrd","error")
+            msg += "input password"
+        console.log(msg)
+        swal("oops",msg,"error")
         setLoading(false)
         return null
     }
@@ -130,13 +136,14 @@ const SIGNUP = () => {
   }
 
   const repeatPassword = (e) => {
-    setForm(() => ({...form, [e.target.name]:e.target.value}))
-    repeatPasswordRef.current.classList.add("text-red")
+    
+    repeatPasswordRef.current.classList.add("border-b-[red]")
     setConfirming(true)
     console.log(repeatPasswordRef.current.value)
     if(form.password === repeatPasswordRef.current.value){
         setConfirming(false)
-        repeatPasswordRef.current.classList.remove("text-red")
+        setForm(() => ({...form, [e.target.name]:e.target.value}))
+        repeatPasswordRef.current.classList.remove("border-b-[red]")
     }
 
   }
@@ -182,13 +189,14 @@ const SIGNUP = () => {
   const checkTelephone = (e) => {
     const value = e.target.value;
     const telephoneData = localStorage.getItem("location")
-    let telephonePass = true;
+    let telephonePass = false;
     if(value.length > 3 && telephoneData){
         const [one, two, three] = JSON.parse(telephoneData);
         const { country_calling_code } = two
         const proper_calling = country_calling_code.replace("+", "")
-        if(!value.startsWith(proper_calling)){
-            telephonePass = false;
+        if(value.startsWith(proper_calling)){
+            telephonePass = true;
+        }else{
             swal("oops","telephone must start with "+proper_calling,"error")
         }
     }
@@ -200,17 +208,17 @@ const SIGNUP = () => {
 }
 
 const checkPassword = (e) => {
-    console.log(e.target)
     setCheckPassword(false)
     const value = e.target.value;
-
-    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/; // At least 8 characters, one uppercase, one lowercase, and one number
+    console.log(value)
+    const regex = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}/; // At least 8 characters, one uppercase, one lowercase, and one number
     if (regex.test(value)) {
+        console.log("valid password")
         setForm(() => ({...form, [e.target.name]:value}));
-        e.target.classList.remove("text-red")
+        e.currentTarget.classList.remove("border-b-[red]")
         setCheckPassword(false)
     }else {
-        e.target.classList.add("text-red")
+        e.currentTarget.classList.add("border-b-[red]")
         setCheckPassword(true)
     }
 }
@@ -229,7 +237,7 @@ const checkPassword = (e) => {
                     <input
                         type="text"
                         placeholder="Name"
-                        value={form.name}
+                        // value={form.name}
                         className="w-[100%] m-[0.5%] h-[40px] border border-[#ccc]"
                         name="name"
                         onChange={(e) => setForm(() => ({...form, [e.target.name]:e.target.value}))}
@@ -240,7 +248,7 @@ const checkPassword = (e) => {
                     <input
                         type="email"
                         placeholder="Email"
-                        value={form.email}
+                        // value={form.email}
                         className="w-[100%] m-[0.5%] items-center h-[40px] border border-[#ccc]"
                         name="email"
                         onChange={(e) => setForm(() => ({...form, [e.target.name] : e.target.value}))}
@@ -251,7 +259,7 @@ const checkPassword = (e) => {
                     <input
                         type="telephone"
                         placeholder="254717323852"
-                        value={form.telephone}
+                        // value={form.telephone}
                         className="w-[100%] m-[0.5%] items-center h-[40px] border border-[#ccc]"
                         name="telephone"
                         onChange={(e) => checkTelephone(e)}
@@ -278,10 +286,10 @@ const checkPassword = (e) => {
                 {
                     check_password ? 
                     <ul>
-                        <li className="text-red">Password must be at least 8 characters long</li>
-                        <li className="text-red">Must contain at least one uppercase letter</li>
-                        <li className="text-red">Must contain at least one lowercase letter</li>
-                        <li className="text-red">Must contain at least one number</li>
+                        <li className="text-[red]">Password must be at least 8 characters long</li>
+                        <li className="text-[red]">Must contain at least one uppercase letter</li>
+                        <li className="text-[red]">Must contain at least one lowercase letter</li>
+                        <li className="text-[red]">Must contain at least one number</li>
                     </ul>
                     : ""
                 }

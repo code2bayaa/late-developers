@@ -7,12 +7,11 @@ export async function POST(req){
     const { RECEIVER, MSG, SUBJECT, CC, ATTATCHMENTS } = body
 
     // return NextResponse.json({message:body},{status:200})
-    console.log(process.env.email_service,process.env.email)
     try{
 
         let transporter = nodemailer.createTransport({
             service:process.env.email_service,
-            host:process.env.email_service,
+            host:process.env.email_host,
             port: 587,
             
             secure: false,
