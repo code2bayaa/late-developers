@@ -303,7 +303,7 @@ const NavBar = () => {
                         <Link href="/users/forgot"  style={{width:"100%",display:"block"}} className="min-h-[40px] bg-white w-[98%] text-black text-center border-b-[#ccc] border-[1px]" onClick={removeNavBar}>Forgot Password</Link>  
                         </div>
                     </div>
-                    <Link href="/homes"  style={{width:"20%",display:"block"}} className="min-h-[40px] bg-transparent text-white text-left m-[1%]" onClick={removeNavBar}>homes</Link>
+                    {/* <Link href="/homes"  style={{width:"20%",display:"block"}} className="min-h-[40px] bg-transparent text-white text-left m-[1%]" onClick={removeNavBar}>homes</Link> */}
                     <div className={windowWidth > 800 ? "flex flex-col w-[auto] m-[1%]" : "flex flex-col w-[100%]"}>
                         <p><FontAwesomeIcon icon={faPhone} /> +254717323852</p>
                     </div>
