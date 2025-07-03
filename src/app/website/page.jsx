@@ -133,6 +133,7 @@ const WEBSITE = () => {
                     </form>
 
                 </article>
+                <h2>We are located in Mombasa, Kenya</h2>
             </div>
         </div>
     )

@@ -194,7 +194,7 @@ export default function Home() {
                 :
                   <h1 style={{textAlign:"center",fontSize:"200%",textShadow:"0 0 0 #000",position:"relative",right:"0%"}}>PACKAGES OFFERED</h1>
               }
-              <Image src = "/image/package1.jpeg" width={500} height={500} alt="late developers https://late-developers.com" style={{height:"300px"}} className="w-[100%] object-contain"/>
+              <Image src = "/image/package1.jpeg" width={500} height={500} alt="Late Developers https://late-developers.com" style={{height:"300px"}} className="w-[100%] object-contain"/>
 
               <article className={windowWidth > 800 ? "w-[90%] mx-[5%] text-justify ":"w-[98%] m-[1%] text-justify"}>
                 <h1 style={{fontSize:"250%",textAlign:"center"}}>COMMUNITY PACKAGE</h1>
@@ -219,7 +219,7 @@ export default function Home() {
                   :
                   ""
               }
-              <Image src = "/image/package2.jpg" width={500} height={500} alt="late developers https://late-developers.com" style={{height:"300px"}} className="w-[100%] object-contain"/>
+              <Image src = "/image/package2.jpg" width={500} height={500} alt="Late Developers https://late-developers.com" style={{height:"300px"}} className="w-[100%] object-contain"/>
 
               <article className={windowWidth > 800 ? "w-[90%] mx-[5%] text-justify ":"w-[98%] m-[1%] text-justify"}>
                 <h1 style={{fontSize:"250%",textAlign:"center"}}>ENTERPRISE PACKAGE</h1>
@@ -327,7 +327,7 @@ export default function Home() {
           <h1 className="text-rose-800 text-center" style={{fontSize:"250%"}}>Best Solutions</h1>
           <div className="flex flex-row flex-wrap w-[100%]">
             <div className={windowWidth > 800 ? "w-[23%] m-[1%] shadow-md grid items-center" : "w-[98%] m-[1%] shadow-md grid items-center"}>
-              <Image src = {solutions1} alt="late developers https://late-developers.com" style={{height:"200px"}} className="w-[100%]"/>
+              <Image src = {solutions1} alt="Late Developers https://late-developers.com" style={{height:"200px"}} className="w-[100%]"/>
             
               <article className="w-[80%] text-left relative left-[10%]">
                 <h2><b>Software Development Training</b></h2>
@@ -336,7 +336,7 @@ export default function Home() {
 
             </div>
             <div className={windowWidth > 800 ? "w-[23%] m-[1%] shadow-md grid items-center" : "w-[98%] m-[1%] shadow-md grid items-center"}>
-              <Image src = {solutions3} alt="late developers https://late-developers.com" style={{height:"200px"}} className="w-[100%]"/>
+              <Image src = {solutions3} alt="Late Developers https://late-developers.com" style={{height:"200px"}} className="w-[100%]"/>
 
               <article className="w-[80%] text-left relative left-[10%]">
               <h2><b>Custom Software Solutions for Businesses</b></h2>
@@ -346,7 +346,7 @@ export default function Home() {
 
             </div>
             <div style={{background:"#000",color:"#fff"}} className={windowWidth > 800 ? "w-[23%] m-[1%] shadow-md grid items-center" : "w-[98%] m-[1%] shadow-md grid items-center"}>
-              <Image src = {solutions2} alt="late developers https://late-developers.com" style={{height:"200px"}} className="w-[100%]"/>
+              <Image src = {solutions2} alt="Late Developers https://late-developers.com" style={{height:"200px"}} className="w-[100%]"/>
 
               <article className="w-[80%] text-left relative left-[10%]">
               <h2><b>Digital Literacy and E-Learning Platforms</b></h2>
@@ -356,7 +356,7 @@ export default function Home() {
 
             </div>
             <div className={windowWidth > 800 ? "w-[23%] m-[1%] shadow-md grid items-center" : "w-[98%] m-[1%] shadow-md grid items-center"}>
-              <Image src = {solutions4} alt="late developers https://late-developers.com" style={{height:"200px"}} className="w-[100%]"/>
+              <Image src = {solutions4} alt="Late Developers https://late-developers.com" style={{height:"200px"}} className="w-[100%]"/>
 
               <article className="w-[80%] text-left relative left-[10%]">
               <h2><b>Innovative Tech for Social Good</b></h2>
