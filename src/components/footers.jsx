@@ -70,19 +70,19 @@ const FOOTER = () => {
                         </div>
 
                     <div className="w-[100%] flex flex-row">
-                        <a href = "https://x.com/late-developers" className="w-[18%] m-[1%]" target = "_blank" >
+                        <a href = "https://x.com/latedeveloperz" className="w-[18%] m-[1%]" target = "_blank" >
                             <FontAwesomeIcon style={{fontSize:"150%"}} icon={faTwitter}/>
                         </a>
                         <a href = "https://www.facebook.com/share/H3rp5RarRfLnTCkt/?mibextid=qi2Omg" className="w-[18%] m-[1%]" target = "_blank" >
                             <FontAwesomeIcon style={{fontSize:"150%"}} icon={faFacebook}/>
                         </a>
-                        <a href = "https://www.youtube.com/channel/UCGNOPsGsy07--f884Cy3WBw" className="w-[18%] m-[1%]" target = "_blank" >
+                        <a href = "https://www.youtube.com/@late-developers" className="w-[18%] m-[1%]" target = "_blank" >
                             <FontAwesomeIcon style={{fontSize:"150%"}} icon={faYoutube}/>
                         </a>
-                        <a href = "https://www.linkedin.com/in/late-developer/" className="w-[18%] m-[1%]" target = "_blank" >
+                        <a href = "https://www.linkedin.com/in/late-developers" className="w-[18%] m-[1%]" target = "_blank" >
                             <FontAwesomeIcon style={{fontSize:"150%"}} icon={faLinkedin}/>
                         </a>
-                        <a href = "https://www.instagram.com/late-developers/" className="w-[18%] m-[1%]" target = "_blank" >
+                        <a href = "https://www.instagram.com/late_developers254?igsh=YXE2MWt4azM2MTk4" className="w-[18%] m-[1%]" target = "_blank" >
                             <FontAwesomeIcon style={{fontSize:"150%"}} icon={faInstagram}/>
                         </a>
                     </div>
