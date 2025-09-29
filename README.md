@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 App-RARRI (formerly Late Developers)  
 
-## Getting Started
+App-RARRI is a **Mombasa-based startup** rebranded from *Late Developers*.  
+We focus on building modern **applications, AI-driven platforms, and digital solutions** for businesses, startups, and communities.  
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🌍 Startup Story  
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 📍 Founded in **Mombasa, Kenya** as **Late Developers**.  
+- 🔄 Rebranded to **App-RARRI** to reflect speed, innovation, and global ambitions.  
+- 🛠️ Core areas:  
+  - Web & Mobile App Development  
+  - Cloud-based Solutions  
+  - Streaming & P2P Technologies  
+  - EdTech & Digital Literacy  
+  - AI-driven Business Tools  
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Tech Stack  
 
-## Learn More
+### 🔑 Databases (NoSQL)  
+- **MongoDB** – Flexible document storage for apps.  
+- **Firebase Firestore** – Real-time data sync for mobile/web.  
+- **Redis** – High-speed caching and sessions.  
 
-To learn more about Next.js, take a look at the following resources:
+### 📧 Email Technologies  
+- **NodeMailer** – Transactional emails & notifications.  
+- **SendGrid / Mailgun APIs** – Scalable email delivery & marketing.  
+- **Custom SMTP** – Secure communications with domain-based emails.  
+- **Email Templates** – Dynamic, branded messages with MJML/Handlebars.  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📌 Core Features We Build  
 
-## Deploy on Vercel
+- 📱 **Mobile Apps** (Android & iOS)  
+- 🌐 **Web Platforms** with dynamic dashboards  
+- 📊 **Data-Driven Systems** (NoSQL-backed)  
+- 📧 **Email Automation** (newsletters, verification, notifications)  
+- 🎬 **Streaming & Media Apps** (HLS, WebTorrent, P2P)  
+- 🛒 **E-commerce Solutions** with payment gateways  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🎯 Vision  
+
+To **accelerate digital adoption in Africa** by creating solutions that merge **modern engineering** with **local community needs**.  
+
+---
+
+## 🏗️ Roadmap  
+
+- Expand **SaaS platforms** for SMEs in East Africa.  
+- Launch **App-RARRI Academy** – training youth in software development.  
+- Strengthen **AI + NoSQL-powered apps** for smarter automation.  
+- Scale **email and communication tech** for enterprises.  
+
+---
+
+## 👨‍💻 Maintainers  
+
+This project is led by **Brian Wekesa** and the **App-RARRI team** in Mombasa.  
+We welcome contributors, collaborators, and innovators.  
+
+---
+
+## 📜 License  
+
+This repository is for **startup and educational purposes**. Some projects are proprietary while others are open-source.  
